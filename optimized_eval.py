@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Optimized ViT TTI Classifier Evaluation Script
+Optimized ViT TTI Classifier Evaluation Script with Complete Visualization Control
 
 Optimizations:
 1. Batch processing for YOLO, depth estimation, and ViT inference
@@ -13,6 +13,11 @@ Performance improvements:
 - 5-10x faster processing time
 - Reduced GPU memory usage
 - Better resource utilization
+
+New Features:
+- Fixed heat map logic (only shows for TTI detected)
+- Configurable ROI bounding boxes
+- Real-time video playback support
 """
 import argparse
 import json
@@ -35,7 +40,6 @@ warnings.filterwarnings("ignore")
 # Import local modules
 from ultralytics import YOLO
 
-
 """
 Global configuration constants
 All configurable values, paths, sizes, colors, and defaults are centralized here.
@@ -54,7 +58,7 @@ DEFAULT_DEPTH_MODEL_ID = "Intel/dpt-large"
 
 # Processing defaults
 DEFAULT_BATCH_SIZE = 8
-DEFAULT_FRAME_STEP = 5
+DEFAULT_FRAME_STEP = 1  # Real-time by default
 DEFAULT_FOCUS_RATIO = 1.0
 DEFAULT_USE_HALF_PRECISION = True
 
@@ -202,7 +206,7 @@ class OptimizedTTIVideoEvaluator:
         # Cache for depth maps to avoid recomputation
         self.depth_cache = {}
 
-        print("✅ All models loaded successfully!")
+        print("All models loaded successfully!")
 
     def _load_tti_model(self, model_path):
         """Load the trained ViT TTI classifier with optimizations"""
@@ -307,9 +311,9 @@ class OptimizedTTIVideoEvaluator:
                     device=device_id,
                 )
             self.use_real_depth = True
-            print("✅ Depth model loaded successfully!")
+            print("Depth model loaded successfully!")
         except Exception as e:
-            print(f"⚠️  Using fallback depth estimation: {e}")
+            print(f"Using fallback depth estimation: {e}")
             self.depth_model = None
             self.use_real_depth = False
 
@@ -335,19 +339,18 @@ class OptimizedTTIVideoEvaluator:
         frame_indices: List[int],
         draw_annotations=False,
         show_heatmap=True,
+        show_roi_box=False,
     ) -> Tuple[List[Dict], List[np.ndarray]]:
-        """Process a batch of frames efficiently with full visualization"""
+        """Process a batch of frames efficiently with corrected visualization logic"""
         batch_results = []
         annotated_frames = []
 
         # Step 1: YOLO inference with proper error handling
         try:
             yolo_results_batch = self.yolo_model(frames, verbose=False)
-
         except Exception as e:
             print(f"Batch YOLO inference failed: {e}")
             print("Falling back to single frame processing...")
-            # Fallback to single frame processing
             yolo_results_batch = []
             for i, frame in enumerate(frames):
                 try:
@@ -363,7 +366,6 @@ class OptimizedTTIVideoEvaluator:
 
         # Step 2: Process each frame in the batch
         for i, (frame, frame_idx) in enumerate(zip(frames, frame_indices)):
-            # Skip if YOLO failed for this frame
             if i >= len(yolo_results_batch) or yolo_results_batch[i] is None:
                 frame_result = {
                     "frame": frame_idx,
@@ -395,18 +397,13 @@ class OptimizedTTIVideoEvaluator:
                 else:
                     depth_map = self._fallback_depth_estimation(pil_frame)
 
-                # Cache depth map for nearby frames
                 self.depth_cache[depth_cache_key] = depth_map
-
-                # Limit cache size
                 if len(self.depth_cache) > DEPTH_CACHE_MAX_SIZE:
                     oldest_key = min(self.depth_cache.keys())
                     del self.depth_cache[oldest_key]
 
             # Parse YOLO output
             detections = self.parse_yolo_output([yolo_results_batch[i]])
-
-            # Find tool-tissue pairs with simplified logic
             pairs = self.find_tool_tissue_pairs_fast(detections)
 
             frame_result = {"frame": frame_idx, "objects": [], "classifications": []}
@@ -414,59 +411,7 @@ class OptimizedTTIVideoEvaluator:
                 frame.copy() if (draw_annotations or show_heatmap) else None
             )
 
-            # CRITICAL FIX: Add heat map visualization for ALL pairs, not just TTI detected ones
-            if show_heatmap and annotated_frame is not None and pairs:
-                H_full, W_full = frame.shape[:2]
-                combined_tool_mask = np.zeros((H_full, W_full), dtype=np.uint8)
-                combined_tissue_mask = np.zeros((H_full, W_full), dtype=np.uint8)
-
-                # Add masks for all pairs (not just TTI detected)
-                for pair in pairs:
-                    # Get masks and resize to full frame
-                    tool_mask = pair["tool"]["mask"]
-                    tissue_mask = pair["tissue"]["mask"]
-
-                    tool_mask_resized = cv2.resize(
-                        tool_mask.astype(np.uint8),
-                        (W_full, H_full),
-                        interpolation=cv2.INTER_NEAREST,
-                    )
-                    tissue_mask_resized = cv2.resize(
-                        tissue_mask.astype(np.uint8),
-                        (W_full, H_full),
-                        interpolation=cv2.INTER_NEAREST,
-                    )
-
-                    # Combine masks (take maximum to avoid overlap issues)
-                    combined_tool_mask = np.maximum(
-                        combined_tool_mask, tool_mask_resized
-                    )
-                    combined_tissue_mask = np.maximum(
-                        combined_tissue_mask, tissue_mask_resized
-                    )
-
-                # Apply heat map overlays - ALWAYS show if there are pairs
-                # Tool overlay (blue color)
-                if np.any(combined_tool_mask):
-                    overlay_image_tool = show_mask_overlay_from_binary_mask(
-                        annotated_frame,
-                        combined_tool_mask,
-                        alpha=HEATMAP_ALPHA,
-                        mask_color=HEATMAP_TOOL_COLOR,
-                    )
-                    annotated_frame = overlay_image_tool
-
-                # Tissue overlay (green color)
-                if np.any(combined_tissue_mask):
-                    overlay_image_tissue = show_mask_overlay_from_binary_mask(
-                        annotated_frame,
-                        combined_tissue_mask,
-                        alpha=HEATMAP_ALPHA,
-                        mask_color=HEATMAP_TISSUE_COLOR,
-                    )
-                    annotated_frame = overlay_image_tissue
-
-            # Collect ROIs for batch ViT inference
+            # Collect ROIs for batch ViT inference FIRST
             roi_batch = []
             pair_info = []
 
@@ -489,14 +434,15 @@ class OptimizedTTIVideoEvaluator:
                         torch.from_numpy(roi_resized).permute(2, 0, 1).float() / 255.0
                     )
 
-                    # Only apply half precision to ViT if enabled
                     if self.use_half_precision_vit and self.device == "cuda":
                         roi_tensor = roi_tensor.half()
 
                     roi_batch.append(roi_tensor)
                     pair_info.append((pair, bbox, frame_idx))
 
-            # Step 3: Batch ViT inference with error handling
+            # Step 3: Batch ViT inference to get TTI classifications
+            tti_results_map = {}  # Map pair indices to TTI results
+
             if roi_batch:
                 try:
                     roi_batch_tensor = torch.stack(roi_batch).to(self.device)
@@ -509,7 +455,7 @@ class OptimizedTTIVideoEvaluator:
                             probabilities_batch.max(dim=1)[0].cpu().numpy()
                         )
 
-                    # Process results
+                    # Process results and store TTI classifications
                     for j, (pair, bbox, frame_idx) in enumerate(pair_info):
                         tti_class = tti_classes[j]
                         tti_confidence = tti_confidences[j]
@@ -525,10 +471,15 @@ class OptimizedTTIVideoEvaluator:
 
                         if tti_result:
                             frame_result["objects"].append(tti_result)
+                            # Store TTI classification for this pair
+                            tti_results_map[j] = {
+                                "tti_class": tti_class,
+                                "tti_confidence": tti_confidence,
+                                "pair": pair,
+                            }
 
                 except Exception as e:
                     print(f"ViT inference failed for frame {frame_idx}: {e}")
-                    # Continue without TTI results for this frame
 
             # Deduplicate results
             if frame_result["objects"]:
@@ -536,11 +487,65 @@ class OptimizedTTIVideoEvaluator:
                     frame_result["objects"]
                 )
 
-            # Add detailed TTI labels - ENHANCED VERSION
+            # FIXED HEAT MAP LOGIC: Only show green for ACTUAL TTI detections
+            if show_heatmap and annotated_frame is not None and pairs:
+                H_full, W_full = frame.shape[:2]
+                combined_tool_mask = np.zeros((H_full, W_full), dtype=np.uint8)
+                combined_tissue_mask = np.zeros((H_full, W_full), dtype=np.uint8)
+
+                # Only show masks for pairs that have TTI detected (tti_class == 1)
+                for j, (pair, bbox, frame_idx_inner) in enumerate(pair_info):
+                    # Get TTI classification for this specific pair
+                    tti_info = tti_results_map.get(j)
+                    if tti_info and tti_info["tti_class"] == 1:  # Only for TTI detected
+                        tool_mask = pair["tool"]["mask"]
+                        tissue_mask = pair["tissue"]["mask"]
+
+                        tool_mask_resized = cv2.resize(
+                            tool_mask.astype(np.uint8),
+                            (W_full, H_full),
+                            interpolation=cv2.INTER_NEAREST,
+                        )
+                        tissue_mask_resized = cv2.resize(
+                            tissue_mask.astype(np.uint8),
+                            (W_full, H_full),
+                            interpolation=cv2.INTER_NEAREST,
+                        )
+
+                        combined_tool_mask = np.maximum(
+                            combined_tool_mask, tool_mask_resized
+                        )
+                        combined_tissue_mask = np.maximum(
+                            combined_tissue_mask, tissue_mask_resized
+                        )
+
+                # Apply heat map overlays only for TTI detected cases
+                if np.any(combined_tool_mask):
+                    overlay_image_tool = show_mask_overlay_from_binary_mask(
+                        annotated_frame,
+                        combined_tool_mask,
+                        alpha=HEATMAP_ALPHA,
+                        mask_color=HEATMAP_TOOL_COLOR,
+                    )
+                    annotated_frame = overlay_image_tool
+
+                if np.any(combined_tissue_mask):
+                    overlay_image_tissue = show_mask_overlay_from_binary_mask(
+                        annotated_frame,
+                        combined_tissue_mask,
+                        alpha=HEATMAP_ALPHA,
+                        mask_color=HEATMAP_TISSUE_COLOR,
+                    )
+                    annotated_frame = overlay_image_tissue
+
+            # Add detailed TTI labels
             if draw_annotations and annotated_frame is not None:
                 for idx, tti_result in enumerate(frame_result["objects"]):
                     self._draw_detailed_tti_label(
-                        annotated_frame, tti_result, label_index=idx
+                        annotated_frame,
+                        tti_result,
+                        label_index=idx,
+                        show_roi_box=show_roi_box,
                     )
 
             batch_results.append(frame_result)
@@ -548,7 +553,9 @@ class OptimizedTTIVideoEvaluator:
 
         return batch_results, annotated_frames
 
-    def _draw_detailed_tti_label(self, frame, tti_result, label_index=0):
+    def _draw_detailed_tti_label(
+        self, frame, tti_result, label_index=0, show_roi_box=False
+    ):
         """
         Draw detailed TTI label with tool and tissue information
 
@@ -556,6 +563,7 @@ class OptimizedTTIVideoEvaluator:
             frame (np.ndarray): Frame to draw on (modified in place)
             tti_result (dict): TTI detection result
             label_index (int): Index of this label (for positioning multiple labels)
+            show_roi_box (bool): Whether to draw the ROI bounding box
         """
         # Get tool and tissue names
         tool_name = tti_result["tool_info"]["name"]
@@ -569,12 +577,14 @@ class OptimizedTTIVideoEvaluator:
             confidence_text = f"Conf: {tti_confidence:.2f}"
             label_color = (0, 255, 0)  # Green background for TTI
             text_color = (0, 0, 0)  # Black text
+            box_color = (0, 255, 0)  # Green box for TTI
         else:
             main_label = "NO TTI"
             detail_text = f"{tool_name} + {tissue_name}"
             confidence_text = f"Conf: {tti_confidence:.2f}"
             label_color = (0, 0, 255)  # Red background for no TTI
             text_color = (255, 255, 255)  # White text
+            box_color = (0, 0, 255)  # Red box for no TTI
 
         # Get frame dimensions
         h, w = frame.shape[:2]
@@ -586,10 +596,15 @@ class OptimizedTTIVideoEvaluator:
         bbox_w = int(bbox["w"] * w)
         bbox_h = int(bbox["h"] * h)
 
-        # Draw the interaction bounding box
-        cv2.rectangle(
-            frame, (bbox_x, bbox_y), (bbox_x + bbox_w, bbox_y + bbox_h), label_color, 2
-        )
+        # Draw the interaction bounding box ONLY if show_roi_box is True
+        if show_roi_box:
+            cv2.rectangle(
+                frame,
+                (bbox_x, bbox_y),
+                (bbox_x + bbox_w, bbox_y + bbox_h),
+                box_color,
+                2,
+            )
 
         # Calculate text sizes for background
         font = cv2.FONT_HERSHEY_SIMPLEX
@@ -903,8 +918,9 @@ class OptimizedTTIVideoEvaluator:
         output_video_path=None,
         start_frame=0,
         end_frame=None,
-        frame_step=5,  # Default to 5 for speed
+        frame_step=1,
         show_heatmap=True,
+        show_roi_box=False,
     ):
         """Evaluate TTI detection on video with batch processing"""
         print(f"Starting optimized TTI evaluation on video: {video_path}")
@@ -919,11 +935,18 @@ class OptimizedTTIVideoEvaluator:
             end_frame = total_frames
 
         print(f"Video info: {total_frames} frames, {fps} FPS, {width}x{height}")
-        print(f"Processing every {frame_step} frames from {start_frame} to {end_frame}")
+        if frame_step == 1:
+            print("Processing ALL frames for real-time playback")
+        else:
+            print(f"Processing every {frame_step} frames (faster processing)")
         print(f"Batch size: {self.batch_size}")
 
         if show_heatmap:
-            print("Heat map overlays: ENABLED (blue=tools, green=tissues)")
+            print(
+                "Heat map overlays: ENABLED (blue=tools, green=tissues, only for TTI detected)"
+            )
+        if show_roi_box:
+            print("ROI bounding boxes: ENABLED")
 
         # Generate unique hashes
         label_hash = str(uuid.uuid4())
@@ -1000,6 +1023,7 @@ class OptimizedTTIVideoEvaluator:
                 batch_indices[: len(batch_frames)],
                 draw_annotations=video_writer is not None,
                 show_heatmap=show_heatmap,
+                show_roi_box=show_roi_box,
             )
 
             # Add results and write video frames
@@ -1049,7 +1073,6 @@ class OptimizedTTIVideoEvaluator:
             print("Results saved successfully!")
         except Exception as e:
             print(f"Error saving JSON results: {e}")
-            # Try saving as pickle as backup
             backup_path = output_path.replace(".json", "_backup.pkl")
             import pickle
 
@@ -1074,7 +1097,7 @@ class OptimizedTTIVideoEvaluator:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Optimized ViT TTI Classifier evaluation with detailed visualization"
+        description="Optimized ViT TTI Classifier evaluation with detailed visualization control"
     )
     parser.add_argument("--video", required=True, help="Path to input video file")
     parser.add_argument("--output", required=True, help="Path to output JSON file")
@@ -1082,19 +1105,20 @@ def main():
         "--output_video", default=None, help="Path to save annotated video"
     )
     parser.add_argument(
-        "--disable_heatmap",
+        "--show_heatmap",
         action="store_true",
-        help="Disable heat map overlays (enabled by default)",
+        help="Show heat map overlays (blue=tools, green=tissues)",
     )
     parser.add_argument(
-        "--vit_model",
-        default=DEFAULT_VIT_MODEL_PATH,
-        help="Path to ViT model",
+        "--show_roi_box",
+        action="store_true",
+        help="Show ROI bounding boxes (default: False)",
     )
     parser.add_argument(
-        "--yolo_model",
-        default=DEFAULT_YOLO_MODEL_PATH,
-        help="Path to YOLO model",
+        "--vit_model", default=DEFAULT_VIT_MODEL_PATH, help="Path to ViT model"
+    )
+    parser.add_argument(
+        "--yolo_model", default=DEFAULT_YOLO_MODEL_PATH, help="Path to YOLO model"
     )
     parser.add_argument(
         "--start_frame", type=int, default=0, help="Starting frame index"
@@ -1106,9 +1130,9 @@ def main():
         "--frame_step",
         type=int,
         default=DEFAULT_FRAME_STEP,
-        help="Frame step size (5 for 5x speedup)",
+        help="Frame step size (1 for real-time, higher for faster processing)",
     )
-    parser.add_argument("--device", default=None, help="Device to use")
+    parser.add_argument("--device", default=None, help="Device to use (cuda/cpu/mps)")
     parser.add_argument(
         "--focus_ratio",
         type=float,
@@ -1125,7 +1149,9 @@ def main():
         help="Batch size for processing",
     )
     parser.add_argument(
-        "--disable_half_precision", action="store_true", help="Disable half precision"
+        "--disable_half_precision",
+        action="store_true",
+        help="Disable half precision inference",
     )
 
     args = parser.parse_args()
@@ -1163,7 +1189,8 @@ def main():
         start_frame=args.start_frame,
         end_frame=args.end_frame,
         frame_step=args.frame_step,
-        show_heatmap=not args.disable_heatmap,
+        show_heatmap=args.show_heatmap,
+        show_roi_box=args.show_roi_box,
     )
 
 
