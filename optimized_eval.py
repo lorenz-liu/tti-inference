@@ -14,7 +14,6 @@ Performance improvements:
 - Reduced GPU memory usage
 - Better resource utilization
 """
-
 import argparse
 import json
 import os
@@ -55,7 +54,7 @@ def show_mask_overlay_from_binary_mask(
 
 
 class OptimizedTTIVideoEvaluator:
-    """Optimized Video evaluator for TTI classification using batch processing"""
+    """Optimized Video evaluator for TTI classification using batch processing with full visualization"""
 
     # Class mappings from the project
     TOOL_CLASSES = list(range(0, 12))
@@ -114,10 +113,9 @@ class OptimizedTTIVideoEvaluator:
         self.batch_size = batch_size
 
         # Disable half precision for YOLO on CUDA due to known issues
-        # Only enable for ViT model which is more stable
         if self.device == "cuda":
             self.use_half_precision_vit = use_half_precision
-            self.use_half_precision_yolo = False  # Force disable for YOLO
+            self.use_half_precision_yolo = False
             print(
                 "CUDA detected: Disabling half precision for YOLO to avoid dtype conflicts"
             )
@@ -229,7 +227,6 @@ class OptimizedTTIVideoEvaluator:
         # Force YOLO to use float32 to avoid half precision issues
         if self.device == "cuda":
             try:
-                # Ensure model is in float32
                 model.model.float()
                 print("YOLO model forced to float32 for CUDA stability")
             except Exception as e:
@@ -285,14 +282,13 @@ class OptimizedTTIVideoEvaluator:
         draw_annotations=False,
         show_heatmap=False,
     ) -> Tuple[List[Dict], List[np.ndarray]]:
-        """Process a batch of frames efficiently"""
+        """Process a batch of frames efficiently with full visualization"""
         batch_results = []
         annotated_frames = []
 
         # Step 1: YOLO inference with proper error handling
         try:
             yolo_results_batch = self.yolo_model(frames, verbose=False)
-            # print(f"Batch YOLO inference successful for {len(frames)} frames")
 
         except Exception as e:
             print(f"Batch YOLO inference failed: {e}")
@@ -309,7 +305,6 @@ class OptimizedTTIVideoEvaluator:
                     print(
                         f"Single frame YOLO failed for frame {frame_indices[i]}: {single_e}"
                     )
-                    # Create empty result for failed frames
                     yolo_results_batch.append(None)
 
         # Step 2: Process each frame in the batch
@@ -364,6 +359,58 @@ class OptimizedTTIVideoEvaluator:
             annotated_frame = (
                 frame.copy() if (draw_annotations or show_heatmap) else None
             )
+
+            # CRITICAL FIX: Add heat map visualization for ALL pairs, not just TTI detected ones
+            if show_heatmap and annotated_frame is not None and pairs:
+                H_full, W_full = frame.shape[:2]
+                combined_tool_mask = np.zeros((H_full, W_full), dtype=np.uint8)
+                combined_tissue_mask = np.zeros((H_full, W_full), dtype=np.uint8)
+
+                # Add masks for all pairs (not just TTI detected)
+                for pair in pairs:
+                    # Get masks and resize to full frame
+                    tool_mask = pair["tool"]["mask"]
+                    tissue_mask = pair["tissue"]["mask"]
+
+                    tool_mask_resized = cv2.resize(
+                        tool_mask.astype(np.uint8),
+                        (W_full, H_full),
+                        interpolation=cv2.INTER_NEAREST,
+                    )
+                    tissue_mask_resized = cv2.resize(
+                        tissue_mask.astype(np.uint8),
+                        (W_full, H_full),
+                        interpolation=cv2.INTER_NEAREST,
+                    )
+
+                    # Combine masks (take maximum to avoid overlap issues)
+                    combined_tool_mask = np.maximum(
+                        combined_tool_mask, tool_mask_resized
+                    )
+                    combined_tissue_mask = np.maximum(
+                        combined_tissue_mask, tissue_mask_resized
+                    )
+
+                # Apply heat map overlays - ALWAYS show if there are pairs
+                # Tool overlay (blue color)
+                if np.any(combined_tool_mask):
+                    overlay_image_tool = show_mask_overlay_from_binary_mask(
+                        annotated_frame,
+                        combined_tool_mask,
+                        alpha=0.4,
+                        mask_color=(0.0, 0.0, 1.0),
+                    )
+                    annotated_frame = overlay_image_tool
+
+                # Tissue overlay (green color)
+                if np.any(combined_tissue_mask):
+                    overlay_image_tissue = show_mask_overlay_from_binary_mask(
+                        annotated_frame,
+                        combined_tissue_mask,
+                        alpha=0.4,
+                        mask_color=(0.0, 1.0, 0.0),
+                    )
+                    annotated_frame = overlay_image_tissue
 
             # Collect ROIs for batch ViT inference
             roi_batch = []
@@ -433,14 +480,152 @@ class OptimizedTTIVideoEvaluator:
                     frame_result["objects"]
                 )
 
-            # Add visualization
-            if (show_heatmap or draw_annotations) and annotated_frame is not None:
-                self._add_visualizations(annotated_frame, frame_result, show_heatmap)
+            # Add detailed TTI labels - ENHANCED VERSION
+            if draw_annotations and annotated_frame is not None:
+                for idx, tti_result in enumerate(frame_result["objects"]):
+                    self._draw_detailed_tti_label(
+                        annotated_frame, tti_result, label_index=idx
+                    )
 
             batch_results.append(frame_result)
             annotated_frames.append(annotated_frame)
 
         return batch_results, annotated_frames
+
+    def _draw_detailed_tti_label(self, frame, tti_result, label_index=0):
+        """
+        Draw detailed TTI label with tool and tissue information
+
+        Args:
+            frame (np.ndarray): Frame to draw on (modified in place)
+            tti_result (dict): TTI detection result
+            label_index (int): Index of this label (for positioning multiple labels)
+        """
+        # Get tool and tissue names
+        tool_name = tti_result["tool_info"]["name"]
+        tissue_name = tti_result["tissue_info"]["name"]
+        tti_confidence = tti_result["confidence"]
+
+        # Create detailed label text based on TTI classification
+        if tti_result["tti_classification"] == 1:
+            main_label = "TTI DETECTED"
+            detail_text = f"{tool_name} + {tissue_name}"
+            confidence_text = f"Conf: {tti_confidence:.2f}"
+            label_color = (0, 255, 0)  # Green background for TTI
+            text_color = (0, 0, 0)  # Black text
+        else:
+            main_label = "NO TTI"
+            detail_text = f"{tool_name} + {tissue_name}"
+            confidence_text = f"Conf: {tti_confidence:.2f}"
+            label_color = (0, 0, 255)  # Red background for no TTI
+            text_color = (255, 255, 255)  # White text
+
+        # Get frame dimensions
+        h, w = frame.shape[:2]
+
+        # Get bounding box coordinates (normalized to pixel coordinates)
+        bbox = tti_result["boundingBox"]
+        bbox_x = int(bbox["x"] * w)
+        bbox_y = int(bbox["y"] * h)
+        bbox_w = int(bbox["w"] * w)
+        bbox_h = int(bbox["h"] * h)
+
+        # Draw the interaction bounding box
+        cv2.rectangle(
+            frame, (bbox_x, bbox_y), (bbox_x + bbox_w, bbox_y + bbox_h), label_color, 2
+        )
+
+        # Calculate text sizes for background
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        main_font_scale = 0.7
+        detail_font_scale = 0.5
+        thickness = 2
+
+        (main_w, main_h), _ = cv2.getTextSize(
+            main_label, font, main_font_scale, thickness
+        )
+        (detail_w, detail_h), _ = cv2.getTextSize(
+            detail_text, font, detail_font_scale, thickness
+        )
+        (conf_w, conf_h), _ = cv2.getTextSize(
+            confidence_text, font, detail_font_scale, thickness
+        )
+
+        # Calculate text background dimensions
+        text_bg_w = max(main_w, detail_w, conf_w) + 12
+        text_bg_h = main_h + detail_h + conf_h + 18
+
+        # Position label above the bounding box, but ensure it's within frame bounds
+        label_x = bbox_x + bbox_w // 2 - text_bg_w // 2  # Center horizontally on bbox
+        label_y = bbox_y - text_bg_h - 10  # Above the bbox with some margin
+
+        # Adjust if label would go outside frame
+        if label_y < 0:
+            label_y = bbox_y + bbox_h + 10  # Place below bbox instead
+        if label_x < 0:
+            label_x = 10
+        elif label_x + text_bg_w > w:
+            label_x = w - text_bg_w - 10
+        if label_y + text_bg_h > h:
+            label_y = h - text_bg_h - 10
+
+        # Offset multiple labels to avoid overlap
+        if label_index > 0:
+            offset_x = (label_index * 20) % 100
+            offset_y = (label_index * 15) % 50
+            label_x = max(10, min(w - text_bg_w - 10, label_x + offset_x))
+            label_y = max(10, min(h - text_bg_h - 10, label_y + offset_y))
+
+        # Draw background rectangle for text with border
+        bg_y1 = label_y
+        bg_y2 = label_y + text_bg_h
+
+        # Draw filled background
+        cv2.rectangle(
+            frame, (label_x, bg_y1), (label_x + text_bg_w, bg_y2), label_color, -1
+        )
+        # Draw border for better visibility
+        cv2.rectangle(
+            frame, (label_x, bg_y1), (label_x + text_bg_w, bg_y2), (0, 0, 0), 2
+        )
+
+        # Draw text lines
+        line1_y = bg_y1 + main_h + 6
+        line2_y = line1_y + detail_h + 6
+        line3_y = line2_y + conf_h + 6
+
+        # Main label (TTI DETECTED / NO TTI)
+        cv2.putText(
+            frame,
+            main_label,
+            (label_x + 6, line1_y),
+            font,
+            main_font_scale,
+            text_color,
+            thickness,
+        )
+
+        # Tool -> Tissue detail
+        cv2.putText(
+            frame,
+            detail_text,
+            (label_x + 6, line2_y),
+            font,
+            detail_font_scale,
+            text_color,
+            thickness,
+        )
+
+        # Confidence
+        cv2.putText(
+            frame,
+            confidence_text,
+            (label_x + 6, line3_y),
+            font,
+            detail_font_scale,
+            text_color,
+            thickness,
+        )
 
     def find_tool_tissue_pairs_fast(self, detections):
         """Fast tool-tissue pair finding with simplified deduplication"""
@@ -601,37 +786,6 @@ class OptimizedTTIVideoEvaluator:
 
         return deduplicated
 
-    def _add_visualizations(self, frame, frame_result, show_heatmap):
-        """Add visualizations to frame"""
-        if not frame_result["objects"]:
-            return
-
-        h, w = frame.shape[:2]
-
-        # Add labels
-        for i, tti_result in enumerate(frame_result["objects"]):
-            if tti_result["tti_classification"] == 1:
-                bbox = tti_result["boundingBox"]
-                x = int(bbox["x"] * w)
-                y = int(bbox["y"] * h)
-                width = int(bbox["w"] * w)
-                height = int(bbox["h"] * h)
-
-                # Draw bounding box
-                cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 2)
-
-                # Draw label
-                label = "TTI"
-                cv2.putText(
-                    frame,
-                    label,
-                    (x, y - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.7,
-                    (0, 255, 0),
-                    2,
-                )
-
     def parse_yolo_output(self, result):
         """Parse YOLO output to separate tools and tissues"""
         if not result or len(result) == 0:
@@ -712,6 +866,9 @@ class OptimizedTTIVideoEvaluator:
         print(f"Processing every {frame_step} frames from {start_frame} to {end_frame}")
         print(f"Batch size: {self.batch_size}")
 
+        if show_heatmap:
+            print("Heat map overlays: ENABLED (blue=tools, green=tissues)")
+
         # Generate unique hashes
         label_hash = str(uuid.uuid4())
         dataset_hash = str(uuid.uuid4())
@@ -786,7 +943,7 @@ class OptimizedTTIVideoEvaluator:
                 batch_frames,
                 batch_indices[: len(batch_frames)],
                 draw_annotations=video_writer is not None,
-                show_heatmap=show_heatmap and video_writer is not None,
+                show_heatmap=show_heatmap,
             )
 
             # Add results and write video frames
@@ -861,7 +1018,7 @@ class OptimizedTTIVideoEvaluator:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Optimized ViT TTI Classifier evaluation"
+        description="Optimized ViT TTI Classifier evaluation with detailed visualization"
     )
     parser.add_argument("--video", required=True, help="Path to input video file")
     parser.add_argument("--output", required=True, help="Path to output JSON file")
