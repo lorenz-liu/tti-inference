@@ -2,6 +2,26 @@
 """
 Optimized ViT TTI Classifier Evaluation Script with Complete Visualization Control
 
+Usage:
+  python optimized_eval.py --video /path/to/video.mp4 --output /path/to/results.json [--output_video /path/to/annotated.mp4] [--show_heatmap] [--show_roi_box] [--vit_model PATH] [--yolo_model PATH] [--start_frame N] [--end_frame N] [--frame_step N] [--device cuda|cpu|mps] [--focus_ratio F] [--depth_model PATH] [--batch_size N] [--disable_half_precision]
+
+Arguments:
+- --video: Path to the input video file to analyze. Required.
+- --output: Path to the output JSON file where detections/metrics are saved. Required.
+- --output_video: Optional path to save an annotated MP4 of the run. Default: None (no video saved).
+- --show_heatmap: If set, overlays per-class heat maps (blue=tools, green=tissue) on frames.
+- --show_roi_box: If set, draws ROI bounding boxes used for classification.
+- --vit_model: Filesystem path to the ViT classifier weights. Default: value of DEFAULT_VIT_MODEL_PATH.
+- --yolo_model: Filesystem path to the YOLO segmentation/detection weights. Default: value of DEFAULT_YOLO_MODEL_PATH.
+- --start_frame: Index of the first frame to process (0-based). Default: 0.
+- --end_frame: Index of the last frame to process (inclusive). Default: None (process to end).
+- --frame_step: Process every Nth frame; 1 = real-time/full rate, larger = faster/skip frames. Default: DEFAULT_FRAME_STEP.
+- --device: Compute device to use: cuda, cpu, or mps. Default: auto-detect when None.
+- --focus_ratio: ROI focus ratio controlling crop size around detections. Default: DEFAULT_FOCUS_RATIO.
+- --depth_model: Optional local path to a depth model; if None, uses a default model id. Default: None.
+- --batch_size: Number of frames to process per batch across stages. Default: DEFAULT_BATCH_SIZE.
+- --disable_half_precision: If set, disables FP16 inference (forces full precision). Default: off (FP16 enabled when supported).
+
 Optimizations:
 1. Batch processing for YOLO, depth estimation, and ViT inference
 2. Smart frame skipping with interpolation
