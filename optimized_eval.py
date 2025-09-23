@@ -36,6 +36,92 @@ warnings.filterwarnings("ignore")
 from ultralytics import YOLO
 
 
+"""
+Global configuration constants
+All configurable values, paths, sizes, colors, and defaults are centralized here.
+"""
+
+# Model paths and identifiers
+DEFAULT_VIT_MODEL_PATH = "./model_folder/ViT/best_model.pt"
+DEFAULT_YOLO_MODEL_PATH = "./runs_YOLO_M/segment/train/weights/best.pt"
+YOLO_PROJECT_MODEL_PATHS = [
+    "./runs_YOLO_M/segment/train/weights/best.pt",
+    "./runs_YOLOn_200/segment/train/weights/best.pt",
+    "./runs_yolon_new/segment/train/weights/best.pt",
+    "./runs/segment/train/weights/best.pt",
+]
+DEFAULT_DEPTH_MODEL_ID = "Intel/dpt-large"
+
+# Processing defaults
+DEFAULT_BATCH_SIZE = 8
+DEFAULT_FRAME_STEP = 5
+DEFAULT_FOCUS_RATIO = 1.0
+DEFAULT_USE_HALF_PRECISION = True
+
+# Caches and thresholds
+DEPTH_CACHE_MAX_SIZE = 50
+ROI_MIN_SIZE = 64
+
+# ViT architecture/config defaults
+VIT_IMAGE_SIZE = 224
+VIT_PATCH_SIZE = 16
+VIT_NUM_CHANNELS = 3
+VIT_HIDDEN_SIZE = 768
+VIT_NUM_LAYERS = 12
+VIT_NUM_HEADS = 12
+VIT_INTERMEDIATE_SIZE = 3072
+VIT_HIDDEN_ACT = "gelu"
+VIT_HIDDEN_DROPOUT = 0.0
+VIT_ATTENTION_DROPOUT = 0.0
+VIT_INIT_RANGE = 0.02
+VIT_LAYER_NORM_EPS = 1e-12
+VIT_QKV_BIAS = True
+
+# Visualization settings
+HEATMAP_ALPHA = 0.4
+HEATMAP_TOOL_COLOR = (0.0, 0.0, 1.0)  # blue
+HEATMAP_TISSUE_COLOR = (0.0, 1.0, 0.0)  # green
+
+# TTI label settings
+TTI_CLASS_POSITIVE_NAME = "Start of TTI"
+TTI_CLASS_POSITIVE_VALUE = "start_of_tti"
+TTI_CLASS_POSITIVE_COLOR = "#D33115"
+TTI_CLASS_NEGATIVE_NAME = "Start of No Interaction"
+TTI_CLASS_NEGATIVE_VALUE = "start_of_no_interaction"
+TTI_CLASS_NEGATIVE_COLOR = "#1eff00"
+
+# Class mappings and names
+TOOL_CLASSES = list(range(0, 12))
+TTI_CLASSES = list(range(12, 21))
+
+TOOL_NAMES = {
+    0: "unknown_tool",
+    1: "dissector",
+    2: "scissors",
+    3: "suction",
+    4: "grasper_3",
+    5: "harmonic",
+    6: "grasper",
+    7: "bipolar",
+    8: "grasper_2",
+    9: "cautery",
+    10: "ligasure",
+    11: "stapler",
+}
+
+TTI_NAMES = {
+    12: "unknown_tti",
+    13: "coagulation",
+    14: "other",
+    15: "retract_and_grab",
+    16: "blunt_dissection",
+    17: "energy_sharp_dissection",
+    18: "staple",
+    19: "retract_and_push",
+    20: "cut_sharp_dissection",
+}
+
+
 def show_mask_overlay_from_binary_mask(
     image_bgr, binary_mask, alpha=0.5, mask_color=(1.0, 0.0, 0.0)
 ):
@@ -55,37 +141,6 @@ def show_mask_overlay_from_binary_mask(
 
 class OptimizedTTIVideoEvaluator:
     """Optimized Video evaluator for TTI classification using batch processing with full visualization"""
-
-    # Class mappings from the project
-    TOOL_CLASSES = list(range(0, 12))
-    TTI_CLASSES = list(range(12, 21))
-
-    TOOL_NAMES = {
-        0: "unknown_tool",
-        1: "dissector",
-        2: "scissors",
-        3: "suction",
-        4: "grasper_3",
-        5: "harmonic",
-        6: "grasper",
-        7: "bipolar",
-        8: "grasper_2",
-        9: "cautery",
-        10: "ligasure",
-        11: "stapler",
-    }
-
-    TTI_NAMES = {
-        12: "unknown_tti",
-        13: "coagulation",
-        14: "other",
-        15: "retract_and_grab",
-        16: "blunt_dissection",
-        17: "energy_sharp_dissection",
-        18: "staple",
-        19: "retract_and_push",
-        20: "cut_sharp_dissection",
-    }
 
     def __init__(
         self,
@@ -111,6 +166,12 @@ class OptimizedTTIVideoEvaluator:
 
         self.focus_ratio = focus_ratio
         self.batch_size = batch_size
+
+        # Bind class mappings and names to instance from module-level constants
+        self.TOOL_CLASSES = TOOL_CLASSES
+        self.TTI_CLASSES = TTI_CLASSES
+        self.TOOL_NAMES = TOOL_NAMES
+        self.TTI_NAMES = TTI_NAMES
 
         # Disable half precision for YOLO on CUDA due to known issues
         if self.device == "cuda":
@@ -175,19 +236,19 @@ class OptimizedTTIVideoEvaluator:
                 )
 
                 config = ViTConfig(
-                    image_size=224,
-                    patch_size=16,
-                    num_channels=3,
-                    hidden_size=768,
-                    num_hidden_layers=12,
-                    num_attention_heads=12,
-                    intermediate_size=3072,
-                    hidden_act="gelu",
-                    hidden_dropout_prob=0.0,
-                    attention_probs_dropout_prob=0.0,
-                    initializer_range=0.02,
-                    layer_norm_eps=1e-12,
-                    qkv_bias=True,
+                    image_size=VIT_IMAGE_SIZE,
+                    patch_size=VIT_PATCH_SIZE,
+                    num_channels=VIT_NUM_CHANNELS,
+                    hidden_size=VIT_HIDDEN_SIZE,
+                    num_hidden_layers=VIT_NUM_LAYERS,
+                    num_attention_heads=VIT_NUM_HEADS,
+                    intermediate_size=VIT_INTERMEDIATE_SIZE,
+                    hidden_act=VIT_HIDDEN_ACT,
+                    hidden_dropout_prob=VIT_HIDDEN_DROPOUT,
+                    attention_probs_dropout_prob=VIT_ATTENTION_DROPOUT,
+                    initializer_range=VIT_INIT_RANGE,
+                    layer_norm_eps=VIT_LAYER_NORM_EPS,
+                    qkv_bias=VIT_QKV_BIAS,
                 )
 
                 self.backbone = ViTModel(config)
@@ -209,14 +270,7 @@ class OptimizedTTIVideoEvaluator:
             print(f"Loading YOLO model from: {model_path}")
             model = YOLO(model_path)
         else:
-            project_models = [
-                "./runs_YOLO_M/segment/train/weights/best.pt",
-                "./runs_YOLOn_200/segment/train/weights/best.pt",
-                "./runs_yolon_new/segment/train/weights/best.pt",
-                "./runs/segment/train/weights/best.pt",
-            ]
-
-            for model_path in project_models:
+            for model_path in YOLO_PROJECT_MODEL_PATHS:
                 if os.path.exists(model_path):
                     print(f"Found project YOLO model: {model_path}")
                     model = YOLO(model_path)
@@ -249,7 +303,7 @@ class OptimizedTTIVideoEvaluator:
                 device_id = 0 if self.device in ["cuda", "mps"] else -1
                 self.depth_model = pipeline(
                     task="depth-estimation",
-                    model="Intel/dpt-large",
+                    model=DEFAULT_DEPTH_MODEL_ID,
                     device=device_id,
                 )
             self.use_real_depth = True
@@ -280,7 +334,7 @@ class OptimizedTTIVideoEvaluator:
         frames: List[np.ndarray],
         frame_indices: List[int],
         draw_annotations=False,
-        show_heatmap=False,
+        show_heatmap=True,
     ) -> Tuple[List[Dict], List[np.ndarray]]:
         """Process a batch of frames efficiently with full visualization"""
         batch_results = []
@@ -345,7 +399,7 @@ class OptimizedTTIVideoEvaluator:
                 self.depth_cache[depth_cache_key] = depth_map
 
                 # Limit cache size
-                if len(self.depth_cache) > 50:
+                if len(self.depth_cache) > DEPTH_CACHE_MAX_SIZE:
                     oldest_key = min(self.depth_cache.keys())
                     del self.depth_cache[oldest_key]
 
@@ -397,8 +451,8 @@ class OptimizedTTIVideoEvaluator:
                     overlay_image_tool = show_mask_overlay_from_binary_mask(
                         annotated_frame,
                         combined_tool_mask,
-                        alpha=0.4,
-                        mask_color=(0.0, 0.0, 1.0),
+                        alpha=HEATMAP_ALPHA,
+                        mask_color=HEATMAP_TOOL_COLOR,
                     )
                     annotated_frame = overlay_image_tool
 
@@ -407,8 +461,8 @@ class OptimizedTTIVideoEvaluator:
                     overlay_image_tissue = show_mask_overlay_from_binary_mask(
                         annotated_frame,
                         combined_tissue_mask,
-                        alpha=0.4,
-                        mask_color=(0.0, 1.0, 0.0),
+                        alpha=HEATMAP_ALPHA,
+                        mask_color=HEATMAP_TISSUE_COLOR,
                     )
                     annotated_frame = overlay_image_tissue
 
@@ -427,7 +481,9 @@ class OptimizedTTIVideoEvaluator:
 
                 if roi is not None:
                     roi_resized = cv2.resize(
-                        roi, (224, 224), interpolation=cv2.INTER_LINEAR
+                        roi,
+                        (VIT_IMAGE_SIZE, VIT_IMAGE_SIZE),
+                        interpolation=cv2.INTER_LINEAR,
                     )
                     roi_tensor = (
                         torch.from_numpy(roi_resized).permute(2, 0, 1).float() / 255.0
@@ -673,7 +729,7 @@ class OptimizedTTIVideoEvaluator:
         x, y, w, h = cv2.boundingRect(union_mask)
 
         # Ensure minimum size
-        min_size = 64
+        min_size = ROI_MIN_SIZE
         if w < min_size:
             w = min_size
         if h < min_size:
@@ -701,13 +757,13 @@ class OptimizedTTIVideoEvaluator:
     ):
         """Create TTI result object"""
         if tti_class == 1:
-            tti_name = "Start of TTI"
-            tti_value = "start_of_tti"
-            color = "#D33115"
+            tti_name = TTI_CLASS_POSITIVE_NAME
+            tti_value = TTI_CLASS_POSITIVE_VALUE
+            color = TTI_CLASS_POSITIVE_COLOR
         else:
-            tti_name = "Start of No Interaction"
-            tti_value = "start_of_no_interaction"
-            color = "#1eff00"
+            tti_name = TTI_CLASS_NEGATIVE_NAME
+            tti_value = TTI_CLASS_NEGATIVE_VALUE
+            color = TTI_CLASS_NEGATIVE_COLOR
 
         return {
             "featureHash": str(uuid.uuid4())[:8],
@@ -848,7 +904,7 @@ class OptimizedTTIVideoEvaluator:
         start_frame=0,
         end_frame=None,
         frame_step=5,  # Default to 5 for speed
-        show_heatmap=False,
+        show_heatmap=True,
     ):
         """Evaluate TTI detection on video with batch processing"""
         print(f"Starting optimized TTI evaluation on video: {video_path}")
@@ -1030,12 +1086,12 @@ def main():
     )
     parser.add_argument(
         "--vit_model",
-        default="./model_folder/ViT/best_model.pt",
+        default=DEFAULT_VIT_MODEL_PATH,
         help="Path to ViT model",
     )
     parser.add_argument(
         "--yolo_model",
-        default="./runs_YOLO_M/segment/train/weights/best.pt",
+        default=DEFAULT_YOLO_MODEL_PATH,
         help="Path to YOLO model",
     )
     parser.add_argument(
@@ -1045,17 +1101,26 @@ def main():
         "--end_frame", type=int, default=None, help="Ending frame index"
     )
     parser.add_argument(
-        "--frame_step", type=int, default=5, help="Frame step size (5 for 5x speedup)"
+        "--frame_step",
+        type=int,
+        default=DEFAULT_FRAME_STEP,
+        help="Frame step size (5 for 5x speedup)",
     )
     parser.add_argument("--device", default=None, help="Device to use")
     parser.add_argument(
-        "--focus_ratio", type=float, default=1.0, help="Focus ratio for ROI extraction"
+        "--focus_ratio",
+        type=float,
+        default=DEFAULT_FOCUS_RATIO,
+        help="Focus ratio for ROI extraction",
     )
     parser.add_argument(
         "--depth_model", type=str, default=None, help="Path to local depth model"
     )
     parser.add_argument(
-        "--batch_size", type=int, default=8, help="Batch size for processing"
+        "--batch_size",
+        type=int,
+        default=DEFAULT_BATCH_SIZE,
+        help="Batch size for processing",
     )
     parser.add_argument(
         "--disable_half_precision", action="store_true", help="Disable half precision"
