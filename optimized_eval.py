@@ -1082,7 +1082,9 @@ def main():
         "--output_video", default=None, help="Path to save annotated video"
     )
     parser.add_argument(
-        "--show_heatmap", action="store_true", help="Show heat map overlays"
+        "--disable_heatmap",
+        action="store_true",
+        help="Disable heat map overlays (enabled by default)",
     )
     parser.add_argument(
         "--vit_model",
@@ -1161,7 +1163,7 @@ def main():
         start_frame=args.start_frame,
         end_frame=args.end_frame,
         frame_step=args.frame_step,
-        show_heatmap=args.show_heatmap,
+        show_heatmap=not args.disable_heatmap,
     )
 
 
