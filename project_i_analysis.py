@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Project I: IoU/Dice Score Calculations for TTI Model Validation
-Compares TTI model predictions (segmentations) with ground truth bounding box annotations
+Compares TTI model predictions (bounding boxes) with ground truth bounding box annotations
 """
 
 import json
@@ -239,50 +239,76 @@ class TTIValidationAnalyzer:
         mask[y : y + h, x : x + w] = 1
         return mask
 
-    def calculate_iou(self, bbox1: Dict, bbox2: Dict, width: int, height: int) -> float:
-        """Calculate IoU between two bounding boxes"""
-        # Convert to pixel coordinates
-        x1, y1, w1, h1 = (
-            bbox1["x"] * width,
-            bbox1["y"] * height,
-            bbox1["w"] * width,
-            bbox1["h"] * height,
-        )
-        x2, y2, w2, h2 = (
-            bbox2["x"] * width,
-            bbox2["y"] * height,
-            bbox2["w"] * width,
-            bbox2["h"] * height,
-        )
+    def calculate_bbox_iou(self, bbox1: Dict, bbox2: Dict) -> float:
+        """Calculate IoU directly between two bounding boxes (normalized coordinates)"""
+        # Get bounding box coordinates (already normalized)
+        x1_min, y1_min = bbox1["x"], bbox1["y"]
+        x1_max, y1_max = x1_min + bbox1["w"], y1_min + bbox1["h"]
+
+        x2_min, y2_min = bbox2["x"], bbox2["y"]
+        x2_max, y2_max = x2_min + bbox2["w"], y2_min + bbox2["h"]
 
         # Calculate intersection
-        x_left = max(x1, x2)
-        y_top = max(y1, y2)
-        x_right = min(x1 + w1, x2 + w2)
-        y_bottom = min(y1 + h1, y2 + h2)
+        intersect_x_min = max(x1_min, x2_min)
+        intersect_y_min = max(y1_min, y2_min)
+        intersect_x_max = min(x1_max, x2_max)
+        intersect_y_max = min(y1_max, y2_max)
 
-        if x_right < x_left or y_bottom < y_top:
+        # Check if there is intersection
+        if intersect_x_max <= intersect_x_min or intersect_y_max <= intersect_y_min:
             return 0.0
 
-        intersection = (x_right - x_left) * (y_bottom - y_top)
+        # Calculate intersection area
+        intersect_area = (intersect_x_max - intersect_x_min) * (
+            intersect_y_max - intersect_y_min
+        )
 
-        # Calculate union
-        area1 = w1 * h1
-        area2 = w2 * h2
-        union = area1 + area2 - intersection
+        # Calculate union area
+        area1 = bbox1["w"] * bbox1["h"]
+        area2 = bbox2["w"] * bbox2["h"]
+        union_area = area1 + area2 - intersect_area
 
-        return intersection / union if union > 0 else 0.0
+        # Avoid division by zero
+        if union_area <= 0:
+            return 0.0
 
-    def calculate_dice(self, mask1: np.ndarray, mask2: np.ndarray) -> float:
-        """Calculate Dice coefficient between two binary masks"""
-        intersection = np.sum(mask1 * mask2)
-        total = np.sum(mask1) + np.sum(mask2)
+        return intersect_area / union_area
 
-        return (2.0 * intersection) / total if total > 0 else 0.0
+    def calculate_bbox_dice(self, bbox1: Dict, bbox2: Dict) -> float:
+        """Calculate DICE coefficient directly between two bounding boxes (normalized coordinates)"""
+        # Get bounding box coordinates (already normalized)
+        x1_min, y1_min = bbox1["x"], bbox1["y"]
+        x1_max, y1_max = x1_min + bbox1["w"], y1_min + bbox1["h"]
 
-    def find_best_match(
-        self, gt_objects: List, pred_objects: List, width: int, height: int
-    ) -> List[Tuple]:
+        x2_min, y2_min = bbox2["x"], bbox2["y"]
+        x2_max, y2_max = x2_min + bbox2["w"], y2_min + bbox2["h"]
+
+        # Calculate intersection
+        intersect_x_min = max(x1_min, x2_min)
+        intersect_y_min = max(y1_min, y2_min)
+        intersect_x_max = min(x1_max, x2_max)
+        intersect_y_max = min(y1_max, y2_max)
+
+        # Check if there is intersection
+        if intersect_x_max <= intersect_x_min or intersect_y_max <= intersect_y_min:
+            return 0.0
+
+        # Calculate intersection area
+        intersect_area = (intersect_x_max - intersect_x_min) * (
+            intersect_y_max - intersect_y_min
+        )
+
+        # Calculate areas
+        area1 = bbox1["w"] * bbox1["h"]
+        area2 = bbox2["w"] * bbox2["h"]
+
+        # Calculate DICE coefficient
+        if area1 + area2 <= 0:
+            return 0.0
+
+        return 2 * intersect_area / (area1 + area2)
+
+    def find_best_match(self, gt_objects: List, pred_objects: List) -> List[Tuple]:
         """Find best matching pairs between ground truth and predictions"""
         matches = []
 
@@ -297,8 +323,8 @@ class TTIValidationAnalyzer:
                 if "boundingBox" not in pred_obj:
                     continue
 
-                iou = self.calculate_iou(
-                    gt_obj["boundingBox"], pred_obj["boundingBox"], width, height
+                iou = self.calculate_bbox_iou(
+                    gt_obj["boundingBox"], pred_obj["boundingBox"]
                 )
                 if iou > best_iou:
                     best_iou = iou
@@ -314,8 +340,6 @@ class TTIValidationAnalyzer:
         frame_id: str,
         gt_frame_data: Dict,
         pred_frame_data: Dict,
-        width: int,
-        height: int,
     ) -> Dict:
         """Analyze a single frame"""
         gt_objects = gt_frame_data.get("objects", [])
@@ -325,7 +349,7 @@ class TTIValidationAnalyzer:
             return None
 
         # Find best matches
-        matches = self.find_best_match(gt_objects, pred_objects, width, height)
+        matches = self.find_best_match(gt_objects, pred_objects)
 
         frame_results = {
             "frame_id": frame_id,
@@ -337,10 +361,10 @@ class TTIValidationAnalyzer:
         }
 
         for gt_obj, pred_obj, iou in matches:
-            # Calculate Dice score
-            gt_mask = self.bbox_to_mask(gt_obj["boundingBox"], width, height)
-            pred_mask = self.bbox_to_mask(pred_obj["boundingBox"], width, height)
-            dice = self.calculate_dice(gt_mask, pred_mask)
+            # Calculate Dice score using direct bbox method
+            dice = self.calculate_bbox_dice(
+                gt_obj["boundingBox"], pred_obj["boundingBox"]
+            )
 
             frame_results["iou_scores"].append(iou)
             frame_results["dice_scores"].append(dice)
@@ -383,9 +407,7 @@ class TTIValidationAnalyzer:
             gt_frame = gt_data["labels"][frame_id]
             pred_frame = pred_data["labels"][frame_id]
 
-            frame_result = self.analyze_frame(
-                frame_id, gt_frame, pred_frame, width, height
-            )
+            frame_result = self.analyze_frame(frame_id, gt_frame, pred_frame)
 
             if frame_result:
                 video_results["frame_results"].append(frame_result)
