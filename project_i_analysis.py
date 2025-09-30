@@ -4,17 +4,17 @@ Project I: IoU/Dice Score Calculations for TTI Model Validation
 Compares TTI model predictions (bounding boxes) with ground truth bounding box annotations
 """
 
+import argparse
+import glob
 import json
 import os
-import glob
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from typing import Dict, List, Tuple, Optional
-import cv2
-from pathlib import Path
-import matplotlib.pyplot as plt
 import seaborn as sns
-import argparse
 
 
 class TTIValidationAnalyzer:
@@ -156,7 +156,7 @@ class TTIValidationAnalyzer:
                         str(self.tti_output_dir / "*_vit_eval.json")
                     )
                     if available_files:
-                        print(f"    Available files in TTI output directory:")
+                        print("    Available files in TTI output directory:")
                         for f in available_files:
                             print(f"      - {os.path.basename(f)}")
 
@@ -187,10 +187,27 @@ class TTIValidationAnalyzer:
 
             # Extract labels from the data unit
             labels = {}
+            tti_start_frame = None
+            tti_end_frame = None
+
             for data_hash, data_unit in data_units.items():
                 labels = data_unit.get("labels", {})
                 width = data_unit.get("width", width)
                 height = data_unit.get("height", height)
+
+                # Find start_of_tti and end_of_tti_ frames
+                for frame_id, frame_data in labels.items():
+                    for obj in frame_data.get("objects", []):
+                        if obj.get("value") == "start_of_tti":
+                            if (
+                                tti_start_frame is None
+                                or int(frame_id) < tti_start_frame
+                            ):
+                                tti_start_frame = int(frame_id)
+                        elif obj.get("value") == "end_of_tti_":
+                            if tti_end_frame is None or int(frame_id) > tti_end_frame:
+                                tti_end_frame = int(frame_id)
+
                 break  # Take the first (and usually only) data unit
 
             return {
@@ -198,9 +215,18 @@ class TTIValidationAnalyzer:
                 "width": width,
                 "height": height,
                 "video_title": video_title,
+                "tti_start_frame": tti_start_frame,
+                "tti_end_frame": tti_end_frame,
             }
 
-        return {"labels": {}, "width": 1280, "height": 720, "video_title": ""}
+        return {
+            "labels": {},
+            "width": 1280,
+            "height": 720,
+            "video_title": "",
+            "tti_start_frame": None,
+            "tti_end_frame": None,
+        }
 
     def load_tti_predictions(self, tti_file: str) -> Dict:
         """Load TTI model predictions"""
@@ -212,13 +238,42 @@ class TTIValidationAnalyzer:
             data_units = tti_entry.get("data_units", {})
 
             # Get the video data
+            labels = {}
+            tti_start_frame = None
+            tti_end_frame = None
+
             for data_hash, data_unit in data_units.items():
                 labels = data_unit.get("labels", {})
                 width = data_unit.get("width", 1280)
                 height = data_unit.get("height", 720)
 
-                return {"labels": labels, "width": width, "height": height}
-        return {"labels": {}, "width": 1280, "height": 720}
+                # Find start_of_tti and end_of_tti_ frames in predictions
+                for frame_id, frame_data in labels.items():
+                    for obj in frame_data.get("objects", []):
+                        if obj.get("value") == "start_of_tti":
+                            if (
+                                tti_start_frame is None
+                                or int(frame_id) < tti_start_frame
+                            ):
+                                tti_start_frame = int(frame_id)
+                        elif obj.get("value") == "end_of_tti_":
+                            if tti_end_frame is None or int(frame_id) > tti_end_frame:
+                                tti_end_frame = int(frame_id)
+
+                return {
+                    "labels": labels,
+                    "width": width,
+                    "height": height,
+                    "tti_start_frame": tti_start_frame,
+                    "tti_end_frame": tti_end_frame,
+                }
+        return {
+            "labels": {},
+            "width": 1280,
+            "height": 720,
+            "tti_start_frame": None,
+            "tti_end_frame": None,
+        }
 
     def bbox_to_mask(self, bbox: Dict, width: int, height: int) -> np.ndarray:
         """Convert bounding box to binary mask"""
@@ -341,9 +396,30 @@ class TTIValidationAnalyzer:
         gt_frame_data: Dict,
         pred_frame_data: Dict,
     ) -> Dict:
-        """Analyze a single frame"""
-        gt_objects = gt_frame_data.get("objects", [])
-        pred_objects = pred_frame_data.get("objects", [])
+        """Analyze a single frame - filters out marker objects (start_of_tti, end_of_tti_, etc.)"""
+        # Filter out marker objects, only keep actual bounding boxes for analysis
+        gt_objects = [
+            obj
+            for obj in gt_frame_data.get("objects", [])
+            if obj.get("value")
+            not in [
+                "start_of_tti",
+                "end_of_tti_",
+                "start_of_no_interaction",
+                "end_of_no_interaction_",
+            ]
+        ]
+        pred_objects = [
+            obj
+            for obj in pred_frame_data.get("objects", [])
+            if obj.get("value")
+            not in [
+                "start_of_tti",
+                "end_of_tti_",
+                "start_of_no_interaction",
+                "end_of_no_interaction_",
+            ]
+        ]
 
         if not gt_objects and not pred_objects:
             return None
@@ -372,7 +448,7 @@ class TTIValidationAnalyzer:
         return frame_results
 
     def analyze_video_pair(self, uuid: str, file_info: Dict) -> Dict:
-        """Analyze a single video pair (ground truth vs predictions)"""
+        """Analyze a single video pair (ground truth vs predictions) - only analyzes frames between start_of_tti and end_of_tti_"""
         print(f"Analyzing {file_info['video_title']}...")
 
         # Load data
@@ -381,12 +457,28 @@ class TTIValidationAnalyzer:
 
         width, height = gt_data["width"], gt_data["height"]
 
+        # Get TTI frame range from ground truth
+        tti_start = gt_data.get("tti_start_frame")
+        tti_end = gt_data.get("tti_end_frame")
+
+        # Print TTI range info
+        if tti_start is not None and tti_end is not None:
+            print(f"  TTI range: frames {tti_start} to {tti_end}")
+        elif tti_start is not None:
+            print(f"  TTI start: frame {tti_start} (no end marker found)")
+        elif tti_end is not None:
+            print(f"  TTI end: frame {tti_end} (no start marker found)")
+        else:
+            print("  WARNING: No TTI markers found in ground truth")
+
         video_results = {
             "uuid": uuid,
             "video_title": file_info["video_title"],
             "video_type": file_info["video_type"],
             "width": width,
             "height": height,
+            "tti_start_frame": tti_start,
+            "tti_end_frame": tti_end,
             "frame_results": [],
             "total_gt_objects": 0,
             "total_pred_objects": 0,
@@ -399,6 +491,24 @@ class TTIValidationAnalyzer:
         gt_frames = set(gt_data["labels"].keys())
         pred_frames = set(pred_data["labels"].keys())
         common_frames = gt_frames.intersection(pred_frames)
+
+        # Filter frames to only those within TTI range
+        if tti_start is not None and tti_end is not None:
+            common_frames = {f for f in common_frames if tti_start <= int(f) <= tti_end}
+            print(f"  Analyzing {len(common_frames)} frames within TTI range")
+        elif tti_start is not None:
+            # Only start marker exists, analyze from start onwards
+            common_frames = {f for f in common_frames if int(f) >= tti_start}
+            print(f"  Analyzing {len(common_frames)} frames from TTI start onwards")
+        elif tti_end is not None:
+            # Only end marker exists, analyze up to end
+            common_frames = {f for f in common_frames if int(f) <= tti_end}
+            print(f"  Analyzing {len(common_frames)} frames up to TTI end")
+        else:
+            # No TTI markers found - skip this video
+            print("  Skipping video - no TTI markers found")
+            video_results["total_frames_analyzed"] = 0
+            return video_results
 
         all_ious = []
         all_dices = []
@@ -529,7 +639,7 @@ class TTIValidationAnalyzer:
         print(f"Total videos analyzed: {stats['total_videos']}")
         print(f"Safe videos: {stats['safe_videos']}")
         print(f"BDI videos: {stats['bdi_videos']}")
-        print(f"\nIoU Statistics:")
+        print("\nIoU Statistics:")
         print(
             f"  Overall: {stats['iou_statistics']['overall_mean']:.3f} ± {stats['iou_statistics']['overall_std']:.3f}"
         )
@@ -539,7 +649,7 @@ class TTIValidationAnalyzer:
         print(
             f"  BDI:     {stats['iou_statistics']['bdi_mean']:.3f} ± {stats['iou_statistics']['bdi_std']:.3f}"
         )
-        print(f"\nDice Statistics:")
+        print("\nDice Statistics:")
         print(
             f"  Overall: {stats['dice_statistics']['overall_mean']:.3f} ± {stats['dice_statistics']['overall_std']:.3f}"
         )
@@ -781,7 +891,7 @@ class TTIValidationAnalyzer:
 
         structured_output["visualization_files"] = visualization_files
 
-        print(f"\nVISUALIZATIONS:")
+        print("\nVISUALIZATIONS:")
         print("-" * 40)
         for viz_file in visualization_files:
             print(f"  Created: {viz_file}")
@@ -836,7 +946,7 @@ Examples:
     ]:
         if not os.path.exists(path_value):
             print(f"Error: {path_name} does not exist: {path_value}")
-            print(f"Please check the path and try again.")
+            print("Please check the path and try again.")
             return None
 
     print(f"TTI output directory: {args.tti_inference_dir}")
@@ -895,12 +1005,12 @@ Examples:
         df = pd.DataFrame(summary_data)
         df.to_csv(output_files["summary_csv"], index=False)
 
-        print(f"\nOUTPUT FILES CREATED:")
+        print("\nOUTPUT FILES CREATED:")
         print("-" * 40)
         for desc, filename in output_files.items():
             print(f"  {desc:<20}: {filename}")
 
-        print(f"\nPROJECT I ANALYSIS COMPLETE!")
+        print("\nPROJECT I ANALYSIS COMPLETE!")
         print("=" * 50)
         print("Deliverables ready for submission:")
         print("✓ IoU scores per video and overall")
