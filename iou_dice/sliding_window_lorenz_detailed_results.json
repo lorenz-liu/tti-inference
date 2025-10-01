@@ -1,0 +1,4825 @@
+[
+  {
+    "uuid": "d5644395-cf9e-42b0-8ab9-be8847923a3b",
+    "video_title": "LapChol Case 0002 02.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "27",
+        "pred_frame_id": "29",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.0618305230679211
+        ],
+        "dice_scores": [
+          0.11646024808041056
+        ]
+      },
+      {
+        "gt_frame_id": "4796",
+        "pred_frame_id": "4796",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.0688189621389248
+        ],
+        "dice_scores": [
+          0.1287757133372784
+        ]
+      },
+      {
+        "gt_frame_id": "4866",
+        "pred_frame_id": "4866",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.15171743241976957
+        ],
+        "dice_scores": [
+          0.2634629435121248
+        ]
+      },
+      {
+        "gt_frame_id": "4955",
+        "pred_frame_id": "4954",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.33313316316582653
+        ],
+        "dice_scores": [
+          0.4997747747490227
+        ]
+      },
+      {
+        "gt_frame_id": "5127",
+        "pred_frame_id": "5127",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.12829701946733663
+        ],
+        "dice_scores": [
+          0.2274171025071129
+        ]
+      },
+      {
+        "gt_frame_id": "5347",
+        "pred_frame_id": "5347",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.19975883294992428
+        ],
+        "dice_scores": [
+          0.33299831176698136
+        ]
+      },
+      {
+        "gt_frame_id": "6737",
+        "pred_frame_id": "6737",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03354859943696374
+        ],
+        "dice_scores": [
+          0.06491924899368967
+        ]
+      },
+      {
+        "gt_frame_id": "6821",
+        "pred_frame_id": "6821",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07427171859112221
+        ],
+        "dice_scores": [
+          0.13827361794188814
+        ]
+      },
+      {
+        "gt_frame_id": "7036",
+        "pred_frame_id": "7039",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.024446279850063295
+        ],
+        "dice_scores": [
+          0.04772584044844444
+        ]
+      },
+      {
+        "gt_frame_id": "7346",
+        "pred_frame_id": "7349",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04716738665530189
+        ],
+        "dice_scores": [
+          0.09008566778603862
+        ]
+      },
+      {
+        "gt_frame_id": "8315",
+        "pred_frame_id": "8315",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02031353365858585
+        ],
+        "dice_scores": [
+          0.039818218593546756
+        ]
+      },
+      {
+        "gt_frame_id": "8932",
+        "pred_frame_id": "8933",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07447547085179108
+        ],
+        "dice_scores": [
+          0.13862665620975156
+        ]
+      },
+      {
+        "gt_frame_id": "9379",
+        "pred_frame_id": "9379",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03715386972852168
+        ],
+        "dice_scores": [
+          0.07164581999437908
+        ]
+      },
+      {
+        "gt_frame_id": "9642",
+        "pred_frame_id": "9642",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.10612661938604293
+        ],
+        "dice_scores": [
+          0.19188873592961472
+        ]
+      },
+      {
+        "gt_frame_id": "9848",
+        "pred_frame_id": "9848",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.1336528114929233
+        ],
+        "dice_scores": [
+          0.2357914347990088
+        ]
+      },
+      {
+        "gt_frame_id": "9971",
+        "pred_frame_id": "9971",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09274588796056205
+        ],
+        "dice_scores": [
+          0.1697483174860674
+        ]
+      }
+    ],
+    "total_gt_objects": 16,
+    "total_pred_objects": 24,
+    "total_matches": 16,
+    "avg_iou": 0.09921613192634882,
+    "avg_dice": 0.17233829075846,
+    "total_frames_analyzed": 16
+  },
+  {
+    "uuid": "a5a6c533-3156-42a7-ba01-a5e01ee59a66",
+    "video_title": "LapChol Case 0001 04.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.3488830528060557
+        ],
+        "dice_scores": [
+          0.5172917727452813
+        ]
+      },
+      {
+        "gt_frame_id": "3",
+        "pred_frame_id": "3",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.03852920708325823
+        ],
+        "dice_scores": [
+          0.07419956380710507
+        ]
+      },
+      {
+        "gt_frame_id": "188",
+        "pred_frame_id": "188",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1885563918774245
+        ],
+        "dice_scores": [
+          0.31728640418917586
+        ]
+      },
+      {
+        "gt_frame_id": "1727",
+        "pred_frame_id": "1727",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0044911029583277196
+        ],
+        "dice_scores": [
+          0.008942046266215734
+        ]
+      },
+      {
+        "gt_frame_id": "5694",
+        "pred_frame_id": "5694",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03450591770477444
+        ],
+        "dice_scores": [
+          0.06670994745265764
+        ]
+      },
+      {
+        "gt_frame_id": "6069",
+        "pred_frame_id": "6070",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.037809953370084394
+        ],
+        "dice_scores": [
+          0.07286488869624728
+        ]
+      },
+      {
+        "gt_frame_id": "6329",
+        "pred_frame_id": "6327",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04976829258406785
+        ],
+        "dice_scores": [
+          0.09481767154837606
+        ]
+      },
+      {
+        "gt_frame_id": "7240",
+        "pred_frame_id": "7241",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.056719498147230096
+        ],
+        "dice_scores": [
+          0.10735014967865675
+        ]
+      },
+      {
+        "gt_frame_id": "7306",
+        "pred_frame_id": "7306",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0442850230226326
+        ],
+        "dice_scores": [
+          0.08481405372347817
+        ]
+      },
+      {
+        "gt_frame_id": "7448",
+        "pred_frame_id": "7444",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02198232216791419
+        ],
+        "dice_scores": [
+          0.04301898710201456
+        ]
+      },
+      {
+        "gt_frame_id": "7543",
+        "pred_frame_id": "7543",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.04789812939252485
+        ],
+        "dice_scores": [
+          0.0914175300995943
+        ]
+      },
+      {
+        "gt_frame_id": "7664",
+        "pred_frame_id": "7664",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.014730996124393696
+        ],
+        "dice_scores": [
+          0.029034288260940944
+        ]
+      },
+      {
+        "gt_frame_id": "7774",
+        "pred_frame_id": "7774",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02238537796329012
+        ],
+        "dice_scores": [
+          0.043790489273006585
+        ]
+      },
+      {
+        "gt_frame_id": "7848",
+        "pred_frame_id": "7851",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.016977390896116367
+        ],
+        "dice_scores": [
+          0.03338794165553007
+        ]
+      },
+      {
+        "gt_frame_id": "7911",
+        "pred_frame_id": "7910",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.024813775504342727
+        ],
+        "dice_scores": [
+          0.04842592107455054
+        ]
+      },
+      {
+        "gt_frame_id": "8013",
+        "pred_frame_id": "8013",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04041729244238292
+        ],
+        "dice_scores": [
+          0.07769438808058102
+        ]
+      },
+      {
+        "gt_frame_id": "8140",
+        "pred_frame_id": "8144",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.0314839286943864
+        ],
+        "dice_scores": [
+          0.06104589285116166
+        ]
+      },
+      {
+        "gt_frame_id": "8334",
+        "pred_frame_id": "8334",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.01784437861833542
+        ],
+        "dice_scores": [
+          0.03506307839034907
+        ]
+      },
+      {
+        "gt_frame_id": "8429",
+        "pred_frame_id": "8430",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.048708735169447626
+        ],
+        "dice_scores": [
+          0.09289278049462875
+        ]
+      },
+      {
+        "gt_frame_id": "8499",
+        "pred_frame_id": "8498",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.20341797828088676
+        ],
+        "dice_scores": [
+          0.33806704229477197
+        ]
+      },
+      {
+        "gt_frame_id": "8654",
+        "pred_frame_id": "8654",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03486039958178826
+        ],
+        "dice_scores": [
+          0.06737217811383289
+        ]
+      },
+      {
+        "gt_frame_id": "8750",
+        "pred_frame_id": "8750",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.050071289183589184
+        ],
+        "dice_scores": [
+          0.09536740924041201
+        ]
+      },
+      {
+        "gt_frame_id": "8839",
+        "pred_frame_id": "8840",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.07527894639853408
+        ],
+        "dice_scores": [
+          0.14001752131513084
+        ]
+      },
+      {
+        "gt_frame_id": "8877",
+        "pred_frame_id": "8877",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.024532598290621613
+        ],
+        "dice_scores": [
+          0.04789032253644823
+        ]
+      },
+      {
+        "gt_frame_id": "8921",
+        "pred_frame_id": "8916",
+        "label_type": "start_of_tti",
+        "frame_offset": -5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.030372431337412967
+        ],
+        "dice_scores": [
+          0.058954277916752604
+        ]
+      },
+      {
+        "gt_frame_id": "9016",
+        "pred_frame_id": "9016",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.02201512409988692
+        ],
+        "dice_scores": [
+          0.043081797090382914
+        ]
+      },
+      {
+        "gt_frame_id": "9175",
+        "pred_frame_id": "9175",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.014384827095246614
+        ],
+        "dice_scores": [
+          0.028361676379640755
+        ]
+      },
+      {
+        "gt_frame_id": "9220",
+        "pred_frame_id": "9220",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.10296516536685009
+        ],
+        "dice_scores": [
+          0.18670610568667145
+        ]
+      },
+      {
+        "gt_frame_id": "9670",
+        "pred_frame_id": "9670",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09767608777360809
+        ],
+        "dice_scores": [
+          0.17796887235053524
+        ]
+      },
+      {
+        "gt_frame_id": "9708",
+        "pred_frame_id": "9708",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.028522597069992935
+        ],
+        "dice_scores": [
+          0.05546323853505363
+        ]
+      },
+      {
+        "gt_frame_id": "9801",
+        "pred_frame_id": "9801",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02716159260055838
+        ],
+        "dice_scores": [
+          0.05288669824928112
+        ]
+      },
+      {
+        "gt_frame_id": "9886",
+        "pred_frame_id": "9886",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.0191789958141134
+        ],
+        "dice_scores": [
+          0.037636167724970325
+        ]
+      }
+    ],
+    "total_gt_objects": 32,
+    "total_pred_objects": 56,
+    "total_matches": 32,
+    "avg_iou": 0.05691339998187747,
+    "avg_dice": 0.10093190946323236,
+    "total_frames_analyzed": 32
+  },
+  {
+    "uuid": "970aa577-da70-4256-8a91-274f036eb103",
+    "video_title": "V10-Trimmed.mp4",
+    "video_type": "bdi",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "af435cea-2e32-4742-b745-17bcc930394a",
+    "video_title": "V4_Trimmed.mp4",
+    "video_type": "bdi",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "00b99f82-9217-42aa-a13b-d888c9085137",
+    "video_title": "LapChol Case 0015 01.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "6015c3ac-fada-4733-a002-2cf8eb0b97c2",
+    "video_title": "LapChol Case 0007 02.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "157",
+        "pred_frame_id": "157",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1514424959892526
+        ],
+        "dice_scores": [
+          0.26304830074756275
+        ]
+      },
+      {
+        "gt_frame_id": "431",
+        "pred_frame_id": "426",
+        "label_type": "start_of_tti",
+        "frame_offset": -5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04034046734580983
+        ],
+        "dice_scores": [
+          0.07755243328893911
+        ]
+      },
+      {
+        "gt_frame_id": "602",
+        "pred_frame_id": "599",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05934704055813474
+        ],
+        "dice_scores": [
+          0.11204456761755194
+        ]
+      },
+      {
+        "gt_frame_id": "804",
+        "pred_frame_id": "800",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06300942988459847
+        ],
+        "dice_scores": [
+          0.11854914568620308
+        ]
+      },
+      {
+        "gt_frame_id": "1235",
+        "pred_frame_id": "1236",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15640485854244082
+        ],
+        "dice_scores": [
+          0.27050190491170556
+        ]
+      },
+      {
+        "gt_frame_id": "1459",
+        "pred_frame_id": "1459",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15162349480525739
+        ],
+        "dice_scores": [
+          0.26332129465784704
+        ]
+      },
+      {
+        "gt_frame_id": "1585",
+        "pred_frame_id": "1585",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.027783558775658333
+        ],
+        "dice_scores": [
+          0.0540649994610837
+        ]
+      },
+      {
+        "gt_frame_id": "1662",
+        "pred_frame_id": "1662",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05411011517771606
+        ],
+        "dice_scores": [
+          0.10266501459118138
+        ]
+      },
+      {
+        "gt_frame_id": "1725",
+        "pred_frame_id": "1725",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05315139235001057
+        ],
+        "dice_scores": [
+          0.10093780008476866
+        ]
+      },
+      {
+        "gt_frame_id": "1791",
+        "pred_frame_id": "1791",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.035019943989475735
+        ],
+        "dice_scores": [
+          0.06767008537920854
+        ]
+      },
+      {
+        "gt_frame_id": "1868",
+        "pred_frame_id": "1868",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.030669200944214048
+        ],
+        "dice_scores": [
+          0.0595131802058652
+        ]
+      },
+      {
+        "gt_frame_id": "1965",
+        "pred_frame_id": "1965",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04727144627224757
+        ],
+        "dice_scores": [
+          0.09027544184558803
+        ]
+      },
+      {
+        "gt_frame_id": "2070",
+        "pred_frame_id": "2070",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09130101969198229
+        ],
+        "dice_scores": [
+          0.1673250882103122
+        ]
+      },
+      {
+        "gt_frame_id": "2128",
+        "pred_frame_id": "2128",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.023185900512269222
+        ],
+        "dice_scores": [
+          0.04532099298995607
+        ]
+      },
+      {
+        "gt_frame_id": "2284",
+        "pred_frame_id": "2283",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03745656586576671
+        ],
+        "dice_scores": [
+          0.0722084511258722
+        ]
+      },
+      {
+        "gt_frame_id": "2451",
+        "pred_frame_id": "2454",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.054114046984659
+        ],
+        "dice_scores": [
+          0.10267209158146537
+        ]
+      },
+      {
+        "gt_frame_id": "2638",
+        "pred_frame_id": "2639",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21338067588701648
+        ],
+        "dice_scores": [
+          0.3517126654930927
+        ]
+      },
+      {
+        "gt_frame_id": "2762",
+        "pred_frame_id": "2759",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.036619714432269766
+        ],
+        "dice_scores": [
+          0.07065216669610698
+        ]
+      },
+      {
+        "gt_frame_id": "3926",
+        "pred_frame_id": "3926",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04103266587400448
+        ],
+        "dice_scores": [
+          0.07883069805413895
+        ]
+      },
+      {
+        "gt_frame_id": "5664",
+        "pred_frame_id": "5661",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08683843701500785
+        ],
+        "dice_scores": [
+          0.15980008446059166
+        ]
+      },
+      {
+        "gt_frame_id": "5751",
+        "pred_frame_id": "5754",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04768339202820102
+        ],
+        "dice_scores": [
+          0.09102633942853894
+        ]
+      },
+      {
+        "gt_frame_id": "5856",
+        "pred_frame_id": "5860",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.056756070438546975
+        ],
+        "dice_scores": [
+          0.10741565064299763
+        ]
+      },
+      {
+        "gt_frame_id": "6147",
+        "pred_frame_id": "6147",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.025024517061627508
+        ],
+        "dice_scores": [
+          0.04882715807298677
+        ]
+      },
+      {
+        "gt_frame_id": "7540",
+        "pred_frame_id": "7538",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.08406479378194273
+        ],
+        "dice_scores": [
+          0.15509182525643792
+        ]
+      },
+      {
+        "gt_frame_id": "7633",
+        "pred_frame_id": "7636",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1834998624899323
+        ],
+        "dice_scores": [
+          0.31009697306406453
+        ]
+      },
+      {
+        "gt_frame_id": "8432",
+        "pred_frame_id": "8435",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.10008009025917947
+        ],
+        "dice_scores": [
+          0.18195055277402675
+        ]
+      },
+      {
+        "gt_frame_id": "8710",
+        "pred_frame_id": "8710",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.006195377409152823
+        ],
+        "dice_scores": [
+          0.012314462078140862
+        ]
+      },
+      {
+        "gt_frame_id": "8952",
+        "pred_frame_id": "8952",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08099372878145544
+        ],
+        "dice_scores": [
+          0.1498505062980434
+        ]
+      },
+      {
+        "gt_frame_id": "9917",
+        "pred_frame_id": "9916",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09673475876673542
+        ],
+        "dice_scores": [
+          0.1764050204363222
+        ]
+      }
+    ],
+    "total_gt_objects": 29,
+    "total_pred_objects": 43,
+    "total_matches": 29,
+    "avg_iou": 0.07362534696257123,
+    "avg_dice": 0.13316016879795173,
+    "total_frames_analyzed": 29
+  },
+  {
+    "uuid": "c95dfebd-cd7f-4946-9c3f-5fd416326da4",
+    "video_title": "V12-Trimmed.mp4",
+    "video_type": "bdi",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "845ff68a-1146-4f43-9c65-df5b3c8d7c6d",
+    "video_title": "V7-Trimmed.mp4",
+    "video_type": "bdi",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0820702159172348
+        ],
+        "dice_scores": [
+          0.15169110970800842
+        ]
+      },
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.00234802255063503
+        ],
+        "dice_scores": [
+          0.004685044511107251
+        ]
+      },
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03471409803503335
+        ],
+        "dice_scores": [
+          0.06709891766422613
+        ]
+      },
+      {
+        "gt_frame_id": "149",
+        "pred_frame_id": "149",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04565704573354348
+        ],
+        "dice_scores": [
+          0.08732699869394446
+        ]
+      },
+      {
+        "gt_frame_id": "328",
+        "pred_frame_id": "328",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03578174967412331
+        ],
+        "dice_scores": [
+          0.06909129203209252
+        ]
+      },
+      {
+        "gt_frame_id": "449",
+        "pred_frame_id": "449",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03826109284892363
+        ],
+        "dice_scores": [
+          0.07370225680698017
+        ]
+      },
+      {
+        "gt_frame_id": "1127",
+        "pred_frame_id": "1127",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15700694407992702
+        ],
+        "dice_scores": [
+          0.27140190451455204
+        ]
+      },
+      {
+        "gt_frame_id": "1553",
+        "pred_frame_id": "1553",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03728849244704533
+        ],
+        "dice_scores": [
+          0.07189608815398857
+        ]
+      },
+      {
+        "gt_frame_id": "1606",
+        "pred_frame_id": "1606",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.07410977390614694
+        ],
+        "dice_scores": [
+          0.13799292345443728
+        ]
+      },
+      {
+        "gt_frame_id": "1761",
+        "pred_frame_id": "1761",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.021985233948616362
+        ],
+        "dice_scores": [
+          0.043024562818138996
+        ]
+      },
+      {
+        "gt_frame_id": "2014",
+        "pred_frame_id": "2014",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.08164461694703122
+        ],
+        "dice_scores": [
+          0.15096384832473939
+        ]
+      },
+      {
+        "gt_frame_id": "2050",
+        "pred_frame_id": "2050",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06996790427720934
+        ],
+        "dice_scores": [
+          0.13078505251888736
+        ]
+      },
+      {
+        "gt_frame_id": "2308",
+        "pred_frame_id": "2308",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.014530240231890276
+        ],
+        "dice_scores": [
+          0.028644272305908026
+        ]
+      },
+      {
+        "gt_frame_id": "2604",
+        "pred_frame_id": "2604",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09516727273950187
+        ],
+        "dice_scores": [
+          0.17379495371779338
+        ]
+      },
+      {
+        "gt_frame_id": "2889",
+        "pred_frame_id": "2884",
+        "label_type": "start_of_tti",
+        "frame_offset": -5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.2677731184620147
+        ],
+        "dice_scores": [
+          0.42243066138972996
+        ]
+      },
+      {
+        "gt_frame_id": "3128",
+        "pred_frame_id": "3128",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09483915882332715
+        ],
+        "dice_scores": [
+          0.1732476557109175
+        ]
+      },
+      {
+        "gt_frame_id": "3260",
+        "pred_frame_id": "3260",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.045382511372397495
+        ],
+        "dice_scores": [
+          0.08682469981790394
+        ]
+      },
+      {
+        "gt_frame_id": "5590",
+        "pred_frame_id": "5589",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07513106385030852
+        ],
+        "dice_scores": [
+          0.13976168371741712
+        ]
+      }
+    ],
+    "total_gt_objects": 18,
+    "total_pred_objects": 27,
+    "total_matches": 18,
+    "avg_iou": 0.07075880865805054,
+    "avg_dice": 0.12690910699226515,
+    "total_frames_analyzed": 18
+  },
+  {
+    "uuid": "bd45e75e-1545-4adf-b2ff-0726fcd08ddf",
+    "video_title": "LapChol Case 0011 03.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "2309b3d7-1657-4e00-867a-ab4c7e05c3f5",
+    "video_title": "LapChol Case 0011 02.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "1a1cb1c4-6637-46da-827b-d96605bb29cb",
+    "video_title": "LapChol Case 0007 03.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "17",
+        "pred_frame_id": "17",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04577380771762336
+        ],
+        "dice_scores": [
+          0.08754055108250151
+        ]
+      },
+      {
+        "gt_frame_id": "17",
+        "pred_frame_id": "17",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04264676272927009
+        ],
+        "dice_scores": [
+          0.08180481492626779
+        ]
+      },
+      {
+        "gt_frame_id": "265",
+        "pred_frame_id": "265",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.020267840414263126
+        ],
+        "dice_scores": [
+          0.03973043079753195
+        ]
+      },
+      {
+        "gt_frame_id": "1117",
+        "pred_frame_id": "1116",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.18529067051076287
+        ],
+        "dice_scores": [
+          0.3126501796068602
+        ]
+      },
+      {
+        "gt_frame_id": "1487",
+        "pred_frame_id": "1487",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.19284709437260136
+        ],
+        "dice_scores": [
+          0.323339169424783
+        ]
+      },
+      {
+        "gt_frame_id": "1669",
+        "pred_frame_id": "1669",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21397353497887409
+        ],
+        "dice_scores": [
+          0.3525176271369008
+        ]
+      },
+      {
+        "gt_frame_id": "1915",
+        "pred_frame_id": "1915",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1255986819172846
+        ],
+        "dice_scores": [
+          0.22316778428231016
+        ]
+      },
+      {
+        "gt_frame_id": "2114",
+        "pred_frame_id": "2114",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06791298374948361
+        ],
+        "dice_scores": [
+          0.12718823496468507
+        ]
+      },
+      {
+        "gt_frame_id": "2268",
+        "pred_frame_id": "2269",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0670611204801687
+        ],
+        "dice_scores": [
+          0.12569311952813303
+        ]
+      },
+      {
+        "gt_frame_id": "2456",
+        "pred_frame_id": "2456",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.11235098298088889
+        ],
+        "dice_scores": [
+          0.20200635356982316
+        ]
+      },
+      {
+        "gt_frame_id": "2507",
+        "pred_frame_id": "2507",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.12405766248463508
+        ],
+        "dice_scores": [
+          0.22073184788477138
+        ]
+      },
+      {
+        "gt_frame_id": "2630",
+        "pred_frame_id": "2630",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.11937551926905025
+        ],
+        "dice_scores": [
+          0.21328949439059056
+        ]
+      },
+      {
+        "gt_frame_id": "2745",
+        "pred_frame_id": "2745",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.16976139561759956
+        ],
+        "dice_scores": [
+          0.2902496120210405
+        ]
+      },
+      {
+        "gt_frame_id": "3008",
+        "pred_frame_id": "3009",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.18506567657301137
+        ],
+        "dice_scores": [
+          0.31232982311695456
+        ]
+      },
+      {
+        "gt_frame_id": "3170",
+        "pred_frame_id": "3166",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.36476521245313165
+        ],
+        "dice_scores": [
+          0.5345464686888893
+        ]
+      },
+      {
+        "gt_frame_id": "3237",
+        "pred_frame_id": "3234",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.2152263199883308
+        ],
+        "dice_scores": [
+          0.35421602782664796
+        ]
+      },
+      {
+        "gt_frame_id": "4201",
+        "pred_frame_id": "4201",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21066263060584142
+        ],
+        "dice_scores": [
+          0.3480121138296328
+        ]
+      },
+      {
+        "gt_frame_id": "6009",
+        "pred_frame_id": "6007",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.13748574388148008
+        ],
+        "dice_scores": [
+          0.24173620569930476
+        ]
+      },
+      {
+        "gt_frame_id": "7180",
+        "pred_frame_id": "7181",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06954696491425341
+        ],
+        "dice_scores": [
+          0.13004938949984127
+        ]
+      },
+      {
+        "gt_frame_id": "7559",
+        "pred_frame_id": "7562",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09076874380103349
+        ],
+        "dice_scores": [
+          0.16643077520672075
+        ]
+      },
+      {
+        "gt_frame_id": "7761",
+        "pred_frame_id": "7763",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08229136444454062
+        ],
+        "dice_scores": [
+          0.1520687813799099
+        ]
+      },
+      {
+        "gt_frame_id": "8050",
+        "pred_frame_id": "8050",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0807925202883568
+        ],
+        "dice_scores": [
+          0.14950606850388132
+        ]
+      },
+      {
+        "gt_frame_id": "8148",
+        "pred_frame_id": "8145",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08646757293097368
+        ],
+        "dice_scores": [
+          0.159171934966654
+        ]
+      },
+      {
+        "gt_frame_id": "8264",
+        "pred_frame_id": "8263",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07587920707065395
+        ],
+        "dice_scores": [
+          0.14105525336297517
+        ]
+      },
+      {
+        "gt_frame_id": "8359",
+        "pred_frame_id": "8363",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07163611983158948
+        ],
+        "dice_scores": [
+          0.13369485874150508
+        ]
+      },
+      {
+        "gt_frame_id": "8720",
+        "pred_frame_id": "8720",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.01869097484943329
+        ],
+        "dice_scores": [
+          0.03669606448058675
+        ]
+      },
+      {
+        "gt_frame_id": "8884",
+        "pred_frame_id": "8884",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15667643821605232
+        ],
+        "dice_scores": [
+          0.2709079791712454
+        ]
+      },
+      {
+        "gt_frame_id": "8944",
+        "pred_frame_id": "8946",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.13022630233036
+        ],
+        "dice_scores": [
+          0.2304428804423549
+        ]
+      },
+      {
+        "gt_frame_id": "9043",
+        "pred_frame_id": "9044",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.06999432833484522
+        ],
+        "dice_scores": [
+          0.13083121373880985
+        ]
+      },
+      {
+        "gt_frame_id": "9192",
+        "pred_frame_id": "9190",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.14633634417749114
+        ],
+        "dice_scores": [
+          0.25531135764955454
+        ]
+      },
+      {
+        "gt_frame_id": "9380",
+        "pred_frame_id": "9381",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.06733069985354248
+        ],
+        "dice_scores": [
+          0.12616651964153472
+        ]
+      },
+      {
+        "gt_frame_id": "9451",
+        "pred_frame_id": "9451",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09449371498312331
+        ],
+        "dice_scores": [
+          0.1726710965801761
+        ]
+      },
+      {
+        "gt_frame_id": "9635",
+        "pred_frame_id": "9636",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.025052981883085645
+        ],
+        "dice_scores": [
+          0.0488813404299586
+        ]
+      },
+      {
+        "gt_frame_id": "9764",
+        "pred_frame_id": "9769",
+        "label_type": "start_of_tti",
+        "frame_offset": 5,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05266026189122321
+        ],
+        "dice_scores": [
+          0.10005177130295219
+        ]
+      },
+      {
+        "gt_frame_id": "9950",
+        "pred_frame_id": "9955",
+        "label_type": "start_of_tti",
+        "frame_offset": 5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06292681087331728
+        ],
+        "dice_scores": [
+          0.11840290456426746
+        ]
+      }
+    ],
+    "total_gt_objects": 35,
+    "total_pred_objects": 45,
+    "total_matches": 35,
+    "avg_iou": 0.11376842832566217,
+    "avg_dice": 0.19751685852687306,
+    "total_frames_analyzed": 35
+  },
+  {
+    "uuid": "582a7152-1a23-4f1d-b8d8-0e5b2bf91bd2",
+    "video_title": "V2_Trimmed.mp4",
+    "video_type": "bdi",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "1",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06254436338509164
+        ],
+        "dice_scores": [
+          0.11772565088169229
+        ]
+      },
+      {
+        "gt_frame_id": "80",
+        "pred_frame_id": "80",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.12137732503744729
+        ],
+        "dice_scores": [
+          0.2164790072483301
+        ]
+      },
+      {
+        "gt_frame_id": "116",
+        "pred_frame_id": "116",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09266036630709641
+        ],
+        "dice_scores": [
+          0.16960506514986717
+        ]
+      },
+      {
+        "gt_frame_id": "755",
+        "pred_frame_id": "756",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.18798005531713968
+        ],
+        "dice_scores": [
+          0.3164700526339343
+        ]
+      },
+      {
+        "gt_frame_id": "809",
+        "pred_frame_id": "810",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09954077851655536
+        ],
+        "dice_scores": [
+          0.18105882103045007
+        ]
+      },
+      {
+        "gt_frame_id": "1217",
+        "pred_frame_id": "1217",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.168775541612306
+        ],
+        "dice_scores": [
+          0.2888074495116197
+        ]
+      },
+      {
+        "gt_frame_id": "1277",
+        "pred_frame_id": "1276",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.30771574864589424
+        ],
+        "dice_scores": [
+          0.4706156501740167
+        ]
+      },
+      {
+        "gt_frame_id": "2294",
+        "pred_frame_id": "2294",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.027574275241068282
+        ],
+        "dice_scores": [
+          0.05366867564799513
+        ]
+      },
+      {
+        "gt_frame_id": "2380",
+        "pred_frame_id": "2381",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.34209461055546175
+        ],
+        "dice_scores": [
+          0.5097920934409784
+        ]
+      },
+      {
+        "gt_frame_id": "3360",
+        "pred_frame_id": "3360",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06588354613317596
+        ],
+        "dice_scores": [
+          0.12362240954406137
+        ]
+      },
+      {
+        "gt_frame_id": "5065",
+        "pred_frame_id": "5065",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0918771169076899
+        ],
+        "dice_scores": [
+          0.16829204584467436
+        ]
+      },
+      {
+        "gt_frame_id": "5886",
+        "pred_frame_id": "5886",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.01716953767436866
+        ],
+        "dice_scores": [
+          0.03375944134863627
+        ]
+      },
+      {
+        "gt_frame_id": "6661",
+        "pred_frame_id": "6661",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.10016336055727203
+        ],
+        "dice_scores": [
+          0.18208815917398977
+        ]
+      },
+      {
+        "gt_frame_id": "10956",
+        "pred_frame_id": "10956",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09339060499038254
+        ],
+        "dice_scores": [
+          0.1708275241512689
+        ]
+      },
+      {
+        "gt_frame_id": "11140",
+        "pred_frame_id": "11140",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.06218706607471368
+        ],
+        "dice_scores": [
+          0.11709249351816053
+        ]
+      },
+      {
+        "gt_frame_id": "13708",
+        "pred_frame_id": "13708",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.027227589654030913
+        ],
+        "dice_scores": [
+          0.053011795882937945
+        ]
+      }
+    ],
+    "total_gt_objects": 16,
+    "total_pred_objects": 22,
+    "total_matches": 16,
+    "avg_iou": 0.11676011791310589,
+    "avg_dice": 0.19830727094891332,
+    "total_frames_analyzed": 16
+  },
+  {
+    "uuid": "ad074609-4293-4b85-9264-e4dc659acef1",
+    "video_title": "LapChol Case 0001 05.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07044112616202726
+        ],
+        "dice_scores": [
+          0.13161139728363716
+        ]
+      },
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.037733933036577044
+        ],
+        "dice_scores": [
+          0.07272371430731085
+        ]
+      },
+      {
+        "gt_frame_id": "164",
+        "pred_frame_id": "164",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02413072773327376
+        ],
+        "dice_scores": [
+          0.0471243115352719
+        ]
+      },
+      {
+        "gt_frame_id": "347",
+        "pred_frame_id": "347",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.08644886993043105
+        ],
+        "dice_scores": [
+          0.15914024547877095
+        ]
+      },
+      {
+        "gt_frame_id": "402",
+        "pred_frame_id": "402",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.012261273183580215
+        ],
+        "dice_scores": [
+          0.024225510761699473
+        ]
+      },
+      {
+        "gt_frame_id": "583",
+        "pred_frame_id": "583",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07982313066833287
+        ],
+        "dice_scores": [
+          0.14784482458516715
+        ]
+      },
+      {
+        "gt_frame_id": "620",
+        "pred_frame_id": "620",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.018597017527886815
+        ],
+        "dice_scores": [
+          0.036514965600471475
+        ]
+      },
+      {
+        "gt_frame_id": "657",
+        "pred_frame_id": "657",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.02071662422327019
+        ],
+        "dice_scores": [
+          0.04059231275680421
+        ]
+      },
+      {
+        "gt_frame_id": "691",
+        "pred_frame_id": "691",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.022622285074937683
+        ],
+        "dice_scores": [
+          0.04424367707433625
+        ]
+      },
+      {
+        "gt_frame_id": "823",
+        "pred_frame_id": "823",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03681166526818023
+        ],
+        "dice_scores": [
+          0.07100935782519109
+        ]
+      },
+      {
+        "gt_frame_id": "854",
+        "pred_frame_id": "855",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.033139822662855256
+        ],
+        "dice_scores": [
+          0.06415360619328248
+        ]
+      },
+      {
+        "gt_frame_id": "886",
+        "pred_frame_id": "886",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.08284583118736419
+        ],
+        "dice_scores": [
+          0.15301500694059453
+        ]
+      },
+      {
+        "gt_frame_id": "940",
+        "pred_frame_id": "940",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.14524756369947384
+        ],
+        "dice_scores": [
+          0.2536526918778733
+        ]
+      },
+      {
+        "gt_frame_id": "1195",
+        "pred_frame_id": "1195",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03685288927573441
+        ],
+        "dice_scores": [
+          0.07108605214280109
+        ]
+      },
+      {
+        "gt_frame_id": "1347",
+        "pred_frame_id": "1345",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.039208768990120185
+        ],
+        "dice_scores": [
+          0.0754588878772114
+        ]
+      },
+      {
+        "gt_frame_id": "1469",
+        "pred_frame_id": "1469",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.012143437499937102
+        ],
+        "dice_scores": [
+          0.023995487299571325
+        ]
+      },
+      {
+        "gt_frame_id": "1532",
+        "pred_frame_id": "1531",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.019839544951655828
+        ],
+        "dice_scores": [
+          0.038907188978627605
+        ]
+      },
+      {
+        "gt_frame_id": "1677",
+        "pred_frame_id": "1677",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03418541965143947
+        ],
+        "dice_scores": [
+          0.06611081340319279
+        ]
+      },
+      {
+        "gt_frame_id": "1800",
+        "pred_frame_id": "1800",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.018273571322736815
+        ],
+        "dice_scores": [
+          0.03589128076652222
+        ]
+      },
+      {
+        "gt_frame_id": "1839",
+        "pred_frame_id": "1839",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07934033448772829
+        ],
+        "dice_scores": [
+          0.14701634313589224
+        ]
+      },
+      {
+        "gt_frame_id": "1895",
+        "pred_frame_id": "1892",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.048439841543923626
+        ],
+        "dice_scores": [
+          0.09240366423426169
+        ]
+      },
+      {
+        "gt_frame_id": "2159",
+        "pred_frame_id": "2154",
+        "label_type": "start_of_tti",
+        "frame_offset": -5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.028423886873186904
+        ],
+        "dice_scores": [
+          0.05527659797869282
+        ]
+      },
+      {
+        "gt_frame_id": "2447",
+        "pred_frame_id": "2447",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.026527694979735214
+        ],
+        "dice_scores": [
+          0.051684323977754736
+        ]
+      },
+      {
+        "gt_frame_id": "2575",
+        "pred_frame_id": "2577",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02593660169986568
+        ],
+        "dice_scores": [
+          0.05056180207800666
+        ]
+      },
+      {
+        "gt_frame_id": "2818",
+        "pred_frame_id": "2822",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.038161963752714426
+        ],
+        "dice_scores": [
+          0.07351832389383212
+        ]
+      },
+      {
+        "gt_frame_id": "2823",
+        "pred_frame_id": "2823",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.8377701397573762
+        ],
+        "dice_scores": [
+          0.9117246184748429
+        ]
+      },
+      {
+        "gt_frame_id": "3001",
+        "pred_frame_id": "3002",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.19635254958191528
+        ],
+        "dice_scores": [
+          0.3282519850031395
+        ]
+      },
+      {
+        "gt_frame_id": "3226",
+        "pred_frame_id": "3228",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08206176873744281
+        ],
+        "dice_scores": [
+          0.1516766807743204
+        ]
+      },
+      {
+        "gt_frame_id": "3664",
+        "pred_frame_id": "3667",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.021646359786985717
+        ],
+        "dice_scores": [
+          0.04237544543593148
+        ]
+      },
+      {
+        "gt_frame_id": "3701",
+        "pred_frame_id": "3702",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.23910817343510016
+        ],
+        "dice_scores": [
+          0.38593591513844333
+        ]
+      },
+      {
+        "gt_frame_id": "4119",
+        "pred_frame_id": "4119",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05980519144501517
+        ],
+        "dice_scores": [
+          0.11286072558952545
+        ]
+      },
+      {
+        "gt_frame_id": "4188",
+        "pred_frame_id": "4191",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.18869672069135193
+        ],
+        "dice_scores": [
+          0.3174850530110068
+        ]
+      },
+      {
+        "gt_frame_id": "4222",
+        "pred_frame_id": "4222",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04935572624324783
+        ],
+        "dice_scores": [
+          0.09406862708024491
+        ]
+      },
+      {
+        "gt_frame_id": "4342",
+        "pred_frame_id": "4344",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.26136445081151044
+        ],
+        "dice_scores": [
+          0.4144154382079806
+        ]
+      },
+      {
+        "gt_frame_id": "4367",
+        "pred_frame_id": "4367",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.05420844223886098
+        ],
+        "dice_scores": [
+          0.10284198089656071
+        ]
+      },
+      {
+        "gt_frame_id": "4389",
+        "pred_frame_id": "4389",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09274237544498148
+        ],
+        "dice_scores": [
+          0.16974243431754052
+        ]
+      },
+      {
+        "gt_frame_id": "4806",
+        "pred_frame_id": "4805",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.12517391203272962
+        ],
+        "dice_scores": [
+          0.2224970036971289
+        ]
+      },
+      {
+        "gt_frame_id": "5484",
+        "pred_frame_id": "5484",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1413017402804621
+        ],
+        "dice_scores": [
+          0.2476150439334979
+        ]
+      },
+      {
+        "gt_frame_id": "5562",
+        "pred_frame_id": "5562",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1134816471651206
+        ],
+        "dice_scores": [
+          0.20383209270496788
+        ]
+      },
+      {
+        "gt_frame_id": "5702",
+        "pred_frame_id": "5703",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21681759082498597
+        ],
+        "dice_scores": [
+          0.35636827156317913
+        ]
+      },
+      {
+        "gt_frame_id": "5872",
+        "pred_frame_id": "5873",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1294111088218169
+        ],
+        "dice_scores": [
+          0.22916563828881834
+        ]
+      },
+      {
+        "gt_frame_id": "6609",
+        "pred_frame_id": "6608",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.027566457314584767
+        ],
+        "dice_scores": [
+          0.05365386757879626
+        ]
+      },
+      {
+        "gt_frame_id": "6644",
+        "pred_frame_id": "6643",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.005791731568568906
+        ],
+        "dice_scores": [
+          0.011516761148029105
+        ]
+      },
+      {
+        "gt_frame_id": "6676",
+        "pred_frame_id": "6676",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.013630963618117744
+        ],
+        "dice_scores": [
+          0.026895318133263273
+        ]
+      },
+      {
+        "gt_frame_id": "6724",
+        "pred_frame_id": "6724",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.08866532151633083
+        ],
+        "dice_scores": [
+          0.16288811586803315
+        ]
+      },
+      {
+        "gt_frame_id": "6795",
+        "pred_frame_id": "6795",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03260152509535861
+        ],
+        "dice_scores": [
+          0.06314444498297236
+        ]
+      },
+      {
+        "gt_frame_id": "7160",
+        "pred_frame_id": "7160",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.25781863972771407
+        ],
+        "dice_scores": [
+          0.4099456496900464
+        ]
+      },
+      {
+        "gt_frame_id": "7518",
+        "pred_frame_id": "7518",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.040392949781712026
+        ],
+        "dice_scores": [
+          0.07764941081191869
+        ]
+      },
+      {
+        "gt_frame_id": "7569",
+        "pred_frame_id": "7569",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.016759650215612487
+        ],
+        "dice_scores": [
+          0.03296678858579501
+        ]
+      },
+      {
+        "gt_frame_id": "7629",
+        "pred_frame_id": "7630",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.10525020749131747
+        ],
+        "dice_scores": [
+          0.19045498797998514
+        ]
+      },
+      {
+        "gt_frame_id": "7727",
+        "pred_frame_id": "7727",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.06694364971737819
+        ],
+        "dice_scores": [
+          0.12548675787162863
+        ]
+      },
+      {
+        "gt_frame_id": "7879",
+        "pred_frame_id": "7879",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.041739376751873274
+        ],
+        "dice_scores": [
+          0.08013400987493817
+        ]
+      },
+      {
+        "gt_frame_id": "8334",
+        "pred_frame_id": "8334",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.08355048875435567
+        ],
+        "dice_scores": [
+          0.15421614335738965
+        ]
+      },
+      {
+        "gt_frame_id": "8477",
+        "pred_frame_id": "8477",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.01647326944992729
+        ],
+        "dice_scores": [
+          0.03241259744851319
+        ]
+      },
+      {
+        "gt_frame_id": "8595",
+        "pred_frame_id": "8594",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.015063859115555215
+        ],
+        "dice_scores": [
+          0.029680613648644032
+        ]
+      },
+      {
+        "gt_frame_id": "8974",
+        "pred_frame_id": "8974",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07858563088642777
+        ],
+        "dice_scores": [
+          0.14571978086124276
+        ]
+      },
+      {
+        "gt_frame_id": "9021",
+        "pred_frame_id": "9021",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.06236626196197726
+        ],
+        "dice_scores": [
+          0.11741009517150759
+        ]
+      },
+      {
+        "gt_frame_id": "9295",
+        "pred_frame_id": "9294",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.12657067041495373
+        ],
+        "dice_scores": [
+          0.22470080881536444
+        ]
+      },
+      {
+        "gt_frame_id": "9359",
+        "pred_frame_id": "9355",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03764071132375536
+        ],
+        "dice_scores": [
+          0.07255056767334381
+        ]
+      },
+      {
+        "gt_frame_id": "9412",
+        "pred_frame_id": "9414",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09811529952969798
+        ],
+        "dice_scores": [
+          0.1786976277841114
+        ]
+      },
+      {
+        "gt_frame_id": "9545",
+        "pred_frame_id": "9545",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.23580986050583386
+        ],
+        "dice_scores": [
+          0.3816280611473899
+        ]
+      },
+      {
+        "gt_frame_id": "9815",
+        "pred_frame_id": "9815",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0919085572231906
+        ],
+        "dice_scores": [
+          0.16834478787659893
+        ]
+      }
+    ],
+    "total_gt_objects": 62,
+    "total_pred_objects": 90,
+    "total_matches": 62,
+    "avg_iou": 0.08759188394596959,
+    "avg_dice": 0.14610833126473258,
+    "total_frames_analyzed": 62
+  },
+  {
+    "uuid": "0972bbc3-1d09-4a0d-8d94-fa88df0f8df5",
+    "video_title": "LapChol Case 0001 03.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21707497882018925
+        ],
+        "dice_scores": [
+          0.35671586812279693
+        ]
+      },
+      {
+        "gt_frame_id": "497",
+        "pred_frame_id": "497",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.07378693956455522
+        ],
+        "dice_scores": [
+          0.13743311050975807
+        ]
+      },
+      {
+        "gt_frame_id": "659",
+        "pred_frame_id": "659",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09887002614311581
+        ],
+        "dice_scores": [
+          0.1799485358430171
+        ]
+      },
+      {
+        "gt_frame_id": "808",
+        "pred_frame_id": "808",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1578824523626523
+        ],
+        "dice_scores": [
+          0.2727089473382969
+        ]
+      },
+      {
+        "gt_frame_id": "1325",
+        "pred_frame_id": "1325",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.4127414324508349
+        ],
+        "dice_scores": [
+          0.5843127736896735
+        ]
+      },
+      {
+        "gt_frame_id": "1673",
+        "pred_frame_id": "1674",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.4365474693533853
+        ],
+        "dice_scores": [
+          0.607773120856052
+        ]
+      },
+      {
+        "gt_frame_id": "2077",
+        "pred_frame_id": "2078",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.24052440329806085
+        ],
+        "dice_scores": [
+          0.3877785921157249
+        ]
+      },
+      {
+        "gt_frame_id": "2257",
+        "pred_frame_id": "2257",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.18631594088710637
+        ],
+        "dice_scores": [
+          0.3141084671723834
+        ]
+      },
+      {
+        "gt_frame_id": "3121",
+        "pred_frame_id": "3120",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.296313172886688
+        ],
+        "dice_scores": [
+          0.45716294346811986
+        ]
+      },
+      {
+        "gt_frame_id": "3205",
+        "pred_frame_id": "3205",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.17837943503589965
+        ],
+        "dice_scores": [
+          0.3027538155067434
+        ]
+      },
+      {
+        "gt_frame_id": "3277",
+        "pred_frame_id": "3277",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.21916801882458192
+        ],
+        "dice_scores": [
+          0.3595370210512659
+        ]
+      },
+      {
+        "gt_frame_id": "3401",
+        "pred_frame_id": "3401",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1696496170208205
+        ],
+        "dice_scores": [
+          0.2900862182179479
+        ]
+      },
+      {
+        "gt_frame_id": "3764",
+        "pred_frame_id": "3768",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.2147601337519397
+        ],
+        "dice_scores": [
+          0.3535844283737333
+        ]
+      },
+      {
+        "gt_frame_id": "4038",
+        "pred_frame_id": "4038",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.19518436130796152
+        ],
+        "dice_scores": [
+          0.326617997401438
+        ]
+      },
+      {
+        "gt_frame_id": "4150",
+        "pred_frame_id": "4150",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.27252246342651704
+        ],
+        "dice_scores": [
+          0.42831851108183455
+        ]
+      },
+      {
+        "gt_frame_id": "4425",
+        "pred_frame_id": "4429",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.23888395771559812
+        ],
+        "dice_scores": [
+          0.38564379856218467
+        ]
+      },
+      {
+        "gt_frame_id": "5026",
+        "pred_frame_id": "5026",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.2704673606847896
+        ],
+        "dice_scores": [
+          0.42577616561358345
+        ]
+      },
+      {
+        "gt_frame_id": "5157",
+        "pred_frame_id": "5158",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.20305005093148196
+        ],
+        "dice_scores": [
+          0.3375587753381782
+        ]
+      },
+      {
+        "gt_frame_id": "5225",
+        "pred_frame_id": "5225",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.20789649375173191
+        ],
+        "dice_scores": [
+          0.3442289878762782
+        ]
+      },
+      {
+        "gt_frame_id": "5489",
+        "pred_frame_id": "5491",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1731618519929621
+        ],
+        "dice_scores": [
+          0.295205391649576
+        ]
+      },
+      {
+        "gt_frame_id": "5548",
+        "pred_frame_id": "5548",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.09357790203498575
+        ],
+        "dice_scores": [
+          0.17114080644982166
+        ]
+      },
+      {
+        "gt_frame_id": "5727",
+        "pred_frame_id": "5727",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0554027576218316
+        ],
+        "dice_scores": [
+          0.10498884377879052
+        ]
+      },
+      {
+        "gt_frame_id": "6055",
+        "pred_frame_id": "6055",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.1895716005404016
+        ],
+        "dice_scores": [
+          0.3187224719458375
+        ]
+      },
+      {
+        "gt_frame_id": "6516",
+        "pred_frame_id": "6516",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15784914723817126
+        ],
+        "dice_scores": [
+          0.2726592624171989
+        ]
+      },
+      {
+        "gt_frame_id": "7051",
+        "pred_frame_id": "7051",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.09754260777498484
+        ],
+        "dice_scores": [
+          0.1777472821264407
+        ]
+      },
+      {
+        "gt_frame_id": "7131",
+        "pred_frame_id": "7133",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.15353541647755578
+        ],
+        "dice_scores": [
+          0.26619974434143107
+        ]
+      },
+      {
+        "gt_frame_id": "7384",
+        "pred_frame_id": "7384",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.1815919212704336
+        ],
+        "dice_scores": [
+          0.30736825125748685
+        ]
+      },
+      {
+        "gt_frame_id": "7902",
+        "pred_frame_id": "7903",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1390590649307487
+        ],
+        "dice_scores": [
+          0.24416480095209653
+        ]
+      },
+      {
+        "gt_frame_id": "8679",
+        "pred_frame_id": "8679",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04091258498478085
+        ],
+        "dice_scores": [
+          0.07860906972390776
+        ]
+      },
+      {
+        "gt_frame_id": "8785",
+        "pred_frame_id": "8785",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.06738581742413675
+        ],
+        "dice_scores": [
+          0.12626328048231936
+        ]
+      },
+      {
+        "gt_frame_id": "8850",
+        "pred_frame_id": "8850",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.14344491643443844
+        ],
+        "dice_scores": [
+          0.2508995656419329
+        ]
+      },
+      {
+        "gt_frame_id": "9545",
+        "pred_frame_id": "9545",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.19973850059087594
+        ],
+        "dice_scores": [
+          0.332970060546534
+        ]
+      }
+    ],
+    "total_gt_objects": 32,
+    "total_pred_objects": 43,
+    "total_matches": 32,
+    "avg_iou": 0.18696227492294426,
+    "avg_dice": 0.306218340920387,
+    "total_frames_analyzed": 32
+  },
+  {
+    "uuid": "6b934cfc-6636-4696-b61b-15b38375e528",
+    "video_title": "LapChol Case 0007 01.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04378470806110766
+        ],
+        "dice_scores": [
+          0.0838960519788422
+        ]
+      },
+      {
+        "gt_frame_id": "20",
+        "pred_frame_id": "20",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.02661445599230234
+        ],
+        "dice_scores": [
+          0.05184897959882594
+        ]
+      },
+      {
+        "gt_frame_id": "911",
+        "pred_frame_id": "911",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.30147187565715977
+        ],
+        "dice_scores": [
+          0.463278356291696
+        ]
+      },
+      {
+        "gt_frame_id": "992",
+        "pred_frame_id": "994",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.20401863012294458
+        ],
+        "dice_scores": [
+          0.33889613502427596
+        ]
+      },
+      {
+        "gt_frame_id": "1091",
+        "pred_frame_id": "1090",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.3114899939377447
+        ],
+        "dice_scores": [
+          0.4750169583871501
+        ]
+      },
+      {
+        "gt_frame_id": "1271",
+        "pred_frame_id": "1271",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.019191403654686693
+        ],
+        "dice_scores": [
+          0.03766005793586727
+        ]
+      },
+      {
+        "gt_frame_id": "1704",
+        "pred_frame_id": "1704",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03575576101954915
+        ],
+        "dice_scores": [
+          0.06904284265694621
+        ]
+      },
+      {
+        "gt_frame_id": "1988",
+        "pred_frame_id": "1988",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.054046563136716595
+        ],
+        "dice_scores": [
+          0.10255061783206329
+        ]
+      },
+      {
+        "gt_frame_id": "2581",
+        "pred_frame_id": "2581",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03285216092779305
+        ],
+        "dice_scores": [
+          0.06361444971617725
+        ]
+      },
+      {
+        "gt_frame_id": "2723",
+        "pred_frame_id": "2724",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03862896208055619
+        ],
+        "dice_scores": [
+          0.0743845270849671
+        ]
+      },
+      {
+        "gt_frame_id": "3006",
+        "pred_frame_id": "3005",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03695848296183324
+        ],
+        "dice_scores": [
+          0.07128247382917365
+        ]
+      },
+      {
+        "gt_frame_id": "3132",
+        "pred_frame_id": "3133",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.036252035506379614
+        ],
+        "dice_scores": [
+          0.06996760298504895
+        ]
+      },
+      {
+        "gt_frame_id": "3199",
+        "pred_frame_id": "3198",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.026992276641492105
+        ],
+        "dice_scores": [
+          0.05256568575133445
+        ]
+      },
+      {
+        "gt_frame_id": "3317",
+        "pred_frame_id": "3317",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.024108834108892786
+        ],
+        "dice_scores": [
+          0.04708256252836758
+        ]
+      },
+      {
+        "gt_frame_id": "3419",
+        "pred_frame_id": "3419",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02889299029856479
+        ],
+        "dice_scores": [
+          0.056163256181151755
+        ]
+      },
+      {
+        "gt_frame_id": "3517",
+        "pred_frame_id": "3517",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07417420857402714
+        ],
+        "dice_scores": [
+          0.1381046165174527
+        ]
+      },
+      {
+        "gt_frame_id": "3590",
+        "pred_frame_id": "3591",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.016356787322164824
+        ],
+        "dice_scores": [
+          0.032187097141862346
+        ]
+      },
+      {
+        "gt_frame_id": "3689",
+        "pred_frame_id": "3689",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04555484814316222
+        ],
+        "dice_scores": [
+          0.08714004477921877
+        ]
+      },
+      {
+        "gt_frame_id": "3768",
+        "pred_frame_id": "3768",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.019065023661964928
+        ],
+        "dice_scores": [
+          0.037416697108209274
+        ]
+      },
+      {
+        "gt_frame_id": "3845",
+        "pred_frame_id": "3845",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.04048984120261398
+        ],
+        "dice_scores": [
+          0.07782842195905576
+        ]
+      },
+      {
+        "gt_frame_id": "3932",
+        "pred_frame_id": "3932",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.02842182167109091
+        ],
+        "dice_scores": [
+          0.05527269272623574
+        ]
+      },
+      {
+        "gt_frame_id": "4069",
+        "pred_frame_id": "4069",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.03825240291472568
+        ],
+        "dice_scores": [
+          0.07368613413720643
+        ]
+      },
+      {
+        "gt_frame_id": "4242",
+        "pred_frame_id": "4242",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.006428620444492351
+        ],
+        "dice_scores": [
+          0.012775114526558537
+        ]
+      },
+      {
+        "gt_frame_id": "4580",
+        "pred_frame_id": "4580",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03720295556824966
+        ],
+        "dice_scores": [
+          0.07173707974610885
+        ]
+      },
+      {
+        "gt_frame_id": "4772",
+        "pred_frame_id": "4768",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.036870140819081736
+        ],
+        "dice_scores": [
+          0.07111814559527377
+        ]
+      },
+      {
+        "gt_frame_id": "4938",
+        "pred_frame_id": "4938",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.010844213575889678
+        ],
+        "dice_scores": [
+          0.02145575634751466
+        ]
+      },
+      {
+        "gt_frame_id": "5099",
+        "pred_frame_id": "5094",
+        "label_type": "start_of_tti",
+        "frame_offset": -5,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.014960817118276015
+        ],
+        "dice_scores": [
+          0.029480580660746027
+        ]
+      },
+      {
+        "gt_frame_id": "5142",
+        "pred_frame_id": "5142",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.038964578321850116
+        ],
+        "dice_scores": [
+          0.07500655774961305
+        ]
+      },
+      {
+        "gt_frame_id": "5212",
+        "pred_frame_id": "5211",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.05296558159802701
+        ],
+        "dice_scores": [
+          0.10060268355143025
+        ]
+      },
+      {
+        "gt_frame_id": "5511",
+        "pred_frame_id": "5511",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.044141422624377
+        ],
+        "dice_scores": [
+          0.08455065888187943
+        ]
+      },
+      {
+        "gt_frame_id": "6166",
+        "pred_frame_id": "6166",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.055241153869961555
+        ],
+        "dice_scores": [
+          0.10469863436878236
+        ]
+      },
+      {
+        "gt_frame_id": "6565",
+        "pred_frame_id": "6564",
+        "label_type": "start_of_tti",
+        "frame_offset": -1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07386012309011529
+        ],
+        "dice_scores": [
+          0.13756004437072697
+        ]
+      },
+      {
+        "gt_frame_id": "6816",
+        "pred_frame_id": "6816",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.02771509720855026
+        ],
+        "dice_scores": [
+          0.053935370383930724
+        ]
+      },
+      {
+        "gt_frame_id": "7035",
+        "pred_frame_id": "7035",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04297483890706442
+        ],
+        "dice_scores": [
+          0.08240819874829931
+        ]
+      },
+      {
+        "gt_frame_id": "7520",
+        "pred_frame_id": "7521",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.013702088017536727
+        ],
+        "dice_scores": [
+          0.027033757115630375
+        ]
+      },
+      {
+        "gt_frame_id": "7729",
+        "pred_frame_id": "7727",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.006909807545476057
+        ],
+        "dice_scores": [
+          0.013724779505961824
+        ]
+      },
+      {
+        "gt_frame_id": "8101",
+        "pred_frame_id": "8101",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.049640995569344426
+        ],
+        "dice_scores": [
+          0.09458661728892982
+        ]
+      }
+    ],
+    "total_gt_objects": 37,
+    "total_pred_objects": 52,
+    "total_matches": 37,
+    "avg_iou": 0.0539404459966423,
+    "avg_dice": 0.09566379029709499,
+    "total_frames_analyzed": 37
+  },
+  {
+    "uuid": "ed11d045-ab5a-48f1-824a-4736fa74c258",
+    "video_title": "LapChol Case 0015 02.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [],
+    "total_gt_objects": 0,
+    "total_pred_objects": 0,
+    "total_matches": 0,
+    "avg_iou": 0.0,
+    "avg_dice": 0.0,
+    "total_frames_analyzed": 0
+  },
+  {
+    "uuid": "108385b7-d223-479e-a9dc-fd2fe27c7fd2",
+    "video_title": "LapChol Case 0002 03.mp4",
+    "video_type": "safe",
+    "width": 1280,
+    "height": 720,
+    "frame_results": [
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.110912540453807
+        ],
+        "dice_scores": [
+          0.19967825803550532
+        ]
+      },
+      {
+        "gt_frame_id": "0",
+        "pred_frame_id": "0",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.030124105535471273
+        ],
+        "dice_scores": [
+          0.058486361737574113
+        ]
+      },
+      {
+        "gt_frame_id": "180",
+        "pred_frame_id": "180",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06744396558619645
+        ],
+        "dice_scores": [
+          0.1263653508016395
+        ]
+      },
+      {
+        "gt_frame_id": "415",
+        "pred_frame_id": "415",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07141529691804861
+        ],
+        "dice_scores": [
+          0.13331020589957304
+        ]
+      },
+      {
+        "gt_frame_id": "594",
+        "pred_frame_id": "594",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.05516611420624165
+        ],
+        "dice_scores": [
+          0.10456384727203046
+        ]
+      },
+      {
+        "gt_frame_id": "1111",
+        "pred_frame_id": "1112",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06848429370745636
+        ],
+        "dice_scores": [
+          0.12818961235233073
+        ]
+      },
+      {
+        "gt_frame_id": "1265",
+        "pred_frame_id": "1263",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.05725470573998573
+        ],
+        "dice_scores": [
+          0.10830825425347708
+        ]
+      },
+      {
+        "gt_frame_id": "1653",
+        "pred_frame_id": "1657",
+        "label_type": "start_of_tti",
+        "frame_offset": 4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06134520154787138
+        ],
+        "dice_scores": [
+          0.11559896150358097
+        ]
+      },
+      {
+        "gt_frame_id": "2532",
+        "pred_frame_id": "2533",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04444829223636912
+        ],
+        "dice_scores": [
+          0.08511343752824105
+        ]
+      },
+      {
+        "gt_frame_id": "2726",
+        "pred_frame_id": "2728",
+        "label_type": "start_of_tti",
+        "frame_offset": 2,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.03845928285498395
+        ],
+        "dice_scores": [
+          0.07406989082759177
+        ]
+      },
+      {
+        "gt_frame_id": "3102",
+        "pred_frame_id": "3103",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.1308648977342028
+        ],
+        "dice_scores": [
+          0.23144214308252603
+        ]
+      },
+      {
+        "gt_frame_id": "3621",
+        "pred_frame_id": "3621",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.07824845175497395
+        ],
+        "dice_scores": [
+          0.14513992879399096
+        ]
+      },
+      {
+        "gt_frame_id": "4886",
+        "pred_frame_id": "4884",
+        "label_type": "start_of_tti",
+        "frame_offset": -2,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.0777768388447727
+        ],
+        "dice_scores": [
+          0.14432828029249298
+        ]
+      },
+      {
+        "gt_frame_id": "6043",
+        "pred_frame_id": "6043",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.29115069217842227
+        ],
+        "dice_scores": [
+          0.45099413095956203
+        ]
+      },
+      {
+        "gt_frame_id": "6213",
+        "pred_frame_id": "6213",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.022706961908357005
+        ],
+        "dice_scores": [
+          0.044405607381387394
+        ]
+      },
+      {
+        "gt_frame_id": "6684",
+        "pred_frame_id": "6684",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.018208373422941806
+        ],
+        "dice_scores": [
+          0.03576551499322318
+        ]
+      },
+      {
+        "gt_frame_id": "6878",
+        "pred_frame_id": "6878",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.020501130271951884
+        ],
+        "dice_scores": [
+          0.040178554758657774
+        ]
+      },
+      {
+        "gt_frame_id": "7023",
+        "pred_frame_id": "7023",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.014789022424472834
+        ],
+        "dice_scores": [
+          0.029146989369553473
+        ]
+      },
+      {
+        "gt_frame_id": "7221",
+        "pred_frame_id": "7221",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.01837151256587042
+        ],
+        "dice_scores": [
+          0.03608017769385927
+        ]
+      },
+      {
+        "gt_frame_id": "7620",
+        "pred_frame_id": "7620",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.01194227734901892
+        ],
+        "dice_scores": [
+          0.023602684888912945
+        ]
+      },
+      {
+        "gt_frame_id": "7941",
+        "pred_frame_id": "7938",
+        "label_type": "start_of_tti",
+        "frame_offset": -3,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.06930447913881423
+        ],
+        "dice_scores": [
+          0.12962534150166466
+        ]
+      },
+      {
+        "gt_frame_id": "8166",
+        "pred_frame_id": "8162",
+        "label_type": "start_of_tti",
+        "frame_offset": -4,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.013779287791317742
+        ],
+        "dice_scores": [
+          0.027183999431154588
+        ]
+      },
+      {
+        "gt_frame_id": "8398",
+        "pred_frame_id": "8398",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 3,
+        "matches": 1,
+        "iou_scores": [
+          0.02209216737831669
+        ],
+        "dice_scores": [
+          0.04322930569947222
+        ]
+      },
+      {
+        "gt_frame_id": "8636",
+        "pred_frame_id": "8636",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.029353641085231887
+        ],
+        "dice_scores": [
+          0.0570331515110488
+        ]
+      },
+      {
+        "gt_frame_id": "8846",
+        "pred_frame_id": "8846",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 1,
+        "matches": 1,
+        "iou_scores": [
+          0.027945697085680392
+        ],
+        "dice_scores": [
+          0.054371932612605874
+        ]
+      },
+      {
+        "gt_frame_id": "9557",
+        "pred_frame_id": "9558",
+        "label_type": "start_of_tti",
+        "frame_offset": 1,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.04446404287457271
+        ],
+        "dice_scores": [
+          0.08514231423840847
+        ]
+      },
+      {
+        "gt_frame_id": "9810",
+        "pred_frame_id": "9810",
+        "label_type": "start_of_tti",
+        "frame_offset": 0,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.028676119681697324
+        ],
+        "dice_scores": [
+          0.05575344684888876
+        ]
+      },
+      {
+        "gt_frame_id": "9931",
+        "pred_frame_id": "9934",
+        "label_type": "start_of_tti",
+        "frame_offset": 3,
+        "gt_count": 1,
+        "pred_count": 2,
+        "matches": 1,
+        "iou_scores": [
+          0.043837255961570856
+        ],
+        "dice_scores": [
+          0.08399251073135626
+        ]
+      }
+    ],
+    "total_gt_objects": 28,
+    "total_pred_objects": 40,
+    "total_matches": 28,
+    "avg_iou": 0.05603809457995064,
+    "avg_dice": 0.10182500696429678,
+    "total_frames_analyzed": 28
+  }
+]

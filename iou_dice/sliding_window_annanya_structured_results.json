@@ -1,0 +1,67 @@
+{
+  "iou": {
+    "V5_Trimmed.mp4": 0.10717234761233767,
+    "V17_Trimmed.mp4": 0.23713223606486608,
+    "V14_Trimmed.mp4": 0.03420798917887872,
+    "LapChol Case 0020 02.mp4": 0.11492075118573267,
+    "LapChol Case 0020 03.mp4": 0.11605538662594264,
+    "LapChol Case 0018 10.mp4": 0.16068170931198622,
+    "V18_Trimmed.mp4": 0.11856710919740891,
+    "V15_Trimmed.mp4": 0.13211741707509692,
+    "LapChol Case 0012 04.mp4": 0.14634015599878702,
+    "LapChol Case 0019 03.mp4": 0.1086242276118181,
+    "LapChol Case 0023 03.mp4": 0.17895410207335782,
+    "LapChol Case 0018 11.mp4": 0.16640398712651322,
+    "LapChol Case 0016 01.mp4": 0.11412609084990502,
+    "LapChol Case 0019 02.mp4": 0.17724696790340247,
+    "LapChol Case 0023 04.mp4": 0.12183085421252896,
+    "V11-Trimmed.mp4": 0.05344444902312364,
+    "LapChol Case 0012 03.mp4": 0.18935772368336873,
+    "overall": 0.1339519708667679
+  },
+  "dice": {
+    "V5_Trimmed.mp4": 0.1847449395307846,
+    "V17_Trimmed.mp4": 0.35909792820277847,
+    "V14_Trimmed.mp4": 0.06279401476599131,
+    "LapChol Case 0020 02.mp4": 0.20143789912716437,
+    "LapChol Case 0020 03.mp4": 0.1912395444245834,
+    "LapChol Case 0018 10.mp4": 0.26389954834134055,
+    "V18_Trimmed.mp4": 0.18635765124902,
+    "V15_Trimmed.mp4": 0.21976977296814393,
+    "LapChol Case 0012 04.mp4": 0.24519463765941343,
+    "LapChol Case 0019 03.mp4": 0.19262874242046216,
+    "LapChol Case 0023 03.mp4": 0.2819614063239754,
+    "LapChol Case 0018 11.mp4": 0.27943282483875626,
+    "LapChol Case 0016 01.mp4": 0.19981947576642245,
+    "LapChol Case 0019 02.mp4": 0.2902865382883479,
+    "LapChol Case 0023 04.mp4": 0.20468331777131119,
+    "V11-Trimmed.mp4": 0.10035299884108834,
+    "LapChol Case 0012 03.mp4": 0.30268606958061245,
+    "overall": 0.22155219471177623
+  },
+  "statistical_summary": {
+    "total_videos": 17,
+    "safe_videos": 11,
+    "bdi_videos": 6,
+    "iou_statistics": {
+      "overall_mean": 0.1339519708667679,
+      "overall_std": 0.04776670013514907,
+      "safe_mean": 0.14495835968939483,
+      "safe_std": 0.02926669765201672,
+      "bdi_mean": 0.11377359135861866,
+      "bdi_std": 0.06530785540181772
+    },
+    "dice_statistics": {
+      "overall_mean": 0.22155219471177623,
+      "overall_std": 0.07070424633977901,
+      "safe_mean": 0.24120636404930815,
+      "safe_std": 0.04191609262508568,
+      "bdi_mean": 0.18551955092630112,
+      "bdi_std": 0.0945328267699766
+    }
+  },
+  "visualization_files": [
+    "sliding_window_annanya_tti_validation_plots.png",
+    "sliding_window_annanya_individual_video_scores.png"
+  ]
+}
