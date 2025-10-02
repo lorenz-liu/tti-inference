@@ -1,0 +1,41 @@
+Number,Group,Video Class (BDI/ Control = safe),Video Name,TTI Frame Seccond File name ,"Instrument number
+1 - 4","Yolo TTI
+0 = TN
+1 = TP
+2 = FN
+3 = FP","Ground Truth Location of TTI
+0 = no TTI (TN/FP)
+1 = ALOS
+2 = BLOS",Comments,Instument Type,TTI interaction,Side,
+,Control,Control 7,LapChol Case 0012 04,0,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,0,2,1,1,,cautery,energy-sharp dissection,right,
+,Control,Control 7,LapChol Case 0012 04,40,1,1,1,,G,other,left,
+,Control,Control 7,LapChol Case 0012 04,40,2,2,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,50,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,120,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,120,2,2,1,,G2,RG,left,
+,Control,Control 7,LapChol Case 0012 04,120,3,0,0,,cautery,,right,
+,Control,Control 7,LapChol Case 0012 04,180,1,1,1,,cautery,energy-sharp dissection,right,
+,Control,Control 7,LapChol Case 0012 04,190,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,200,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,210,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,210,2,1,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,220,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,220,2,1,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,230,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,230,2,2,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,240,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,240,2,0,0,,suction,,right,
+,Control,Control 7,LapChol Case 0012 04,250,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,250,2,2,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,260,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,260,2,3,0,,none,,,
+,Control,Control 7,LapChol Case 0012 04,260,3,2,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,270,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,270,2,3,0,,none,,,
+,Control,Control 7,LapChol Case 0012 04,270,3,1,1,,suction,other,right,
+,Control,Control 7,LapChol Case 0012 04,280,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,280,1,1,1,,suction,blunt dissection,right,
+,Control,Control 7,LapChol Case 0012 04,310,1,1,1,,cautery,energy-sharp dissection,right,
+,Control,Control 7,LapChol Case 0012 04,330,1,1,1,,G,RG,left,
+,Control,Control 7,LapChol Case 0012 04,330,1,1,1,,cautery,other,right,

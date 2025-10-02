@@ -1,0 +1,43 @@
+Number,Group,Video Class (BDI/ Control = safe),Video Name,TTI Frame Seccond File name ,"Instrument number
+1 - 4","Yolo TTI
+0 = TN
+1 = TP
+2 = FN
+3 = FP","Ground Truth Location of TTI
+0 = no TTI (TN/FP)
+1 = ALOS
+2 = BLOS",Comments,Instument Type,TTI interaction,Side,
+,Control,Control 1,LapChol Case 0001 05,0,1,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,0,2,1,1,,dissector,blunt dissection,right,
+,Control,Control 1,LapChol Case 0001 05,20,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,20,2,1,1,,dissector,other,right,
+,Control,Control 1,LapChol Case 0001 05,30,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,30,2,2,1,,dissector,other,right,
+,Control,Control 1,LapChol Case 0001 05,50,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,50,2,0,0,,dissector,,right,
+,Control,Control 1,LapChol Case 0001 05,60,1,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,60,2,3,0,,none,,,
+,Control,Control 1,LapChol Case 0001 05,60,3,0,0,,dissector,,right,
+,Control,Control 1,LapChol Case 0001 05,100,1,1,1,,dissector,other,right,
+,Control,Control 1,LapChol Case 0001 05,110,1,3,0,,none,,,
+,Control,Control 1,LapChol Case 0001 05,110,2,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,110,3,0,0,,dissector,,right,
+,Control,Control 1,LapChol Case 0001 05,140,1,1,1,,suction,blunt dissection,right,
+,Control,Control 1,LapChol Case 0001 05,150,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,150,2,2,1,,suction,suction,right,
+,Control,Control 1,LapChol Case 0001 05,170,1,1,1,,dissector,blunt dissection,right,
+,Control,Control 1,LapChol Case 0001 05,170,2,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,180,1,1,1,,dissector,other,right,
+,Control,Control 1,LapChol Case 0001 05,180,2,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,190,1,1,1,,dissector,other,right,
+,Control,Control 1,LapChol Case 0001 05,230,1,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,230,2,1,1,,dissector,RG,right,
+,Control,Control 1,LapChol Case 0001 05,230,3,1,1,,G2,RG,left,
+,Control,Control 1,LapChol Case 0001 05,240,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,240,2,2,1,,G2,RG,left,
+,Control,Control 1,LapChol Case 0001 05,240,3,2,1,,dissector,RG,right,
+,Control,Control 1,LapChol Case 0001 05,270,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,290,1,2,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,290,2,3,0,,scissor,,right,
+,Control,Control 1,LapChol Case 0001 05,310,1,1,1,,G,RG,left,
+,Control,Control 1,LapChol Case 0001 05,310,2,0,0,,scissor,,right,

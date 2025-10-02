@@ -432,12 +432,12 @@ class TTIValidationAnalyzer:
 
         return frame_results
 
-    def find_matching_frame_in_window(
+    def find_all_bboxes_in_window(
         self, gt_frame: int, label_type: str, pred_labels: Dict, window_size: int = 5
-    ) -> Tuple[str, List]:
+    ) -> List[Tuple[int, Dict]]:
         """
-        Search for matching label in prediction within [gt_frame - window_size, gt_frame + window_size]
-        Starting from center (gt_frame) and expanding outward
+        Collect ALL bounding boxes with matching label in prediction within
+        [gt_frame - window_size, gt_frame + window_size]
 
         Args:
             gt_frame: Ground truth frame number
@@ -446,32 +446,30 @@ class TTIValidationAnalyzer:
             window_size: Search window size (default: 5)
 
         Returns:
-            Tuple of (matched_frame_id, list_of_matching_objects) or (None, [])
+            List of tuples (frame_number, bbox_object) for all matching bboxes in the window
         """
-        # Search pattern: center first, then alternating +/- offsets
-        # 0, +1, -1, +2, -2, +3, -3, +4, -4, +5, -5
-        search_offsets = [0]
-        for offset in range(1, window_size + 1):
-            search_offsets.extend([offset, -offset])
+        all_matches = []
 
-        for offset in search_offsets:
+        # Search all frames in the window range
+        for offset in range(-window_size, window_size + 1):
             frame_to_check = gt_frame + offset
             frame_id = str(frame_to_check)
 
             if frame_id not in pred_labels:
                 continue
 
-            # Find objects with matching label type
+            # Find all objects with matching label type in this frame
             matching_objects = [
                 obj
                 for obj in pred_labels[frame_id].get("objects", [])
                 if obj.get("value") == label_type and "boundingBox" in obj
             ]
 
-            if matching_objects:
-                return frame_id, matching_objects
+            # Add all matching objects from this frame
+            for obj in matching_objects:
+                all_matches.append((frame_to_check, obj))
 
-        return None, []
+        return all_matches
 
     def analyze_video_pair(self, uuid: str, file_info: Dict) -> Dict:
         """Analyze a single video pair (ground truth vs predictions)
@@ -541,51 +539,57 @@ class TTIValidationAnalyzer:
             gt_label_type = gt_marker["label_type"]
             gt_bbox = gt_marker["bbox"]
 
-            # Search for matching label in prediction within ±5 frame window
-            matched_frame_id, matched_pred_objects = self.find_matching_frame_in_window(
-                gt_frame_num, gt_label_type, pred_labels, window_size=5
+            # Collect ALL bounding boxes with matching label in ±5 frame window
+            all_pred_matches = self.find_all_bboxes_in_window(
+                gt_frame_num, gt_label_type, pred_labels, window_size=10
             )
 
-            if not matched_frame_id:
+            if not all_pred_matches:
                 # No match found in window
                 continue
 
-            # Calculate metrics for matched bounding boxes
-            gt_objects_for_frame = [{"boundingBox": gt_bbox}]
-            pred_objects_for_frame = matched_pred_objects
+            # Calculate IoU/DICE for each predicted bbox and find the highest
+            best_iou = 0.0
+            best_dice = 0.0
+            best_pred_frame = None
+            best_pred_bbox = None
 
-            # Find best matches
-            matches = self.find_best_match(gt_objects_for_frame, pred_objects_for_frame)
+            for pred_frame_num, pred_obj in all_pred_matches:
+                pred_bbox = pred_obj["boundingBox"]
 
-            frame_results = {
-                "gt_frame_id": gt_marker["frame_id"],
-                "pred_frame_id": matched_frame_id,
-                "label_type": gt_label_type,
-                "frame_offset": int(matched_frame_id) - gt_frame_num,
-                "gt_count": len(gt_objects_for_frame),
-                "pred_count": len(pred_objects_for_frame),
-                "matches": len(matches),
-                "iou_scores": [],
-                "dice_scores": [],
-            }
+                # Calculate IoU and DICE for this pair
+                iou = self.calculate_bbox_iou(gt_bbox, pred_bbox)
+                dice = self.calculate_bbox_dice(gt_bbox, pred_bbox)
 
-            for gt_obj, pred_obj, iou in matches:
-                # Calculate Dice score
-                dice = self.calculate_bbox_dice(
-                    gt_obj["boundingBox"], pred_obj["boundingBox"]
-                )
+                # Keep track of the best match
+                if iou > best_iou:
+                    best_iou = iou
+                    best_dice = dice
+                    best_pred_frame = pred_frame_num
+                    best_pred_bbox = pred_bbox
 
-                frame_results["iou_scores"].append(iou)
-                frame_results["dice_scores"].append(dice)
+            # Only record if we found at least one match
+            if best_pred_frame is not None:
+                frame_results = {
+                    "gt_frame_id": gt_marker["frame_id"],
+                    "pred_frame_id": str(best_pred_frame),
+                    "label_type": gt_label_type,
+                    "frame_offset": best_pred_frame - gt_frame_num,
+                    "gt_count": 1,
+                    "pred_count": len(all_pred_matches),
+                    "matches": 1,
+                    "iou_scores": [best_iou],
+                    "dice_scores": [best_dice],
+                    "total_candidates_checked": len(all_pred_matches),
+                }
 
-            if frame_results["iou_scores"]:  # Only add if we have scores
                 video_results["frame_results"].append(frame_results)
-                video_results["total_gt_objects"] += frame_results["gt_count"]
-                video_results["total_pred_objects"] += frame_results["pred_count"]
-                video_results["total_matches"] += frame_results["matches"]
+                video_results["total_gt_objects"] += 1
+                video_results["total_pred_objects"] += len(all_pred_matches)
+                video_results["total_matches"] += 1
 
-                all_ious.extend(frame_results["iou_scores"])
-                all_dices.extend(frame_results["dice_scores"])
+                all_ious.append(best_iou)
+                all_dices.append(best_dice)
 
         # Calculate averages
         video_results["avg_iou"] = np.mean(all_ious) if all_ious else 0.0
