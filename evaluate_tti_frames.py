@@ -445,6 +445,10 @@ class TTIFrameEvaluator:
         """Fast ROI extraction"""
         H, W = image.shape[:2]
 
+        # Ensure depth_map matches image dimensions
+        if depth_map.shape[:2] != (H, W):
+            depth_map = cv2.resize(depth_map, (W, H), interpolation=cv2.INTER_LINEAR)
+
         # Resize masks
         tool_mask_resized = cv2.resize(
             tool_mask.astype(np.uint8), (W, H), interpolation=cv2.INTER_NEAREST
@@ -514,6 +518,13 @@ class TTIFrameEvaluator:
                     depth_map = self._fallback_depth_estimation(pil_frame)
             else:
                 depth_map = self._fallback_depth_estimation(pil_frame)
+
+            # Resize depth map to match frame dimensions
+            H, W = frame.shape[:2]
+            if depth_map.shape[:2] != (H, W):
+                depth_map = cv2.resize(
+                    depth_map, (W, H), interpolation=cv2.INTER_LINEAR
+                )
 
             self.depth_cache[depth_cache_key] = depth_map
             if len(self.depth_cache) > DEPTH_CACHE_MAX_SIZE:
