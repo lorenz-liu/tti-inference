@@ -630,9 +630,10 @@ def load_ground_truth_annotations(annotations_dir: str) -> Dict:
 def extract_tti_frames_from_annotations(annotation_data: Dict) -> List[Tuple[int, str]]:
     """
     Extract frame indices where TTI starts or ends.
+    Only includes frames with exactly one 'start_of_tti' bounding box.
 
     Returns:
-        List of tuples (frame_idx, label_type) where label_type is 'start_of_tti' or 'end_of_tti_'
+        List of tuples (frame_idx, label_type, obj) where label_type is 'start_of_tti'
     """
     tti_frames = []
 
@@ -644,10 +645,14 @@ def extract_tti_frames_from_annotations(annotation_data: Dict) -> List[Tuple[int
             frame_idx = int(frame_str)
             objects = frame_data.get("objects", [])
 
-            for obj in objects:
-                value = obj.get("value", "")
-                if value in ["start_of_tti", "end_of_tti_"]:
-                    tti_frames.append((frame_idx, value, obj))
+            # Count start_of_tti objects in this frame
+            start_tti_objs = [
+                obj for obj in objects if obj.get("value", "") == "start_of_tti"
+            ]
+
+            # Only include frames with exactly one start_of_tti bounding box
+            if len(start_tti_objs) == 1:
+                tti_frames.append((frame_idx, "start_of_tti", start_tti_objs[0]))
 
     return tti_frames
 
@@ -810,6 +815,10 @@ def evaluate_frame_batch(
             current_video_name = video_name
             print(f"  Processing video: {video_name}")
 
+        # Skip frames with multiple ground truth boxes (already filtered, but double-check)
+        if len(gt_objs) != 1:
+            continue
+
         # Extract frame
         frame = extract_frame(video_path, frame_idx)
         if frame is None:
@@ -826,6 +835,10 @@ def evaluate_frame_batch(
 
         # Run inference once per frame
         predictions = evaluator.process_frame(frame, frame_idx)
+
+        # Only evaluate if there is exactly one prediction
+        if len(predictions) != 1:
+            continue
 
         # If there are multiple ground truth boxes in this frame, match each with best prediction
         # and compute average IoU/DICE for the frame
