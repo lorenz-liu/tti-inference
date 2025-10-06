@@ -16,12 +16,12 @@ OUTPUT_BASE_DIR = CSV_DIR
 # ===================================
 
 
-def get_frames_from_csv(csv_file):
+def get_seconds_from_csv(csv_file):
     """
-    Read CSV file and extract frame numbers from column 5 (index 4).
-    Returns a sorted list of unique frame numbers.
+    Read CSV file and extract second values from column 5 (index 4).
+    Returns a sorted list of unique seconds.
     """
-    frames = set()
+    seconds = set()
 
     with open(csv_file, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -30,34 +30,34 @@ def get_frames_from_csv(csv_file):
         for row in reader:
             if len(row) > 4:
                 try:
-                    frame_num = int(row[4])
-                    frames.add(frame_num)
+                    sec = int(row[4])
+                    seconds.add(sec)
                 except (ValueError, IndexError):
                     continue
 
-    return sorted(frames)
+    return sorted(seconds)
 
 
-def find_missing_frames(existing_frames, total_video_frames):
+def find_missing_seconds(existing_seconds, total_video_seconds):
     """
-    Given a list of existing frame numbers and total frames in video,
-    find missing frames assuming frames should be at intervals of 10 (0, 10, 20, 30, ...).
+    Given a list of existing seconds and total duration in seconds,
+    find missing seconds assuming seconds should be at intervals of 10 (0, 10, 20, 30, ...).
     """
-    if total_video_frames is None:
+    if total_video_seconds is None:
         return []
 
-    # Generate all expected frames at intervals of 10, from 0 to total_video_frames
-    expected_frames = set(range(0, total_video_frames, 10))
+    # Generate all expected seconds at intervals of 10, from 0 to total_video_seconds
+    expected_seconds = set(range(0, total_video_seconds, 10))
 
-    # Find missing frames
-    missing = sorted(expected_frames - set(existing_frames))
+    # Find missing seconds
+    missing = sorted(expected_seconds - set(existing_seconds))
 
     return missing
 
 
-def extract_frames(video_path, frame_numbers, output_dir, use_gpu=True):
+def extract_frames_from_seconds(video_path, seconds_list, output_dir, use_gpu=True):
     """
-    Extract specific frames from video and save as JPG files.
+    Extract all frames from specific seconds in video and save as JPG files.
     Uses GPU acceleration if available.
     """
     # Create output directory if it doesn't exist
@@ -90,23 +90,35 @@ def extract_frames(video_path, frame_numbers, output_dir, use_gpu=True):
     print(f"  Video FPS: {fps:.2f}, Total frames: {total_frames}")
 
     extracted_count = 0
-    for frame_num in frame_numbers:
-        # Set position to the specific frame
-        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)
+    for second in seconds_list:
+        # Calculate frame range for this second
+        start_frame = int(second * fps)
+        end_frame = int((second + 1) * fps)
 
-        # Read the frame
-        ret, frame = cap.read()
+        # Extract all frames in this second
+        for frame_num in range(start_frame, end_frame):
+            if frame_num >= total_frames:
+                break
 
-        if ret:
-            # Save frame as JPG
-            output_file = os.path.join(output_dir, f"frame_{frame_num:06d}.jpg")
-            cv2.imwrite(output_file, frame)
-            extracted_count += 1
-        else:
-            print(f"  Warning: Could not read frame {frame_num}")
+            # Set position to the specific frame
+            cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)
+
+            # Read the frame
+            ret, frame = cap.read()
+
+            if ret:
+                # Save frame as JPG with format: frame_sec_{second}_{frame_in_second}.jpg
+                frame_in_second = frame_num - start_frame
+                output_file = os.path.join(
+                    output_dir, f"frame_sec_{second:03d}_{frame_in_second:03d}.jpg"
+                )
+                cv2.imwrite(output_file, frame)
+                extracted_count += 1
+            else:
+                print(f"  Warning: Could not read frame {frame_num} at second {second}")
 
     cap.release()
-    print(f"  Extracted {extracted_count}/{len(frame_numbers)} frames")
+    print(f"  Extracted {extracted_count} frames from {len(seconds_list)} seconds")
 
     return True
 
@@ -186,7 +198,7 @@ def process_all_csvs():
             print()
             continue
 
-        # Get total frames from video
+        # Get video info
         cap = cv2.VideoCapture(video_file)
         if not cap.isOpened():
             print(f"  Error: Could not open video {video_file}")
@@ -203,25 +215,28 @@ def process_all_csvs():
 
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         fps = cap.get(cv2.CAP_PROP_FPS)
+        total_seconds = int(total_frames / fps) if fps > 0 else 0
         cap.release()
 
-        print(f"  Video info: {total_frames} total frames, FPS: {fps:.2f}")
+        print(
+            f"  Video info: {total_frames} total frames, FPS: {fps:.2f}, Duration: {total_seconds}s"
+        )
 
-        # Get existing frames from CSV
-        existing_frames = get_frames_from_csv(csv_file)
-        print(f"  Existing frames in CSV: {len(existing_frames)} frames")
-        if existing_frames:
-            print(f"  Range: {min(existing_frames)} - {max(existing_frames)}")
+        # Get existing seconds from CSV
+        existing_seconds = get_seconds_from_csv(csv_file)
+        print(f"  Existing seconds in CSV: {len(existing_seconds)} seconds")
+        if existing_seconds:
+            print(f"  Range: {min(existing_seconds)}s - {max(existing_seconds)}s")
 
-        # Find missing frames based on total video frames
-        missing_frames = find_missing_frames(existing_frames, total_frames)
+        # Find missing seconds based on total video duration
+        missing_seconds = find_missing_seconds(existing_seconds, total_seconds)
 
-        if not missing_frames:
-            print("  No missing frames - all frames present!")
+        if not missing_seconds:
+            print("  No missing seconds - all seconds present!")
             summary.append(
                 {
                     "video": video_name,
-                    "existing": len(existing_frames),
+                    "existing": len(existing_seconds),
                     "missing": 0,
                     "status": "complete",
                 }
@@ -230,21 +245,23 @@ def process_all_csvs():
             continue
 
         print(
-            f"  Missing {len(missing_frames)} frames: {missing_frames[:10]}{'...' if len(missing_frames) > 10 else ''}"
+            f"  Missing {len(missing_seconds)} seconds: {missing_seconds[:10]}{'...' if len(missing_seconds) > 10 else ''}"
         )
 
         # Create output directory for this video
         output_dir = OUTPUT_BASE_DIR / video_name
 
-        # Extract missing frames
-        print(f"  Extracting {len(missing_frames)} frames to {output_dir}")
-        success = extract_frames(video_file, missing_frames, output_dir)
+        # Extract frames from missing seconds
+        print(
+            f"  Extracting frames from {len(missing_seconds)} seconds to {output_dir}"
+        )
+        success = extract_frames_from_seconds(video_file, missing_seconds, output_dir)
 
         summary.append(
             {
                 "video": video_name,
-                "existing": len(existing_frames),
-                "missing": len(missing_frames),
+                "existing": len(existing_seconds),
+                "missing": len(missing_seconds),
                 "status": "extracted" if success else "failed",
             }
         )
