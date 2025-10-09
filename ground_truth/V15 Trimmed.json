@@ -1,0 +1,2731 @@
+[
+  {
+    "label_hash": "8cd23621-9e61-4f2c-a6b3-f1863962f75f",
+    "branch_name": "main",
+    "created_at": "2025-06-18 20:36:44",
+    "last_edited_at": "2025-06-20 02:01:39",
+    "dataset_hash": "3352b997-0f30-4f24-8dde-56acef69acc2",
+    "dataset_title": "Ziyad YOLO BDI interaction",
+    "data_title": "V15_Trimmed.mp4",
+    "data_hash": "dfd96833-55d7-485b-8bf9-7b88028f4ce6",
+    "data_type": "video",
+    "is_image_sequence": null,
+    "data_units": {
+      "dfd96833-55d7-485b-8bf9-7b88028f4ce6": {
+        "data_hash": "dfd96833-55d7-485b-8bf9-7b88028f4ce6",
+        "data_title": "V15_Trimmed.mp4",
+        "data_type": "video/mp4",
+        "data_sequence": 0,
+        "labels": {
+          "0": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "bdJMXOc4",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 0,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:51:48 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:51:48 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4458358178467169,
+                  "y": 0.5366260288052241,
+                  "w": 0.07307547444840495,
+                  "h": 0.15580256264425965
+                }
+              },
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "L1UeNz5N",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 0,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:51:53 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:51:53 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5384364480757636,
+                  "y": 0.6083631392305875,
+                  "w": 0.05916299140479559,
+                  "h": 0.11322187325184262
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "504": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "ysuAXyqw",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 504,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:52:31 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:52:31 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5390995817754167,
+                  "y": 0.4178234114759617,
+                  "w": 0.057466319418736235,
+                  "h": 0.12173059707061734
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "505": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "NdDPKPJv",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 505,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:52:37 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:52:37 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5492528611017092,
+                  "y": 0.4155775022740733,
+                  "w": 0.044023607724974594,
+                  "h": 0.09614566402650852
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "527": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "P5WuykKd",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 527,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:52:43 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:52:43 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4925139229155208,
+                  "y": 0.6127151693259222,
+                  "w": 0.0942632159034418,
+                  "h": 0.15787425291986337
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "528": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "DfjM4rW9",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 528,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:52:48 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:52:48 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4799683009696543,
+                  "y": 0.6547704474900574,
+                  "w": 0.11683765049209889,
+                  "h": 0.19657151292578653
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "728": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "3mWbDAZE",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 728,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:01 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:02 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5154334555868167,
+                  "y": 0.34452028178238014,
+                  "w": 0.07299903847679388,
+                  "h": 0.1385959761460272
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "729": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "irCRVemm",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 729,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:12 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:13 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5116364470511084,
+                  "y": 0.33722925414798066,
+                  "w": 0.10225645598874607,
+                  "h": 0.17217294420381565
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "752": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "zDDHMgqi",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 752,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:20 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:20 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5856405152627349,
+                  "y": 0.39989802844589695,
+                  "w": 0.058166948061220226,
+                  "h": 0.11059424326680348
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "753": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "FKgsbNam",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 753,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:25 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:25 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5727607441707036,
+                  "y": 0.36388027388922967,
+                  "w": 0.08638535281852903,
+                  "h": 0.21265198868310572
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "796": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "ne327C0S",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 796,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:36 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:36 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5176555732317757,
+                  "y": 0.22672671109336512,
+                  "w": 0.07607145465999957,
+                  "h": 0.1610710210178447
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "797": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "BDywvyFB",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 797,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:41 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:41 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.523606320205407,
+                  "y": 0.2802588618717798,
+                  "w": 0.10033088925526734,
+                  "h": 0.17740456181630893
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "817": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "agRA6c8Y",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 817,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:49 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:49 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6585576432996806,
+                  "y": 0.5529223845364181,
+                  "w": 0.05037450733917538,
+                  "h": 0.12267824244237839
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "818": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "CQd6iLPg",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 818,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:53:54 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:53:55 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6536320679723197,
+                  "y": 0.5089900638562175,
+                  "w": 0.0966224018380332,
+                  "h": 0.17483408665688877
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1070": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "1AvVrugb",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1070,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:10 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:11 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5152785178065238,
+                  "y": 0.4225943474217178,
+                  "w": 0.12421981597192847,
+                  "h": 0.2372185788201495
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1071": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "2d9m3Hhs",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1071,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:18 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:18 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5184857298585843,
+                  "y": 0.45156484311831285,
+                  "w": 0.12134127859779575,
+                  "h": 0.20939818052823145
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1129": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "1DOtHjEU",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1129,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:27 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:27 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7498266349530377,
+                  "y": 0.477581650878897,
+                  "w": 0.07183163394821462,
+                  "h": 0.1670836398117397
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1130": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "MTO7mOl7",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1130,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:32 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:32 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7432476669262459,
+                  "y": 0.49215636094922294,
+                  "w": 0.08011842948124681,
+                  "h": 0.16728356693268026
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1435": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "CenLpnPV",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1435,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:48 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:48 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6975301760952572,
+                  "y": 0.40024302323668226,
+                  "w": 0.05730632033762049,
+                  "h": 0.13224272377294047
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1436": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "f4cHZ63L",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1436,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:54:55 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:54:55 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7031431587078503,
+                  "y": 0.3970270887614349,
+                  "w": 0.06080243970400034,
+                  "h": 0.13276411809580727
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1443": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "dBTsVafJ",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1443,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:01 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:01 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7395453770202234,
+                  "y": 0.363194989825431,
+                  "w": 0.06458137216534098,
+                  "h": 0.17794512251644157
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1444": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "5FXJnjy9",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1444,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:06 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:06 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7355444703656498,
+                  "y": 0.38521979698459036,
+                  "w": 0.0781380147735446,
+                  "h": 0.1461282476427788
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1480": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "ro6xH9kD",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1480,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:12 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:12 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7250130395635894,
+                  "y": 0.2650541862636561,
+                  "w": 0.07019941607875708,
+                  "h": 0.17213484098673634
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1481": {
+            "classifications": [],
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "3aDtDfba",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1481,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:22 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:22 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7017394224183978,
+                  "y": 0.255325815192162,
+                  "w": 0.11876445672781984,
+                  "h": 0.24662605653334851
+                }
+              }
+            ]
+          },
+          "1498": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "kbQ6xZyT",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1498,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:30 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:30 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5525908406403368,
+                  "y": 0.8441790146798198,
+                  "w": 0.08711986118897024,
+                  "h": 0.15582098532018024
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1499": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "ousSBahK",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1499,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:36 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:36 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5476469826549014,
+                  "y": 0.8325002638762551,
+                  "w": 0.10992102139612242,
+                  "h": 0.14425751740665127
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1677": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "VWCjdJTL",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1677,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:52 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:53 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6033355459825586,
+                  "y": 0.31004696997341624,
+                  "w": 0.06865592591148037,
+                  "h": 0.12618132827043493
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1678": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "nWZ03yGI",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1678,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:55:58 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:55:58 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6275721530781964,
+                  "y": 0.327333435505044,
+                  "w": 0.06797440626189925,
+                  "h": 0.1353477916587339
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1692": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "DDgC0Cdx",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1692,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:04 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:04 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6830908013067989,
+                  "y": 0.33918169971712175,
+                  "w": 0.06753469284142838,
+                  "h": 0.16320594886155296
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1693": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "yYLrgdzm",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1693,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:09 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:09 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6975939071688844,
+                  "y": 0.32238277173414837,
+                  "w": 0.0881756072238852,
+                  "h": 0.18488289201177346
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1899": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "8OtZdsjW",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1899,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:22 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:22 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4831443188819491,
+                  "y": 0.7238437757816467,
+                  "w": 0.0672846232640358,
+                  "h": 0.13628591122622488
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1900": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "IJVQ72vs",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1900,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:28 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:28 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4757392226106363,
+                  "y": 0.7779882177140333,
+                  "w": 0.07469364462578269,
+                  "h": 0.0898305148705011
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1927": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "xJMhUetE",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1927,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:35 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:35 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.674234557785264,
+                  "y": 0.49124303142657855,
+                  "w": 0.12212567693349129,
+                  "h": 0.19306108189925686
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "1928": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "DjrL9zq3",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 1928,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:56:40 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:56:40 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6927045872821119,
+                  "y": 0.48583696535034826,
+                  "w": 0.08160696838244633,
+                  "h": 0.16391131745242657
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "2894": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "rzk1hVzA",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 2894,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:57:24 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:57:24 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5311001441789008,
+                  "y": 0.6492093288648083,
+                  "w": 0.10826866161522673,
+                  "h": 0.1978232954218258
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "2895": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "fLVzYB4L",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 2895,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:57:30 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:57:30 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5290543457279151,
+                  "y": 0.6430860730189119,
+                  "w": 0.10972610966851405,
+                  "h": 0.1929634137133091
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "2965": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "AGSpYO7l",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 2965,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:57:38 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:57:38 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.49729447648052755,
+                  "y": 0.6484963855380094,
+                  "w": 0.08112325263237224,
+                  "h": 0.1495559304177596
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "2966": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "0tb5pbhB",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 2966,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:57:43 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:57:43 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.49085856767087277,
+                  "y": 0.6200191658263758,
+                  "w": 0.08386544475984728,
+                  "h": 0.17078940721016428
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3119": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "dkKYRArB",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3119,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:57:55 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:57:55 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4382230016579582,
+                  "y": 0.2025565321364185,
+                  "w": 0.1358153594490396,
+                  "h": 0.21374057005057018
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3120": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "rHVbDidB",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3120,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:01 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:01 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.4573652545375698,
+                  "y": 0.20835832078038913,
+                  "w": 0.14453257213572512,
+                  "h": 0.24831315680764748
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3135": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "8t2Pqhcn",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3135,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:11 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:11 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.46681108795904547,
+                  "y": 0.5218552937506463,
+                  "w": 0.1255210867426807,
+                  "h": 0.25885431999768477
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3136": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "lfXKbKOk",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3136,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:16 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:16 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.493532587175019,
+                  "y": 0.6241853853540855,
+                  "w": 0.1040610679617427,
+                  "h": 0.2370378180764746
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3241": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "ixrYegCZ",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3241,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:26 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:26 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5605963724562109,
+                  "y": 0.4442624533800253,
+                  "w": 0.07867492582818578,
+                  "h": 0.18736476571461147
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3242": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "Bb53pC3m",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3242,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:33 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:33 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5598394497535538,
+                  "y": 0.4593673949651309,
+                  "w": 0.0692741276548486,
+                  "h": 0.12158449648223744
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3354": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "H7xLIw6B",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3354,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:43 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:43 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5173718305101328,
+                  "y": 0.1308675098073089,
+                  "w": 0.0909974373704307,
+                  "h": 0.17689625112822255
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3355": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "Qt21KyVy",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3355,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:49 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:49 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.526408111732368,
+                  "y": 0.22096336997265226,
+                  "w": 0.10388795081522886,
+                  "h": 0.16218324474289464
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3365": {
+            "objects": [
+              {
+                "featureHash": "tpAQ6MdG",
+                "objectHash": "iq5k7ex0",
+                "name": "End of No Interaction",
+                "value": "end_of_no_interaction",
+                "color": "#000000",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3365,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:58:57 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:58:57 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6511314754902479,
+                  "y": 0.5787782865429499,
+                  "w": 0.13446987976497723,
+                  "h": 0.31553113387241233
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3366": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "9Qsp0VTh",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3366,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:59:03 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:59:03 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6636555094387269,
+                  "y": 0.6436942324987425,
+                  "w": 0.1427930340304515,
+                  "h": 0.27855322415283407
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3603": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "sn8NLgqa",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3603,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:59:23 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:59:23 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5911849120845849,
+                  "y": 0.4930877091618716,
+                  "w": 0.13986904824076618,
+                  "h": 0.277086250295277
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3811": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "HHol20eI",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3811,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 01:59:58 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 01:59:58 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6693309836227047,
+                  "y": 0.20034539785855132,
+                  "w": 0.14894220465471109,
+                  "h": 0.36961601083593065
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "3812": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "pl8RzhmS",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 3812,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 02:00:28 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 02:00:28 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.6798572498320887,
+                  "y": 0.22672567817482983,
+                  "w": 0.15429644117421532,
+                  "h": 0.3636171642891728
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "4076": {
+            "objects": [
+              {
+                "featureHash": "s7/A4zcg",
+                "objectHash": "xVZDgK9f",
+                "name": "Start of TTI",
+                "value": "start_of_tti",
+                "color": "#D33115",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 4076,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 02:00:58 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 02:00:58 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.7311068457543577,
+                  "y": 0.5136575931797187,
+                  "w": 0.05409518319512614,
+                  "h": 0.16061837316193753
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "4156": {
+            "objects": [
+              {
+                "featureHash": "orS7zbRG",
+                "objectHash": "auRU5uMD",
+                "name": "End of TTI ",
+                "value": "end_of_tti_",
+                "color": "#d3b515",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 4156,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 02:01:22 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 02:01:22 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5127434258453736,
+                  "y": 0.7743072403604554,
+                  "w": 0.11333998174791624,
+                  "h": 0.1554639949021382
+                }
+              }
+            ],
+            "classifications": []
+          },
+          "4157": {
+            "objects": [
+              {
+                "featureHash": "UZX/aFrr",
+                "objectHash": "FWheaZxo",
+                "name": "Start of No Interaction ",
+                "value": "start_of_no_interaction_",
+                "color": "#1eff00",
+                "shape": "bounding_box",
+                "confidence": 1,
+                "frame": 4157,
+                "createdBy": "madanilab99@gmail.com",
+                "createdAt": "Fri, 20 Jun 2025 02:01:29 GMT",
+                "lastEditedBy": "madanilab99@gmail.com",
+                "lastEditedAt": "Fri, 20 Jun 2025 02:01:29 GMT",
+                "manualAnnotation": true,
+                "boundingBox": {
+                  "x": 0.5125414902717254,
+                  "y": 0.7757791492732368,
+                  "w": 0.11913909628056786,
+                  "h": 0.12692996467106418
+                }
+              }
+            ],
+            "classifications": []
+          }
+        },
+        "width": 1280,
+        "height": 720,
+        "data_fps": 30.0,
+        "data_duration": 141.86667,
+        "data_link": "gs://cord-ai-platform.appspot.com/cord-videos-prod/06EaLrKlAOPJwt0M0SXN535c0x33/dfd96833-55d7-485b-8bf9-7b88028f4ce6"
+      }
+    },
+    "object_answers": {
+      "bdJMXOc4": {
+        "objectHash": "bdJMXOc4",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Grasper 1",
+                "value": "grasper_1",
+                "featureHash": "OF9qKWW1"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[0, 0]],
+        "createdAt": "Fri, 20 Jun 2025 01:51:48 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:51:49 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "L1UeNz5N": {
+        "objectHash": "L1UeNz5N",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[0, 0]],
+        "createdAt": "Fri, 20 Jun 2025 01:51:53 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:51:54 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "ysuAXyqw": {
+        "objectHash": "ysuAXyqw",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[504, 504]],
+        "createdAt": "Fri, 20 Jun 2025 01:52:31 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:52:32 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "NdDPKPJv": {
+        "objectHash": "NdDPKPJv",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[505, 505]],
+        "createdAt": "Fri, 20 Jun 2025 01:52:37 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:52:38 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "P5WuykKd": {
+        "objectHash": "P5WuykKd",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[527, 527]],
+        "createdAt": "Fri, 20 Jun 2025 01:52:43 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:52:44 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "DfjM4rW9": {
+        "objectHash": "DfjM4rW9",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[528, 528]],
+        "createdAt": "Fri, 20 Jun 2025 01:52:48 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:52:49 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "3mWbDAZE": {
+        "objectHash": "3mWbDAZE",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[728, 728]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:01 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:03 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "irCRVemm": {
+        "objectHash": "irCRVemm",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[729, 729]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:12 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:14 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "zDDHMgqi": {
+        "objectHash": "zDDHMgqi",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[752, 752]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:20 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:21 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "FKgsbNam": {
+        "objectHash": "FKgsbNam",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[753, 753]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:25 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:27 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "ne327C0S": {
+        "objectHash": "ne327C0S",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[796, 796]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:36 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:37 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "BDywvyFB": {
+        "objectHash": "BDywvyFB",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[797, 797]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:41 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:43 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "agRA6c8Y": {
+        "objectHash": "agRA6c8Y",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[817, 817]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:49 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:50 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "CQd6iLPg": {
+        "objectHash": "CQd6iLPg",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[818, 818]],
+        "createdAt": "Fri, 20 Jun 2025 01:53:54 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:53:56 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "1AvVrugb": {
+        "objectHash": "1AvVrugb",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[1070, 1070]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:10 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:12 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "2d9m3Hhs": {
+        "objectHash": "2d9m3Hhs",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[1071, 1071]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:18 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:19 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "1DOtHjEU": {
+        "objectHash": "1DOtHjEU",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[1129, 1129]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:27 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:28 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "MTO7mOl7": {
+        "objectHash": "MTO7mOl7",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[1130, 1130]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:32 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:34 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "CenLpnPV": {
+        "objectHash": "CenLpnPV",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[1435, 1435]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:48 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:50 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "f4cHZ63L": {
+        "objectHash": "f4cHZ63L",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[1436, 1436]],
+        "createdAt": "Fri, 20 Jun 2025 01:54:55 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:54:56 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "dBTsVafJ": {
+        "objectHash": "dBTsVafJ",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[1443, 1443]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:01 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:02 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "5FXJnjy9": {
+        "objectHash": "5FXJnjy9",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[1444, 1444]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:06 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:07 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "ro6xH9kD": {
+        "objectHash": "ro6xH9kD",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[1480, 1480]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:12 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:14 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "3aDtDfba": {
+        "objectHash": "3aDtDfba",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[1481, 1481]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:22 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:24 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "kbQ6xZyT": {
+        "objectHash": "kbQ6xZyT",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[1498, 1498]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:30 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:32 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "ousSBahK": {
+        "objectHash": "ousSBahK",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[1499, 1499]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:36 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:37 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "VWCjdJTL": {
+        "objectHash": "VWCjdJTL",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[1677, 1677]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:52 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:55:55 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "nWZ03yGI": {
+        "objectHash": "nWZ03yGI",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[1678, 1678]],
+        "createdAt": "Fri, 20 Jun 2025 01:55:58 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:00 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "DDgC0Cdx": {
+        "objectHash": "DDgC0Cdx",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[1692, 1692]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:04 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:05 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "yYLrgdzm": {
+        "objectHash": "yYLrgdzm",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[1693, 1693]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:09 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:11 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "8OtZdsjW": {
+        "objectHash": "8OtZdsjW",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[1899, 1899]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:22 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:24 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "IJVQ72vs": {
+        "objectHash": "IJVQ72vs",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[1900, 1900]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:28 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:29 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "xJMhUetE": {
+        "objectHash": "xJMhUetE",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[1927, 1927]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:35 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:36 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "DjrL9zq3": {
+        "objectHash": "DjrL9zq3",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[1928, 1928]],
+        "createdAt": "Fri, 20 Jun 2025 01:56:40 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:56:42 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "rzk1hVzA": {
+        "objectHash": "rzk1hVzA",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[2894, 2894]],
+        "createdAt": "Fri, 20 Jun 2025 01:57:24 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:57:25 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "fLVzYB4L": {
+        "objectHash": "fLVzYB4L",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[2895, 2895]],
+        "createdAt": "Fri, 20 Jun 2025 01:57:30 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:57:31 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "AGSpYO7l": {
+        "objectHash": "AGSpYO7l",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[2965, 2965]],
+        "createdAt": "Fri, 20 Jun 2025 01:57:38 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:57:39 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "0tb5pbhB": {
+        "objectHash": "0tb5pbhB",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[2966, 2966]],
+        "createdAt": "Fri, 20 Jun 2025 01:57:43 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:57:45 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "dkKYRArB": {
+        "objectHash": "dkKYRArB",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[3119, 3119]],
+        "createdAt": "Fri, 20 Jun 2025 01:57:55 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:57:58 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "rHVbDidB": {
+        "objectHash": "rHVbDidB",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[3120, 3120]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:01 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:03 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "8t2Pqhcn": {
+        "objectHash": "8t2Pqhcn",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[3135, 3135]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:11 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:12 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "lfXKbKOk": {
+        "objectHash": "lfXKbKOk",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[3136, 3136]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:16 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:18 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "ixrYegCZ": {
+        "objectHash": "ixrYegCZ",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[3241, 3241]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:26 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:27 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "Bb53pC3m": {
+        "objectHash": "Bb53pC3m",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[3242, 3242]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:33 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:34 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "H7xLIw6B": {
+        "objectHash": "H7xLIw6B",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "1seZ2DyM"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[3354, 3354]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:43 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:45 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "Qt21KyVy": {
+        "objectHash": "Qt21KyVy",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "+2meA67y"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[3355, 3355]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:49 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:51 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "iq5k7ex0": {
+        "objectHash": "iq5k7ex0",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "zm0+Hg+K"
+              }
+            ],
+            "featureHash": "94G4iO0j",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "tpAQ6MdG",
+        "range": [[3365, 3365]],
+        "createdAt": "Fri, 20 Jun 2025 01:58:57 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:58:59 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "9Qsp0VTh": {
+        "objectHash": "9Qsp0VTh",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Cautery",
+                "value": "cautery",
+                "featureHash": "Ts6WvQr+"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[3366, 3366]],
+        "createdAt": "Fri, 20 Jun 2025 01:59:03 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:59:05 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "sn8NLgqa": {
+        "objectHash": "sn8NLgqa",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Dissector",
+                "value": "dissector",
+                "featureHash": "suhWbzlZ"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[3603, 3603]],
+        "createdAt": "Fri, 20 Jun 2025 01:59:23 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:59:46 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "HHol20eI": {
+        "objectHash": "HHol20eI",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Dissector",
+                "value": "dissector",
+                "featureHash": "TGjqVPbI"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[3811, 3811]],
+        "createdAt": "Fri, 20 Jun 2025 01:59:58 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 01:59:59 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "pl8RzhmS": {
+        "objectHash": "pl8RzhmS",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Dissector",
+                "value": "dissector",
+                "featureHash": "LD+2VFK3"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[3812, 3812]],
+        "createdAt": "Fri, 20 Jun 2025 02:00:28 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 02:00:30 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "xVZDgK9f": {
+        "objectHash": "xVZDgK9f",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Dissector",
+                "value": "dissector",
+                "featureHash": "suhWbzlZ"
+              }
+            ],
+            "featureHash": "yI5tM7Nm",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "s7/A4zcg",
+        "range": [[4076, 4076]],
+        "createdAt": "Fri, 20 Jun 2025 02:00:58 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 02:00:59 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "auRU5uMD": {
+        "objectHash": "auRU5uMD",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Grasper 1",
+                "value": "grasper_1",
+                "featureHash": "CuzEBS46"
+              }
+            ],
+            "featureHash": "tpREpTqe",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "orS7zbRG",
+        "range": [[4156, 4156]],
+        "createdAt": "Fri, 20 Jun 2025 02:01:22 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 02:01:25 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      },
+      "FWheaZxo": {
+        "objectHash": "FWheaZxo",
+        "classifications": [
+          {
+            "name": "type of instrument",
+            "value": "type_of_instrument",
+            "answers": [
+              {
+                "name": "Grasper 1",
+                "value": "grasper_1",
+                "featureHash": "ozD/0ztU"
+              }
+            ],
+            "featureHash": "mEppVVdi",
+            "manualAnnotation": true
+          }
+        ],
+        "featureHash": "UZX/aFrr",
+        "range": [[4157, 4157]],
+        "createdAt": "Fri, 20 Jun 2025 02:01:29 GMT",
+        "createdBy": "madanilab99@gmail.com",
+        "lastEditedAt": "Fri, 20 Jun 2025 02:01:31 GMT",
+        "lastEditedBy": "madanilab99@gmail.com"
+      }
+    },
+    "classification_answers": {},
+    "object_actions": {},
+    "label_status": "LABEL_IN_PROGRESS",
+    "is_valid": true,
+    "video_link": "gs://cord-ai-platform.appspot.com/cord-videos-prod/06EaLrKlAOPJwt0M0SXN535c0x33/dfd96833-55d7-485b-8bf9-7b88028f4ce6"
+  }
+]
