@@ -15,6 +15,8 @@ Output:
 - combined_results.json: All results combined
 - <video_name>_results.json: Per-video detailed results
 - <video_name>_metrics.png: Per-video IoU and DICE plots
+- <video_name>_frame_<N>_gt.jpg: Frame with ground truth bounding box (green)
+- <video_name>_frame_<N>_pred.jpg: Frame with prediction bounding box (blue)
 - overall_summary.png: Summary plot across all videos
 
 Usage:
@@ -352,27 +354,28 @@ def run_inference_on_frame(
         return None
 
 
-def extract_prediction_tti_bbox(pred_data: Dict, frame_idx: int = 0) -> Optional[Dict]:
+def extract_prediction_tti_bboxes(pred_data: Dict, frame_idx: int = 0) -> List[Dict]:
     """
-    Extract tti_bounding_box from prediction data if there's exactly one start_of_tti.
+    Extract all tti_bounding_boxes from prediction data that have start_of_tti.
 
     Args:
         pred_data: Prediction data structure
         frame_idx: Frame index to check
 
     Returns:
-        tti_bounding_box dict or None
+        List of tti_bounding_box dicts with additional metadata
     """
-    print(pred_data)
     if isinstance(pred_data, list):
         pred_data = pred_data[0]
+
+    tti_bboxes = []
 
     for data_unit_key, data_unit_value in pred_data["data_units"].items():
         labels = data_unit_value.get("labels", {})
         frame_data = labels.get(str(frame_idx))
 
         if not frame_data:
-            return None
+            return []
 
         objects = frame_data.get("objects", [])
 
@@ -387,15 +390,145 @@ def extract_prediction_tti_bbox(pred_data: Dict, frame_idx: int = 0) -> Optional
             )
         ]
 
-        # Only return if exactly one TTI detected
-        if len(tti_objects) == 1:
-            return tti_objects[0].get("tti_bounding_box")
+        # Return all TTI bounding boxes with metadata
+        for obj in tti_objects:
+            tti_bbox = obj.get("tti_bounding_box")
+            if tti_bbox:
+                tti_bboxes.append(
+                    {
+                        "tti_bounding_box": tti_bbox,
+                        "confidence": obj.get("confidence"),
+                        "tool_info": obj.get("tool_info"),
+                        "tissue_info": obj.get("tissue_info"),
+                        "full_object": obj,
+                    }
+                )
 
-    return None
+    return tti_bboxes
+
+
+def draw_bbox_on_frame(
+    frame: np.ndarray,
+    bbox: Dict[str, float],
+    color: tuple = (0, 255, 0),
+    thickness: int = 3,
+    label: str = None,
+) -> np.ndarray:
+    """
+    Draw a bounding box on a frame.
+
+    Args:
+        frame: Input frame (BGR format)
+        bbox: Bounding box dict with keys 'x', 'y', 'w', 'h' (normalized coordinates)
+        color: BGR color tuple for the box
+        thickness: Line thickness
+        label: Optional label text to draw
+
+    Returns:
+        Frame with bounding box drawn
+    """
+    frame_with_bbox = frame.copy()
+    h, w = frame.shape[:2]
+
+    # Convert normalized coordinates to pixel coordinates
+    x = int(bbox["x"] * w)
+    y = int(bbox["y"] * h)
+    box_w = int(bbox["w"] * w)
+    box_h = int(bbox["h"] * h)
+
+    # Draw rectangle
+    cv2.rectangle(frame_with_bbox, (x, y), (x + box_w, y + box_h), color, thickness)
+
+    # Draw label if provided
+    if label:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.8
+        font_thickness = 2
+
+        # Get text size for background
+        (text_w, text_h), _ = cv2.getTextSize(label, font, font_scale, font_thickness)
+
+        # Draw background rectangle for text
+        text_bg_y = y - text_h - 10 if y > text_h + 10 else y + box_h + 5
+        cv2.rectangle(
+            frame_with_bbox,
+            (x, text_bg_y - 5),
+            (x + text_w + 10, text_bg_y + text_h + 5),
+            color,
+            -1,
+        )
+
+        # Draw text
+        cv2.putText(
+            frame_with_bbox,
+            label,
+            (x + 5, text_bg_y + text_h),
+            font,
+            font_scale,
+            (255, 255, 255),
+            font_thickness,
+        )
+
+    return frame_with_bbox
+
+
+def save_annotated_frames(
+    frame: np.ndarray,
+    gt_bbox: Dict[str, float],
+    pred_bbox: Dict[str, float],
+    output_dir: str,
+    video_name: str,
+    frame_idx: int,
+    iou: float,
+    dice: float,
+):
+    """
+    Save frames with ground truth and prediction bounding boxes.
+
+    Args:
+        frame: Input frame (BGR format)
+        gt_bbox: Ground truth bounding box
+        pred_bbox: Predicted bounding box
+        output_dir: Directory to save images
+        video_name: Video filename
+        frame_idx: Frame index
+        iou: IoU score
+        dice: DICE score
+    """
+    safe_video_name = video_name.replace(" ", "_").replace(".mp4", "")
+
+    # Draw ground truth bbox (green)
+    gt_label = "GT"
+    frame_gt = draw_bbox_on_frame(
+        frame, gt_bbox, color=(0, 255, 0), thickness=3, label=gt_label
+    )
+
+    # Draw prediction bbox (blue)
+    pred_label = f"Pred (IoU:{iou:.3f} DICE:{dice:.3f})"
+    frame_pred = draw_bbox_on_frame(
+        frame, pred_bbox, color=(255, 0, 0), thickness=3, label=pred_label
+    )
+
+    # Save ground truth frame
+    gt_filename = f"{safe_video_name}_frame_{frame_idx}_gt.jpg"
+    gt_path = os.path.join(output_dir, gt_filename)
+    cv2.imwrite(gt_path, frame_gt)
+
+    # Save prediction frame
+    pred_filename = f"{safe_video_name}_frame_{frame_idx}_pred.jpg"
+    pred_path = os.path.join(output_dir, pred_filename)
+    cv2.imwrite(pred_path, frame_pred)
+
+    print(f"      Saved annotated frames: {gt_filename}, {pred_filename}")
 
 
 def process_ground_truth_file(
-    gt_path: str, video_dir: str, temp_dir: str, vit_model: str, yolo_model: str
+    gt_path: str,
+    video_dir: str,
+    temp_dir: str,
+    vit_model: str,
+    yolo_model: str,
+    output_dir: str,
 ) -> List[Dict]:
     """
     Process a single ground truth file and calculate metrics.
@@ -406,6 +539,7 @@ def process_ground_truth_file(
         temp_dir: Temporary directory for intermediate files
         vit_model: Path to ViT model
         yolo_model: Path to YOLO model
+        output_dir: Directory to save annotated frames
 
     Returns:
         List of result dictionaries with metrics
@@ -481,30 +615,79 @@ def process_ground_truth_file(
             )
             continue
 
-        # Extract prediction bbox
-        pred_bbox = extract_prediction_tti_bbox(pred_data, frame_idx=0)
+        # Extract all prediction bboxes with TTI
+        pred_tti_bboxes = extract_prediction_tti_bboxes(pred_data, frame_idx=0)
 
-        if pred_bbox is None:
-            print(f"    No single TTI detected in prediction for frame {frame_idx}")
+        if not pred_tti_bboxes:
+            print(f"    No TTI detected in prediction for frame {frame_idx}")
             results.append(
                 {
                     "ground_truth_file": os.path.basename(gt_path),
                     "video_file": actual_video_filename,
                     "gt_video_filename": gt_video_filename,
                     "frame": frame_idx,
-                    "status": "no_single_tti_predicted",
+                    "status": "no_tti_predicted",
                     "iou": 0.0,
                     "dice": 0.0,
                     "ground_truth_bbox": gt_bbox,
+                    "num_predictions": 0,
                 }
             )
             continue
 
-        # Calculate metrics
-        iou = calculate_iou(gt_bbox, pred_bbox)
-        dice = calculate_dice(gt_bbox, pred_bbox)
+        # Calculate metrics for all predicted TTI bboxes
+        print(
+            f"    Found {len(pred_tti_bboxes)} TTI prediction(s), calculating metrics..."
+        )
 
-        print(f"    IoU: {iou:.4f}, DICE: {dice:.4f}")
+        best_match = None
+        best_iou = -1
+        all_matches = []
+
+        for idx, pred_info in enumerate(pred_tti_bboxes):
+            pred_bbox = pred_info["tti_bounding_box"]
+            iou = calculate_iou(gt_bbox, pred_bbox)
+            dice = calculate_dice(gt_bbox, pred_bbox)
+
+            match_info = {
+                "prediction_index": idx,
+                "iou": iou,
+                "dice": dice,
+                "predicted_bbox": pred_bbox,
+                "confidence": pred_info["confidence"],
+                "tool_info": pred_info["tool_info"],
+                "tissue_info": pred_info["tissue_info"],
+            }
+            all_matches.append(match_info)
+
+            print(
+                f"      Prediction {idx}: IoU={iou:.4f}, DICE={dice:.4f}, Conf={pred_info['confidence']:.4f}"
+            )
+
+            # Track best match by IoU
+            if iou > best_iou:
+                best_iou = iou
+                best_match = match_info
+
+        # Use the best match
+        print(
+            f"    Best match: Prediction {best_match['prediction_index']} with IoU={best_match['iou']:.4f}, DICE={best_match['dice']:.4f}"
+        )
+
+        # Load the frame for annotation
+        frame_for_annotation = cv2.imread(frame_img_path)
+        if frame_for_annotation is not None:
+            # Save annotated frames with bounding boxes
+            save_annotated_frames(
+                frame_for_annotation,
+                gt_bbox,
+                best_match["predicted_bbox"],
+                output_dir,
+                actual_video_filename,
+                frame_idx,
+                best_match["iou"],
+                best_match["dice"],
+            )
 
         results.append(
             {
@@ -513,10 +696,16 @@ def process_ground_truth_file(
                 "gt_video_filename": gt_video_filename,
                 "frame": frame_idx,
                 "status": "success",
-                "iou": iou,
-                "dice": dice,
+                "iou": best_match["iou"],
+                "dice": best_match["dice"],
                 "ground_truth_bbox": gt_bbox,
-                "predicted_bbox": pred_bbox,
+                "predicted_bbox": best_match["predicted_bbox"],
+                "num_predictions": len(pred_tti_bboxes),
+                "best_prediction_index": best_match["prediction_index"],
+                "best_prediction_confidence": best_match["confidence"],
+                "best_prediction_tool": best_match["tool_info"],
+                "best_prediction_tissue": best_match["tissue_info"],
+                "all_predictions": all_matches,
             }
         )
 
@@ -787,6 +976,10 @@ def calculate_summary_statistics(results: List[Dict]) -> Dict:
     ious = [r["iou"] for r in successful_results]
     dices = [r["dice"] for r in successful_results]
 
+    # Calculate statistics about multiple predictions
+    num_predictions_list = [r.get("num_predictions", 1) for r in successful_results]
+    frames_with_multiple_predictions = sum(1 for n in num_predictions_list if n > 1)
+
     return {
         "total_frames": len(results),
         "successful_comparisons": len(successful_results),
@@ -801,6 +994,9 @@ def calculate_summary_statistics(results: List[Dict]) -> Dict:
         "max_iou": float(np.max(ious)),
         "min_dice": float(np.min(dices)),
         "max_dice": float(np.max(dices)),
+        "frames_with_multiple_predictions": frames_with_multiple_predictions,
+        "mean_predictions_per_frame": float(np.mean(num_predictions_list)),
+        "max_predictions_in_frame": int(np.max(num_predictions_list)),
     }
 
 
@@ -868,7 +1064,12 @@ def main():
     all_results = []
     for gt_path in gt_files:
         results = process_ground_truth_file(
-            str(gt_path), args.video_dir, temp_dir, args.vit_model, args.yolo_model
+            str(gt_path),
+            args.video_dir,
+            temp_dir,
+            args.vit_model,
+            args.yolo_model,
+            output_dir,
         )
         all_results.extend(results)
 
@@ -911,6 +1112,15 @@ def main():
         print(f"\nMean DICE: {summary['mean_dice']:.4f} ± {summary['std_dice']:.4f}")
         print(f"Median DICE: {summary['median_dice']:.4f}")
         print(f"Range DICE: [{summary['min_dice']:.4f}, {summary['max_dice']:.4f}]")
+
+        print("\nMultiple Predictions Statistics:")
+        print(
+            f"Frames with multiple predictions: {summary['frames_with_multiple_predictions']}"
+        )
+        print(
+            f"Mean predictions per frame: {summary['mean_predictions_per_frame']:.2f}"
+        )
+        print(f"Max predictions in a frame: {summary['max_predictions_in_frame']}")
 
     print(f"\nAll results saved to: {output_dir}")
     print("=" * 60)
