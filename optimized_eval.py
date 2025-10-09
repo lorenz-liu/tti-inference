@@ -38,14 +38,16 @@ New Features:
 - Fixed heat map logic (only shows for TTI detected)
 - Configurable ROI bounding boxes
 - Real-time video playback support
+- Separate bounding boxes for tissue interaction and tool
 """
+
 import argparse
 import json
 import os
 import uuid
 import warnings
 from datetime import datetime
-from typing import List, Dict, Tuple, Optional
+from typing import Dict, List, Tuple
 
 import cv2
 import numpy as np
@@ -728,15 +730,14 @@ class OptimizedTTIVideoEvaluator:
             for tissue in tissues:
                 pairs.append({"tool": tool, "tissue": tissue})
 
+        # Simple​​​​​​​​​​​​​​​​```python
         # Simple deduplication based on confidence
         if len(pairs) > 3:  # Only deduplicate if too many pairs
             pairs = sorted(
                 pairs,
                 key=lambda p: p["tool"]["confidence"] + p["tissue"]["confidence"],
                 reverse=True,
-            )[
-                :3
-            ]  # Keep top 3 pairs
+            )[:3]  # Keep top 3 pairs
 
         return pairs
 
@@ -790,7 +791,7 @@ class OptimizedTTIVideoEvaluator:
     def _create_tti_result(
         self, pair, bbox, frame_idx, tti_class, tti_confidence, frame_shape
     ):
-        """Create TTI result object"""
+        """Create TTI result object with separate bounding boxes for tissue and tool"""
         if tti_class == 1:
             tti_name = TTI_CLASS_POSITIVE_NAME
             tti_value = TTI_CLASS_POSITIVE_VALUE
@@ -799,6 +800,45 @@ class OptimizedTTIVideoEvaluator:
             tti_name = TTI_CLASS_NEGATIVE_NAME
             tti_value = TTI_CLASS_NEGATIVE_VALUE
             color = TTI_CLASS_NEGATIVE_COLOR
+
+        # Calculate tissue interaction bounding box
+        tissue_mask = pair["tissue"]["mask"]
+        H_full, W_full = frame_shape[:2]
+        tissue_mask_resized = cv2.resize(
+            tissue_mask.astype(np.uint8),
+            (W_full, H_full),
+            interpolation=cv2.INTER_NEAREST,
+        )
+        if cv2.countNonZero(tissue_mask_resized) > 0:
+            tissue_x, tissue_y, tissue_w, tissue_h = cv2.boundingRect(
+                tissue_mask_resized
+            )
+            tti_bounding_box = {
+                "x": float(tissue_x) / W_full,
+                "y": float(tissue_y) / H_full,
+                "w": float(tissue_w) / W_full,
+                "h": float(tissue_h) / H_full,
+            }
+        else:
+            tti_bounding_box = {"x": 0.0, "y": 0.0, "w": 0.0, "h": 0.0}
+
+        # Calculate tool bounding box
+        tool_mask = pair["tool"]["mask"]
+        tool_mask_resized = cv2.resize(
+            tool_mask.astype(np.uint8),
+            (W_full, H_full),
+            interpolation=cv2.INTER_NEAREST,
+        )
+        if cv2.countNonZero(tool_mask_resized) > 0:
+            tool_x, tool_y, tool_w, tool_h = cv2.boundingRect(tool_mask_resized)
+            tool_bounding_box = {
+                "x": float(tool_x) / W_full,
+                "y": float(tool_y) / H_full,
+                "w": float(tool_w) / W_full,
+                "h": float(tool_h) / H_full,
+            }
+        else:
+            tool_bounding_box = {"x": 0.0, "y": 0.0, "w": 0.0, "h": 0.0}
 
         return {
             "featureHash": str(uuid.uuid4())[:8],
@@ -820,6 +860,8 @@ class OptimizedTTIVideoEvaluator:
                 "w": float(bbox[2]) / frame_shape[1],
                 "h": float(bbox[3]) / frame_shape[0],
             },
+            "tti_bounding_box": tti_bounding_box,
+            "tool_bounding_box": tool_bounding_box,
             "tool_info": {
                 "class": pair["tool"]["class"],
                 "name": self.TOOL_NAMES.get(
@@ -1056,9 +1098,9 @@ class OptimizedTTIVideoEvaluator:
                 frame_result = self._convert_to_json_serializable(frame_result)
 
                 if frame_result["objects"]:
-                    results[0]["data_units"][data_hash]["labels"][
-                        str(frame_idx)
-                    ] = frame_result
+                    results[0]["data_units"][data_hash]["labels"][str(frame_idx)] = (
+                        frame_result
+                    )
 
                     tti_count = sum(
                         1
