@@ -1,0 +1,1554 @@
+{
+  "summary": {
+    "video_file": "LapChol Case 0001 03.mp4",
+    "total_frames": 35,
+    "successful_comparisons": 19,
+    "failed_comparisons": 16,
+    "mean_iou": 0.16736985677091165,
+    "std_iou": 0.1990419744109973,
+    "median_iou": 0.1252573344256415,
+    "min_iou": 0.0,
+    "max_iou": 0.7324657712496551,
+    "mean_dice": 0.24273545883661088,
+    "std_dice": 0.26180227769692843,
+    "median_dice": 0.22262878115711346,
+    "min_dice": 0.0,
+    "max_dice": 0.8455760378126442
+  },
+  "detailed_results": [
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 289,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5545173370004971,
+        "y": 0.5161221651165578,
+        "w": 0.1286114757084003,
+        "h": 0.20261265311804635
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 497,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.6630153065305572,
+        "y": 0.24589884019027766,
+        "w": 0.07874258199224701,
+        "h": 0.13321657203214263
+      },
+      "predicted_bbox": {
+        "x": 0.515625,
+        "y": 0.08888888888888889,
+        "w": 0.10625,
+        "h": 0.16666666666666666
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.7294921875,
+      "best_prediction_tool": {
+        "class": 8,
+        "name": "grasper_2",
+        "confidence": 0.6978566646575928
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.7660496234893799
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.515625,
+            "y": 0.08888888888888889,
+            "w": 0.10625,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.7294921875,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.6978566646575928
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7660496234893799
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.515625,
+            "y": 0.08888888888888889,
+            "w": 0.10625,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.59619140625,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.8517909646034241
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7660496234893799
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 659,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5468820031876691,
+        "y": 0.36388367220034357,
+        "w": 0.1185719207128427,
+        "h": 0.19491252764070285
+      },
+      "predicted_bbox": {
+        "x": 0.509375,
+        "y": 0.19305555555555556,
+        "w": 0.1,
+        "h": 0.16666666666666666
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.7177734375,
+      "best_prediction_tool": {
+        "class": 8,
+        "name": "grasper_2",
+        "confidence": 0.5445079207420349
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.7148149013519287
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.509375,
+            "y": 0.19305555555555556,
+            "w": 0.1,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.7177734375,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.5445079207420349
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7148149013519287
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.509375,
+            "y": 0.19305555555555556,
+            "w": 0.1,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.626953125,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.9012724757194519
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7148149013519287
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 808,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5996964706908952,
+        "y": 0.3564578811184935,
+        "w": 0.13987080420227613,
+        "h": 0.2067848330088572
+      },
+      "predicted_bbox": {
+        "x": 0.553125,
+        "y": 0.21388888888888888,
+        "w": 0.08125,
+        "h": 0.1361111111111111
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.72998046875,
+      "best_prediction_tool": {
+        "class": 8,
+        "name": "grasper_2",
+        "confidence": 0.5425686240196228
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.49774742126464844
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.553125,
+            "y": 0.21388888888888888,
+            "w": 0.08125,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.72998046875,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.5425686240196228
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.49774742126464844
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 1325,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5233774254579877,
+        "y": 0.29961665358512146,
+        "w": 0.2656352465518701,
+        "h": 0.2694513484634103
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 1673,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5614718742067185,
+        "y": 0.1006771793313756,
+        "w": 0.1836016828143509,
+        "h": 0.3504962957334112
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 1928,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.3102836460404679,
+        "y": 0.3630032420311058,
+        "w": 0.20611166328640634,
+        "h": 0.25135807887913636
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 2077,
+      "status": "success",
+      "iou": 0.3700536787193541,
+      "dice": 0.540203182499037,
+      "ground_truth_bbox": {
+        "x": 0.593043545696977,
+        "y": 0.197177788018816,
+        "w": 0.15199819743320564,
+        "h": 0.2501070474028512
+      },
+      "predicted_bbox": {
+        "x": 0.590625,
+        "y": 0.26666666666666666,
+        "w": 0.09375,
+        "h": 0.15555555555555556
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.521484375,
+      "best_prediction_tool": {
+        "class": 7,
+        "name": "bipolar",
+        "confidence": 0.6982885003089905
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.5148009657859802
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.3700536787193541,
+          "dice": 0.540203182499037,
+          "predicted_bbox": {
+            "x": 0.590625,
+            "y": 0.26666666666666666,
+            "w": 0.09375,
+            "h": 0.15555555555555556
+          },
+          "confidence": 0.521484375,
+          "tool_info": {
+            "class": 7,
+            "name": "bipolar",
+            "confidence": 0.6982885003089905
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.5148009657859802
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 2257,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5773070318119077,
+        "y": 0.29836790165319016,
+        "w": 0.14019813608610798,
+        "h": 0.1618914865064441
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 2735,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.49416163456300766,
+        "y": 0.3708127856374286,
+        "w": 0.13582847751443775,
+        "h": 0.11239512623036468
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 2944,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.33956957210399386,
+        "y": 0.5591764453742056,
+        "w": 0.15637642922871894,
+        "h": 0.2448964473841323
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 3121,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5759522558610277,
+        "y": 0.3562880550641404,
+        "w": 0.19701774520990237,
+        "h": 0.23548491014583242
+      },
+      "predicted_bbox": {
+        "x": 0.596875,
+        "y": 0.17222222222222222,
+        "w": 0.11875,
+        "h": 0.15694444444444444
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.64306640625,
+      "best_prediction_tool": {
+        "class": 1,
+        "name": "dissector",
+        "confidence": 0.846460223197937
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.2561192810535431
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.596875,
+            "y": 0.17222222222222222,
+            "w": 0.11875,
+            "h": 0.15694444444444444
+          },
+          "confidence": 0.64306640625,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.846460223197937
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.2561192810535431
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 3205,
+      "status": "success",
+      "iou": 0.3785980533299408,
+      "dice": 0.5492508166763393,
+      "ground_truth_bbox": {
+        "x": 0.5761542947265295,
+        "y": 0.38146457035372483,
+        "w": 0.13103697501295697,
+        "h": 0.22291778212370375
+      },
+      "predicted_bbox": {
+        "x": 0.578125,
+        "y": 0.4222222222222222,
+        "w": 0.08125,
+        "h": 0.1361111111111111
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.65771484375,
+      "best_prediction_tool": {
+        "class": 1,
+        "name": "dissector",
+        "confidence": 0.8163371682167053
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.6582168936729431
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.3785980533299408,
+          "dice": 0.5492508166763393,
+          "predicted_bbox": {
+            "x": 0.578125,
+            "y": 0.4222222222222222,
+            "w": 0.08125,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.65771484375,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.8163371682167053
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.6582168936729431
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 3277,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5268977151180931,
+        "y": 0.37166796546920966,
+        "w": 0.1746920374045418,
+        "h": 0.23783266548061155
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 3401,
+      "status": "success",
+      "iou": 0.33163101301231007,
+      "dice": 0.49808244141463887,
+      "ground_truth_bbox": {
+        "x": 0.5512549670986524,
+        "y": 0.31326042794047476,
+        "w": 0.16279880680556147,
+        "h": 0.2027478476331792
+      },
+      "predicted_bbox": {
+        "x": 0.578125,
+        "y": 0.35,
+        "w": 0.08125,
+        "h": 0.13472222222222222
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.51904296875,
+      "best_prediction_tool": {
+        "class": 1,
+        "name": "dissector",
+        "confidence": 0.5995016098022461
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.6181235313415527
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.33163101301231007,
+          "dice": 0.49808244141463887,
+          "predicted_bbox": {
+            "x": 0.578125,
+            "y": 0.35,
+            "w": 0.08125,
+            "h": 0.13472222222222222
+          },
+          "confidence": 0.51904296875,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.5995016098022461
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.6181235313415527
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 3764,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.46705692257044334,
+        "y": 0.29945883897601694,
+        "w": 0.2174522824690091,
+        "h": 0.2681419255817566
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 4038,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.46081954070327036,
+        "y": 0.1257640909929017,
+        "w": 0.15619484215021578,
+        "h": 0.2002830026259228
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 4150,
+      "status": "success",
+      "iou": 0.35069130462380166,
+      "dice": 0.5192767635703069,
+      "ground_truth_bbox": {
+        "x": 0.4667882604594157,
+        "y": 0.12185905616539176,
+        "w": 0.21414580694570784,
+        "h": 0.3155360637523887
+      },
+      "predicted_bbox": {
+        "x": 0.465625,
+        "y": 0.20416666666666666,
+        "w": 0.14375,
+        "h": 0.16666666666666666
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73095703125,
+      "best_prediction_tool": {
+        "class": 3,
+        "name": "suction",
+        "confidence": 0.5597583651542664
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.4059467911720276
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.35069130462380166,
+          "dice": 0.5192767635703069,
+          "predicted_bbox": {
+            "x": 0.465625,
+            "y": 0.20416666666666666,
+            "w": 0.14375,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 3,
+            "name": "suction",
+            "confidence": 0.5597583651542664
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.4059467911720276
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 4425,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4665868413450351,
+        "y": 0.1357783485258068,
+        "w": 0.1968875974744563,
+        "h": 0.2506096869328494
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5026,
+      "status": "success",
+      "iou": 0.2914739349148547,
+      "dice": 0.45138183130900156,
+      "ground_truth_bbox": {
+        "x": 0.5690662011536956,
+        "y": 0.12766369667521515,
+        "w": 0.18251515580708447,
+        "h": 0.20258889325189777
+      },
+      "predicted_bbox": {
+        "x": 0.590625,
+        "y": 0.21388888888888888,
+        "w": 0.1,
+        "h": 0.14583333333333334
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.68896484375,
+      "best_prediction_tool": {
+        "class": 7,
+        "name": "bipolar",
+        "confidence": 0.33029821515083313
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.31867730617523193
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.2914739349148547,
+          "dice": 0.45138183130900156,
+          "predicted_bbox": {
+            "x": 0.590625,
+            "y": 0.21388888888888888,
+            "w": 0.1,
+            "h": 0.14583333333333334
+          },
+          "confidence": 0.68896484375,
+          "tool_info": {
+            "class": 7,
+            "name": "bipolar",
+            "confidence": 0.33029821515083313
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.31867730617523193
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5157,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5054832480445611,
+        "y": 0.2641172216896583,
+        "w": 0.17958683175955112,
+        "h": 0.2382124726398566
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5225,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4640180762396344,
+        "y": 0.12307453551723693,
+        "w": 0.14787654260185734,
+        "h": 0.207304656796291
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5489,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4875314337768657,
+        "y": 0.37246843623650117,
+        "w": 0.1837200552784947,
+        "h": 0.2402860689287079
+      },
+      "predicted_bbox": {
+        "x": 0.521875,
+        "y": 0.06805555555555555,
+        "w": 0.08125,
+        "h": 0.14583333333333334
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.5595703125,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.6909821629524231
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.29888132214546204
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.521875,
+            "y": 0.06805555555555555,
+            "w": 0.08125,
+            "h": 0.14583333333333334
+          },
+          "confidence": 0.5595703125,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.6909821629524231
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.29888132214546204
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5548,
+      "status": "success",
+      "iou": 0.31112275478621476,
+      "dice": 0.4745898180021213,
+      "ground_truth_bbox": {
+        "x": 0.47059683768271904,
+        "y": 0.318219839706369,
+        "w": 0.1316934980339842,
+        "h": 0.24914876202645508
+      },
+      "predicted_bbox": {
+        "x": 0.490625,
+        "y": 0.3597222222222222,
+        "w": 0.075,
+        "h": 0.1361111111111111
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.552734375,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.6998925805091858
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.6403548121452332
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.31112275478621476,
+          "dice": 0.4745898180021213,
+          "predicted_bbox": {
+            "x": 0.490625,
+            "y": 0.3597222222222222,
+            "w": 0.075,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.552734375,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.6998925805091858
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.6403548121452332
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 5727,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4512750635616749,
+        "y": 0.25984482952206617,
+        "w": 0.1079198450258609,
+        "h": 0.14509159531856503
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 6055,
+      "status": "success",
+      "iou": 0.14416682680788542,
+      "dice": 0.25200315798369527,
+      "ground_truth_bbox": {
+        "x": 0.49436904460489284,
+        "y": 0.3184265768442959,
+        "w": 0.19406896937537024,
+        "h": 0.27444784666244404
+      },
+      "predicted_bbox": {
+        "x": 0.478125,
+        "y": 0.4013888888888889,
+        "w": 0.075,
+        "h": 0.1361111111111111
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.59619140625,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.8169071674346924
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.41261938214302063
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.14416682680788542,
+          "dice": 0.25200315798369527,
+          "predicted_bbox": {
+            "x": 0.478125,
+            "y": 0.4013888888888889,
+            "w": 0.075,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.59619140625,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.8169071674346924
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.41261938214302063
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.14416682680788542,
+          "dice": 0.25200315798369527,
+          "predicted_bbox": {
+            "x": 0.478125,
+            "y": 0.4013888888888889,
+            "w": 0.075,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.59130859375,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.8200175166130066
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.41261938214302063
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 6516,
+      "status": "success",
+      "iou": 0.015039665895544068,
+      "dice": 0.029633651572177625,
+      "ground_truth_bbox": {
+        "x": 0.37270363617072466,
+        "y": 0.3055394358648162,
+        "w": 0.22049804935400447,
+        "h": 0.2930161382201228
+      },
+      "predicted_bbox": {
+        "x": 0.390625,
+        "y": 0.1625,
+        "w": 0.09375,
+        "h": 0.15555555555555556
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73095703125,
+      "best_prediction_tool": {
+        "class": 3,
+        "name": "suction",
+        "confidence": 0.8242371082305908
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.6810779571533203
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.015039665895544068,
+          "dice": 0.029633651572177625,
+          "predicted_bbox": {
+            "x": 0.390625,
+            "y": 0.1625,
+            "w": 0.09375,
+            "h": 0.15555555555555556
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 3,
+            "name": "suction",
+            "confidence": 0.8242371082305908
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.6810779571533203
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 7051,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4368495298815895,
+        "y": 0.27612033783380385,
+        "w": 0.12659852406683658,
+        "h": 0.24344805997168373
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 7131,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5209357093324272,
+        "y": 0.475155596787798,
+        "w": 0.19112432521497924,
+        "h": 0.25346069552110617
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 7384,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.40316615973779396,
+        "y": 0.40562861725112037,
+        "w": 0.16393945874407684,
+        "h": 0.27367595787435683
+      },
+      "predicted_bbox": {
+        "x": 0.284375,
+        "y": 0.37083333333333335,
+        "w": 0.08125,
+        "h": 0.19722222222222222
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73046875,
+      "best_prediction_tool": {
+        "class": 9,
+        "name": "cautery",
+        "confidence": 0.8806635141372681
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.526397705078125
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.284375,
+            "y": 0.37083333333333335,
+            "w": 0.08125,
+            "h": 0.19722222222222222
+          },
+          "confidence": 0.73046875,
+          "tool_info": {
+            "class": 9,
+            "name": "cautery",
+            "confidence": 0.8806635141372681
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.526397705078125
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.284375,
+            "y": 0.37083333333333335,
+            "w": 0.08125,
+            "h": 0.19722222222222222
+          },
+          "confidence": 0.72802734375,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.7654433846473694
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.526397705078125
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 7902,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.47429107082416644,
+        "y": 0.2682767764117408,
+        "w": 0.14379279588075394,
+        "h": 0.22522222611576187
+      },
+      "predicted_bbox": {
+        "x": 0.346875,
+        "y": 0.37083333333333335,
+        "w": 0.08125,
+        "h": 0.16666666666666666
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73095703125,
+      "best_prediction_tool": {
+        "class": 1,
+        "name": "dissector",
+        "confidence": 0.4918256103992462
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.3242502212524414
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.346875,
+            "y": 0.37083333333333335,
+            "w": 0.08125,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.4918256103992462
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.3242502212524414
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 8679,
+      "status": "success",
+      "iou": 0.1252573344256415,
+      "dice": 0.22262878115711346,
+      "ground_truth_bbox": {
+        "x": 0.29617929837892937,
+        "y": 0.4223257535935158,
+        "w": 0.10054537478911936,
+        "h": 0.16276586711566626
+      },
+      "predicted_bbox": {
+        "x": 0.190625,
+        "y": 0.37083333333333335,
+        "w": 0.1375,
+        "h": 0.20833333333333334
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73095703125,
+      "best_prediction_tool": {
+        "class": 1,
+        "name": "dissector",
+        "confidence": 0.9375155568122864
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.7539587616920471
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.1252573344256415,
+          "dice": 0.22262878115711346,
+          "predicted_bbox": {
+            "x": 0.190625,
+            "y": 0.37083333333333335,
+            "w": 0.1375,
+            "h": 0.20833333333333334
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.9375155568122864
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7539587616920471
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.1252573344256415,
+          "dice": 0.22262878115711346,
+          "predicted_bbox": {
+            "x": 0.190625,
+            "y": 0.37083333333333335,
+            "w": 0.1375,
+            "h": 0.20833333333333334
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.42838054895401
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7539587616920471
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 8785,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.548674530013803,
+        "y": 0.41597845001532985,
+        "w": 0.1739956437280526,
+        "h": 0.21567575738667763
+      },
+      "predicted_bbox": {
+        "x": 0.290625,
+        "y": 0.15138888888888888,
+        "w": 0.15,
+        "h": 0.24027777777777778
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.7294921875,
+      "best_prediction_tool": {
+        "class": 8,
+        "name": "grasper_2",
+        "confidence": 0.7470488548278809
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.626884937286377
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.290625,
+            "y": 0.15138888888888888,
+            "w": 0.15,
+            "h": 0.24027777777777778
+          },
+          "confidence": 0.7294921875,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.7470488548278809
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.626884937286377
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 8850,
+      "status": "success",
+      "iou": 0.7324657712496551,
+      "dice": 0.8455760378126442,
+      "ground_truth_bbox": {
+        "x": 0.29020283173376943,
+        "y": 0.18141710603189046,
+        "w": 0.12427192671203349,
+        "h": 0.1831000164744424
+      },
+      "predicted_bbox": {
+        "x": 0.290625,
+        "y": 0.19305555555555556,
+        "w": 0.1,
+        "h": 0.16666666666666666
+      },
+      "num_predictions": 3,
+      "best_prediction_index": 1,
+      "best_prediction_confidence": 0.54833984375,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.8948434591293335
+      },
+      "best_prediction_tissue": {
+        "class": 16,
+        "name": "blunt_dissection",
+        "confidence": 0.7222240567207336
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.090625,
+            "y": 0.2763888888888889,
+            "w": 0.1625,
+            "h": 0.1875
+          },
+          "confidence": 0.7177734375,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.9435745477676392
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.6064832210540771
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.7324657712496551,
+          "dice": 0.8455760378126442,
+          "predicted_bbox": {
+            "x": 0.290625,
+            "y": 0.19305555555555556,
+            "w": 0.1,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.54833984375,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.8948434591293335
+          },
+          "tissue_info": {
+            "class": 16,
+            "name": "blunt_dissection",
+            "confidence": 0.7222240567207336
+          }
+        },
+        {
+          "prediction_index": 2,
+          "iou": 0.7324657712496551,
+          "dice": 0.8455760378126442,
+          "predicted_bbox": {
+            "x": 0.290625,
+            "y": 0.19305555555555556,
+            "w": 0.1,
+            "h": 0.16666666666666666
+          },
+          "confidence": 0.50830078125,
+          "tool_info": {
+            "class": 1,
+            "name": "dissector",
+            "confidence": 0.9435745477676392
+          },
+          "tissue_info": {
+            "class": 16,
+            "name": "blunt_dissection",
+            "confidence": 0.7222240567207336
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "LapChol Case 0001 03.json",
+      "video_file": "LapChol Case 0001 03.mp4",
+      "gt_video_filename": "LapChol Case 0001 03.mp4",
+      "frame": 9545,
+      "status": "success",
+      "iou": 0.12952694088211905,
+      "dice": 0.2293472358985316,
+      "ground_truth_bbox": {
+        "x": 0.5973737467805995,
+        "y": 0.26739678461641714,
+        "w": 0.2608849574999471,
+        "h": 0.290272881939971
+      },
+      "predicted_bbox": {
+        "x": 0.590625,
+        "y": 0.38055555555555554,
+        "w": 0.0796875,
+        "h": 0.1361111111111111
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.72509765625,
+      "best_prediction_tool": {
+        "class": 8,
+        "name": "grasper_2",
+        "confidence": 0.42199838161468506
+      },
+      "best_prediction_tissue": {
+        "class": 16,
+        "name": "blunt_dissection",
+        "confidence": 0.46541550755500793
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.12952694088211905,
+          "dice": 0.2293472358985316,
+          "predicted_bbox": {
+            "x": 0.590625,
+            "y": 0.38055555555555554,
+            "w": 0.0796875,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.72509765625,
+          "tool_info": {
+            "class": 8,
+            "name": "grasper_2",
+            "confidence": 0.42199838161468506
+          },
+          "tissue_info": {
+            "class": 16,
+            "name": "blunt_dissection",
+            "confidence": 0.46541550755500793
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.403125,
+            "y": 0.6305555555555555,
+            "w": 0.10625,
+            "h": 0.1361111111111111
+          },
+          "confidence": 0.72021484375,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.6916906237602234
+          },
+          "tissue_info": {
+            "class": 16,
+            "name": "blunt_dissection",
+            "confidence": 0.3979756534099579
+          }
+        }
+      ]
+    }
+  ]
+}

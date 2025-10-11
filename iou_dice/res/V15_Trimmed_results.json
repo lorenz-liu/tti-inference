@@ -1,0 +1,434 @@
+{
+  "summary": {
+    "video_file": "V15_Trimmed.mp4",
+    "total_frames": 14,
+    "successful_comparisons": 4,
+    "failed_comparisons": 10,
+    "mean_iou": 0.16273264106324728,
+    "std_iou": 0.16521400684255338,
+    "median_iou": 0.14256142903283617,
+    "min_iou": 0.0,
+    "max_iou": 0.3658077061873168,
+    "mean_dice": 0.2448483951974763,
+    "std_dice": 0.24699650949244675,
+    "median_dice": 0.22186428034968622,
+    "min_dice": 0.0,
+    "max_dice": 0.5356650200905327
+  },
+  "detailed_results": [
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 528,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.4799683009696543,
+        "y": 0.6547704474900574,
+        "w": 0.11683765049209889,
+        "h": 0.19657151292578653
+      },
+      "predicted_bbox": {
+        "x": 0.353125,
+        "y": 0.6513888888888889,
+        "w": 0.1,
+        "h": 0.15694444444444444
+      },
+      "num_predictions": 2,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.72802734375,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.8996869921684265
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.8021897673606873
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.353125,
+            "y": 0.6513888888888889,
+            "w": 0.1,
+            "h": 0.15694444444444444
+          },
+          "confidence": 0.72802734375,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.8996869921684265
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.8021897673606873
+          }
+        },
+        {
+          "prediction_index": 1,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.353125,
+            "y": 0.6513888888888889,
+            "w": 0.1,
+            "h": 0.15694444444444444
+          },
+          "confidence": 0.69140625,
+          "tool_info": {
+            "class": 9,
+            "name": "cautery",
+            "confidence": 0.9530487060546875
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.8021897673606873
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 753,
+      "status": "success",
+      "iou": 0.3658077061873168,
+      "dice": 0.5356650200905327,
+      "ground_truth_bbox": {
+        "x": 0.5727607441707036,
+        "y": 0.36388027388922967,
+        "w": 0.08638535281852903,
+        "h": 0.21265198868310572
+      },
+      "predicted_bbox": {
+        "x": 0.565625,
+        "y": 0.4125,
+        "w": 0.06875,
+        "h": 0.11388888888888889
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73095703125,
+      "best_prediction_tool": {
+        "class": 9,
+        "name": "cautery",
+        "confidence": 0.8635703325271606
+      },
+      "best_prediction_tissue": {
+        "class": 17,
+        "name": "energy_sharp_dissection",
+        "confidence": 0.5286370515823364
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.3658077061873168,
+          "dice": 0.5356650200905327,
+          "predicted_bbox": {
+            "x": 0.565625,
+            "y": 0.4125,
+            "w": 0.06875,
+            "h": 0.11388888888888889
+          },
+          "confidence": 0.73095703125,
+          "tool_info": {
+            "class": 9,
+            "name": "cautery",
+            "confidence": 0.8635703325271606
+          },
+          "tissue_info": {
+            "class": 17,
+            "name": "energy_sharp_dissection",
+            "confidence": 0.5286370515823364
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 818,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.6536320679723197,
+        "y": 0.5089900638562175,
+        "w": 0.0966224018380332,
+        "h": 0.17483408665688877
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 1130,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.7432476669262459,
+        "y": 0.49215636094922294,
+        "w": 0.08011842948124681,
+        "h": 0.16728356693268026
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 1444,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.7355444703656498,
+        "y": 0.38521979698459036,
+        "w": 0.0781380147735446,
+        "h": 0.1461282476427788
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 1499,
+      "status": "success",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5476469826549014,
+        "y": 0.8325002638762551,
+        "w": 0.10992102139612242,
+        "h": 0.14425751740665127
+      },
+      "predicted_bbox": {
+        "x": 0.246875,
+        "y": 0.5791666666666667,
+        "w": 0.0625,
+        "h": 0.13472222222222222
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.7294921875,
+      "best_prediction_tool": {
+        "class": 6,
+        "name": "grasper",
+        "confidence": 0.7604503631591797
+      },
+      "best_prediction_tissue": {
+        "class": 15,
+        "name": "retract_and_grab",
+        "confidence": 0.7104472517967224
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.0,
+          "dice": 0.0,
+          "predicted_bbox": {
+            "x": 0.246875,
+            "y": 0.5791666666666667,
+            "w": 0.0625,
+            "h": 0.13472222222222222
+          },
+          "confidence": 0.7294921875,
+          "tool_info": {
+            "class": 6,
+            "name": "grasper",
+            "confidence": 0.7604503631591797
+          },
+          "tissue_info": {
+            "class": 15,
+            "name": "retract_and_grab",
+            "confidence": 0.7104472517967224
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 1693,
+      "status": "success",
+      "iou": 0.28512285806567234,
+      "dice": 0.44372856069937244,
+      "ground_truth_bbox": {
+        "x": 0.6975939071688844,
+        "y": 0.32238277173414837,
+        "w": 0.0881756072238852,
+        "h": 0.18488289201177346
+      },
+      "predicted_bbox": {
+        "x": 0.671875,
+        "y": 0.39166666666666666,
+        "w": 0.075,
+        "h": 0.125
+      },
+      "num_predictions": 1,
+      "best_prediction_index": 0,
+      "best_prediction_confidence": 0.73046875,
+      "best_prediction_tool": {
+        "class": 9,
+        "name": "cautery",
+        "confidence": 0.9104852080345154
+      },
+      "best_prediction_tissue": {
+        "class": 16,
+        "name": "blunt_dissection",
+        "confidence": 0.2855859398841858
+      },
+      "all_predictions": [
+        {
+          "prediction_index": 0,
+          "iou": 0.28512285806567234,
+          "dice": 0.44372856069937244,
+          "predicted_bbox": {
+            "x": 0.671875,
+            "y": 0.39166666666666666,
+            "w": 0.075,
+            "h": 0.125
+          },
+          "confidence": 0.73046875,
+          "tool_info": {
+            "class": 9,
+            "name": "cautery",
+            "confidence": 0.9104852080345154
+          },
+          "tissue_info": {
+            "class": 16,
+            "name": "blunt_dissection",
+            "confidence": 0.2855859398841858
+          }
+        }
+      ]
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 1928,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.6927045872821119,
+        "y": 0.48583696535034826,
+        "w": 0.08160696838244633,
+        "h": 0.16391131745242657
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 2966,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.49085856767087277,
+        "y": 0.6200191658263758,
+        "w": 0.08386544475984728,
+        "h": 0.17078940721016428
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 3136,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.493532587175019,
+        "y": 0.6241853853540855,
+        "w": 0.1040610679617427,
+        "h": 0.2370378180764746
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 3242,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5598394497535538,
+        "y": 0.4593673949651309,
+        "w": 0.0692741276548486,
+        "h": 0.12158449648223744
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 3366,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.6636555094387269,
+        "y": 0.6436942324987425,
+        "w": 0.1427930340304515,
+        "h": 0.27855322415283407
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 3603,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.5911849120845849,
+        "y": 0.4930877091618716,
+        "w": 0.13986904824076618,
+        "h": 0.277086250295277
+      },
+      "num_predictions": 0
+    },
+    {
+      "ground_truth_file": "V15 Trimmed.json",
+      "video_file": "V15_Trimmed.mp4",
+      "gt_video_filename": "V15_Trimmed.mp4",
+      "frame": 4076,
+      "status": "no_tti_predicted",
+      "iou": 0.0,
+      "dice": 0.0,
+      "ground_truth_bbox": {
+        "x": 0.7311068457543577,
+        "y": 0.5136575931797187,
+        "w": 0.05409518319512614,
+        "h": 0.16061837316193753
+      },
+      "num_predictions": 0
+    }
+  ]
+}
