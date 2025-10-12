@@ -20,6 +20,7 @@ Estimated completion: October 3rd
 
 import os
 import zipfile
+from multiprocessing import Pool
 from typing import Dict, Optional, Tuple
 
 import cv2
@@ -60,6 +61,7 @@ USE_UNCLEAR_ZONE = False  # Set to True if you have unclear zone data
 INTERVAL_SECONDS = 1  # Sample every N seconds from videos
 SEARCH_WINDOW_S = 0.25  # Window to search for best TTI frame (±seconds)
 SEARCH_STEP_S = 0.05  # Step size when searching for best frame
+NUM_CPUS = 6  # Number of parallel workers for video processing
 
 # -----------------------------------------------------------------------------
 # Synchronization Settings
@@ -1067,6 +1069,78 @@ def perform_statistical_analysis(combined_df: pd.DataFrame, output_dir: str):
 # =============================================================================
 
 
+def process_single_video_pair(args):
+    """
+    Wrapper function to process a single video pair (for multiprocessing).
+
+    Args:
+        args: Tuple of (idx, total, entry) where entry is the video pair configuration
+
+    Returns:
+        Dict with processing results or None if failed
+    """
+    idx, total, entry = args
+
+    if not isinstance(entry, (list, tuple)) or len(entry) < 4:
+        print(f"⚠ Warning: Invalid entry format at index {idx}: {entry}")
+        return None
+
+    tti_path, zone_path, sync_offset, video_type, case_id = entry[:5]
+
+    print(f"\n[{idx}/{total}] Processing: {case_id} ({video_type})")
+    print(f"  TTI video:  {os.path.basename(tti_path)}")
+    print(f"  Zone video: {os.path.basename(zone_path)}")
+    print(f"  Sync offset: {sync_offset}s")
+
+    try:
+        overlay_png, csv_row, video_out_dir, video_stats = compute_overlap_stats(
+            tti_video_path=tti_path,
+            zonemap_video_path=zone_path,
+            out_dir=BASE_OUTPUT_DIR,
+            video_type=video_type,
+            case_id=case_id,
+            interval_seconds=INTERVAL_SECONDS,
+            sync_offset_s=sync_offset,
+        )
+
+        # Read summary row
+        row_df = pd.read_csv(csv_row)
+        summary_row = row_df.iloc[0].to_dict()
+
+        # Create ZIP files
+        images_zip, csvs_zip = None, None
+        if GENERATE_ZIPS:
+            images_zip, csvs_zip = make_video_zips(video_out_dir)
+
+        print(f"  ✓ Overlay example: {overlay_png}")
+        print(f"  ✓ Summary CSV:     {csv_row}")
+        if GENERATE_ZIPS and images_zip:
+            print(f"  ✓ Images ZIP:      {images_zip}")
+        if GENERATE_ZIPS and csvs_zip:
+            print(f"  ✓ CSVs ZIP:        {csvs_zip}")
+
+        return {
+            "success": True,
+            "video_stats": video_stats,
+            "summary_row": summary_row,
+            "zip_info": {
+                "video": os.path.basename(tti_path),
+                "video_type": video_type,
+                "case_id": case_id,
+                "output_folder": video_out_dir,
+                "images_zip": images_zip if images_zip else "",
+                "csvs_zip": csvs_zip if csvs_zip else "",
+            },
+        }
+
+    except Exception as e:
+        print(f"  ✗ Failed: {e}")
+        import traceback
+
+        traceback.print_exc()
+        return None
+
+
 def main():
     """
     Main execution function: Process all video pairs and generate outputs.
@@ -1085,70 +1159,29 @@ def main():
     video_stats_list = []
 
     print("\n" + "=" * 80)
-    print("TTI & GNG OVERLAP ANALYSIS - PROJECT ii")
+    print("TTI & GNG OVERLAP ANALYSIS - PROJECT ii (PARALLELIZED)")
     print("=" * 80)
     print(f"Processing {len(VIDEO_PAIRS)} video pairs...")
+    print(f"Using {NUM_CPUS} CPU cores for parallel processing")
     print(f"Output directory: {BASE_OUTPUT_DIR}")
     print("=" * 80 + "\n")
 
-    # Process each video pair
-    for idx, entry in enumerate(VIDEO_PAIRS, 1):
-        if not isinstance(entry, (list, tuple)) or len(entry) < 4:
-            print(f"⚠ Warning: Invalid entry format at index {idx}: {entry}")
-            continue
+    # Prepare arguments for parallel processing
+    process_args = [
+        (idx + 1, len(VIDEO_PAIRS), entry) for idx, entry in enumerate(VIDEO_PAIRS)
+    ]
 
-        tti_path, zone_path, sync_offset, video_type, case_id = entry[:5]
+    # Process video pairs in parallel using multiprocessing Pool
+    with Pool(processes=NUM_CPUS) as pool:
+        results = pool.map(process_single_video_pair, process_args)
 
-        print(f"\n[{idx}/{len(VIDEO_PAIRS)}] Processing: {case_id} ({video_type})")
-        print(f"  TTI video:  {os.path.basename(tti_path)}")
-        print(f"  Zone video: {os.path.basename(zone_path)}")
-        print(f"  Sync offset: {sync_offset}s")
-
-        try:
-            overlay_png, csv_row, video_out_dir, video_stats = compute_overlap_stats(
-                tti_video_path=tti_path,
-                zonemap_video_path=zone_path,
-                out_dir=BASE_OUTPUT_DIR,
-                video_type=video_type,
-                case_id=case_id,
-                interval_seconds=INTERVAL_SECONDS,
-                sync_offset_s=sync_offset,
-            )
-
-            # Collect video statistics
-            video_stats_list.append(video_stats)
-
-            # Read and store summary row
-            row_df = pd.read_csv(csv_row)
-            combined_rows.append(row_df.iloc[0].to_dict())
-
-            # Create ZIP files
-            if GENERATE_ZIPS:
-                images_zip, csvs_zip = make_video_zips(video_out_dir)
-                zip_index_rows.append(
-                    {
-                        "video": os.path.basename(tti_path),
-                        "video_type": video_type,
-                        "case_id": case_id,
-                        "output_folder": video_out_dir,
-                        "images_zip": images_zip if images_zip else "",
-                        "csvs_zip": csvs_zip if csvs_zip else "",
-                    }
-                )
-
-            print(f"  ✓ Overlay example: {overlay_png}")
-            print(f"  ✓ Summary CSV:     {csv_row}")
-            if GENERATE_ZIPS and images_zip:
-                print(f"  ✓ Images ZIP:      {images_zip}")
-            if GENERATE_ZIPS and csvs_zip:
-                print(f"  ✓ CSVs ZIP:        {csvs_zip}")
-
-        except Exception as e:
-            print(f"  ✗ Failed: {e}")
-            import traceback
-
-            traceback.print_exc()
-            continue
+    # Collect results from parallel processing
+    for result in results:
+        if result is not None and result.get("success"):
+            video_stats_list.append(result["video_stats"])
+            combined_rows.append(result["summary_row"])
+            if GENERATE_ZIPS and result["zip_info"]:
+                zip_index_rows.append(result["zip_info"])
 
     # Generate combined outputs
     print("\n" + "=" * 80)
@@ -1224,4 +1257,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # Required for multiprocessing on Windows and macOS
+    import multiprocessing
+
+    multiprocessing.set_start_method("spawn", force=True)
     main()
