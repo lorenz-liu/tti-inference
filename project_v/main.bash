@@ -1,14 +1,15 @@
 #!/bin/bash
 # ==========================================================
-# Project V: TTI + GNG Overlap Analysis Automation Script
+# Project V: Automated TTI + GNG Overlap Analysis for All Frames
 # Author: Lorenz
-# Date: October 2025
 # ==========================================================
-# This script performs the following steps automatically:
-# 1. Extract matching frames from GNG prediction videos.
-# 2. Run TTI inference on extracted RGB frames.
-# 3. Compute overlap between TTI predictions and GNG masks.
-# 4. Save Go/No-Go percentages and classifications to CSV.
+# This script:
+# 1. Iterates through every subfolder in frame_extraction/
+# 2. For each extracted frame, gets the matching second (from filename)
+# 3. Extracts the same frame from the GNG prediction video
+# 4. Runs TTI inference
+# 5. Computes Go/No-Go overlap and classification
+# 6. Appends results to a CSV summary file
 # ==========================================================
 
 # ---------------------------
@@ -18,63 +19,73 @@ FRAME_DIR="/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
 GNG_DIR="/cluster/projects/madanigroup/lorenz/tti/gng_predictions_no_background"
 TTI_MODEL_SCRIPT="/cluster/projects/madanigroup/lorenz/tti/optimized_eval.py"
 OUTPUT_CSV="projectV_overlap_results.csv"
-EXTRACT_SEC=20  # second of interest (change if needed)
 
 # ---------------------------
 # CSV HEADER
 # ---------------------------
-echo "video_name,frame_name,go_percent,nogo_percent,classification" > "$OUTPUT_CSV"
+echo "video_name,frame_name,second,go_percent,nogo_percent,classification" > "$OUTPUT_CSV"
 
 # ---------------------------
-# MAIN LOOP THROUGH VIDEOS
+# MAIN LOOP THROUGH VIDEO FOLDERS
 # ---------------------------
-for rgb_frame in "$FRAME_DIR"/*/frame_sec_*.jpg; do
-    # Parse identifiers
-    frame_name=$(basename "$rgb_frame")
-    video_name=$(basename "$(dirname "$rgb_frame")")
-    gng_video="$GNG_DIR/${video_name}.MP4"
+for folder in "$FRAME_DIR"/*/; do
+    video_name=$(basename "$folder")
+    gng_video="$GNG_DIR/${video_name//_/' '}.MP4"
 
-    echo "Processing $video_name - $frame_name"
+    # Skip if no corresponding GNG video
+    if [[ ! -f "$gng_video" ]]; then
+        echo "⚠️  Skipping $video_name (no matching GNG video found)"
+        continue
+    fi
 
-    # --------------------------------------
-    # STEP 1: Extract GNG frame at target second
-    # --------------------------------------
-    python3 - <<EOF
+    echo "Processing video: $video_name"
+
+    # ---------------------------
+    # LOOP THROUGH ALL FRAMES IN THIS VIDEO
+    # ---------------------------
+    for rgb_frame in "$folder"/frame_sec_*.jpg; do
+        frame_name=$(basename "$rgb_frame")
+        sec=$(echo "$frame_name" | grep -oP '(?<=frame_sec_)\d+')
+
+        echo "  → Frame $frame_name (second=$sec)"
+
+        # --------------------------------------
+        # STEP 1: Extract corresponding GNG frame
+        # --------------------------------------
+        python3 - <<EOF
 import cv2
 cap = cv2.VideoCapture(r"$gng_video")
 fps = cap.get(cv2.CAP_PROP_FPS)
-cap.set(cv2.CAP_PROP_POS_FRAMES, int(fps * $EXTRACT_SEC))
+cap.set(cv2.CAP_PROP_POS_FRAMES, int(fps * $sec))
 ret, frame = cap.read()
 if ret:
     cv2.imwrite("gng_${frame_name}", frame)
 cap.release()
 EOF
 
-    # --------------------------------------
-    # STEP 2: Run TTI inference on RGB frame
-    # --------------------------------------
-    python3 "$TTI_MODEL_SCRIPT" --input "$rgb_frame" --output "tti_${frame_name%.jpg}.png"
+        # --------------------------------------
+        # STEP 2: Run TTI inference
+        # --------------------------------------
+        python3 "$TTI_MODEL_SCRIPT" --input "$rgb_frame" --output "tti_${frame_name%.jpg}.png"
 
-    # --------------------------------------
-    # STEP 3: Compute overlap and classification
-    # --------------------------------------
-    python3 - <<EOF
+        # --------------------------------------
+        # STEP 3: Compute overlap + classification
+        # --------------------------------------
+        python3 - <<EOF
 import cv2, numpy as np, csv
 
-# Load masks
 gng = cv2.imread("gng_${frame_name}")
 tti = cv2.imread("tti_${frame_name%.jpg}.png")
+if gng is None or tti is None:
+    exit()
 
-# Resize to match dimensions
 if gng.shape[:2] != tti.shape[:2]:
     tti = cv2.resize(tti, (gng.shape[1], gng.shape[0]))
 
-# Create masks
-go_mask   = cv2.inRange(gng,  (0,100,0),  (100,255,100))     # green
-nogo_mask = cv2.inRange(gng,  (0,0,100),  (100,100,255))     # red
-tti_mask  = cv2.inRange(tti,  (1,1,1),    (255,255,255))     # non-black
+go_mask   = cv2.inRange(gng,  (0,100,0),  (100,255,100))
+nogo_mask = cv2.inRange(gng,  (0,0,100),  (100,100,255))
+tti_mask  = cv2.inRange(tti,  (1,1,1),    (255,255,255))
 
-# Calculate overlaps
 total_tti = np.count_nonzero(tti_mask)
 go_overlap = np.count_nonzero(np.logical_and(tti_mask>0, go_mask>0))
 nogo_overlap = np.count_nonzero(np.logical_and(tti_mask>0, nogo_mask>0))
@@ -85,7 +96,6 @@ else:
     go_pct = go_overlap / total_tti * 100
     nogo_pct = nogo_overlap / total_tti * 100
 
-# Classification rule
 if go_pct >= 50:
     zone = "Go"
 elif nogo_pct >= 50:
@@ -93,18 +103,18 @@ elif nogo_pct >= 50:
 else:
     zone = "Background"
 
-# Append to CSV
 with open("$OUTPUT_CSV", "a", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["$video_name", "$frame_name", f"{go_pct:.2f}", f"{nogo_pct:.2f}", zone])
+    csv.writer(f).writerow(["$video_name", "$frame_name", "$sec", f"{go_pct:.2f}", f"{nogo_pct:.2f}", zone])
 EOF
 
-    # Cleanup temporary GNG/TTI frames if desired
-    rm -f "gng_${frame_name}" "tti_${frame_name%.jpg}.png"
-
+        # --------------------------------------
+        # CLEANUP
+        # --------------------------------------
+        rm -f "gng_${frame_name}" "tti_${frame_name%.jpg}.png"
+    done
 done
 
 # ---------------------------
 # COMPLETION MESSAGE
 # ---------------------------
-echo "✅ Project V analysis complete. Results saved to: $OUTPUT_CSV"
+echo "✅ All frames processed. Results saved to: $OUTPUT_CSV"
