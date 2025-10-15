@@ -17,8 +17,8 @@
 # ---------------------------
 FRAME_DIR="/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
 GNG_DIR="/cluster/projects/madanigroup/lorenz/tti/gng_predictions_no_background"
-TTI_MODEL_SCRIPT="/cluster/projects/madanigroup/lorenz/tti/optimized_eval.py"
-OUTPUT_CSV="projectV_overlap_results.csv"
+TTI_MODEL_SCRIPT="../optimized_eval.py"
+OUTPUT_CSV="project_v_overlap_results.csv"
 
 # ---------------------------
 # CSV HEADER
