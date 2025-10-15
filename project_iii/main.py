@@ -96,32 +96,78 @@ def list_inference_assets(inf_dir):
 
 # -------------------------
 # Ground-truth parsing
-# -------------------------
+# -------------------------#
 GT_START_TAGS = {"start of tti", "start_of_tti"}
 GT_END_TAGS = {"end of tti", "end_of_tti", "end_of_tti_"}
 
 
 def extract_gt_events(gt_json_path):
+    """
+    Robustly parse ground-truth events from Labelbox-like exports.
+    Supports:
+      - Top-level dict with data_units -> ... -> labels
+      - Top-level list of dict items (we'll merge all)
+      - Flat dict with 'labels' at root
+    Returns sorted list of (frame_idx, event_type) where event_type in {'start','end'}.
+    """
+    import json
+
     with open(gt_json_path, "r") as f:
-        data = json.load(f)
-    du = data.get("data_units", {})
-    if du:
-        du_key = next(iter(du.keys()))
-        labels = du[du_key].get("labels", {})
-    else:
-        labels = data.get("labels", {})
+        raw = json.load(f)
+
+    # Normalize to a list of label-containers
+    items = raw if isinstance(raw, list) else [raw]
+
     events = []
-    for frame_key, frame_payload in labels.items():
-        try:
-            frame_idx = int(frame_key)
-        except:
+
+    def harvest_from_labels_map(labels_map):
+        # labels_map is expected like: { "0": {"objects":[...]}, "504": {"objects":[...]}, ... }
+        if not isinstance(labels_map, dict):
+            return
+        for frame_key, payload in labels_map.items():
+            # Some exports use numeric keys as strings
+            try:
+                frame_idx = int(frame_key)
+            except Exception:
+                # Fallback: inspect objects for 'frame'
+                frame_idx = None
+            objects = payload.get("objects", []) if isinstance(payload, dict) else []
+            for obj in objects:
+                name = (
+                    (obj.get("name") or obj.get("value") or "")
+                    .strip()
+                    .lower()
+                    .replace("  ", " ")
+                )
+                fidx = obj.get("frame", frame_idx)
+                if fidx is None:
+                    continue
+                if name in GT_START_TAGS:
+                    events.append((int(fidx), "start"))
+                elif name in GT_END_TAGS:
+                    events.append((int(fidx), "end"))
+
+    for item in items:
+        if not isinstance(item, dict):
             continue
-        for obj in frame_payload.get("objects", []):
-            name = obj.get("name", "").strip().lower()
-            if name in GT_START_TAGS:
-                events.append((frame_idx, "start"))
-            elif name in GT_END_TAGS:
-                events.append((frame_idx, "end"))
+
+        # Case A: Labelbox 'data_units' tree
+        du = item.get("data_units", {})
+        if isinstance(du, dict) and du:
+            for _, du_val in du.items():
+                labels = du_val.get("labels", {})
+                harvest_from_labels_map(labels)
+
+        # Case B: flat 'labels' at root
+        labels_root = item.get("labels")
+        if labels_root:
+            harvest_from_labels_map(labels_root)
+
+        # Case C: some exports put frames directly under a key like 'frames' or similar
+        frames_map = item.get("frames") or item.get("frame_labels")
+        if frames_map:
+            harvest_from_labels_map(frames_map)
+
     events.sort(key=lambda x: x[0])
     return events
 
