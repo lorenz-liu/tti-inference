@@ -56,7 +56,7 @@ for folder in "$FRAME_DIR"/*/; do
 import cv2
 cap = cv2.VideoCapture(r"$gng_video")
 fps = cap.get(cv2.CAP_PROP_FPS)
-cap.set(cv2.CAP_PROP_POS_FRAMES, int(fps * $sec))
+cap.set(cv2.CAP_PROP_POS_FRAMES, int(fps * int($sec)))
 ret, frame = cap.read()
 if ret:
     cv2.imwrite("gng_${frame_name}", frame)
