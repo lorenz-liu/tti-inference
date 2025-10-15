@@ -253,7 +253,7 @@ def load_pred_bool_from_json(pred_json_path, total_frames_hint=None):
         frame_has_tti = 0
 
         for obj in objs:
-            name = _norm_(obj.get("name", ""))
+            name = _norm(obj.get("name", ""))
             value = _norm(obj.get("value", ""))
             if (
                 name == "start of tti"
