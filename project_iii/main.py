@@ -96,105 +96,113 @@ def list_inference_assets(inf_dir):
 
 # -------------------------
 # Ground-truth parsing
-# -------------------------#
+# -------------------------
+def _norm_event_name(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+
+# Accept common variants (trailing underscores/spaces handled by _norm_event_name)
 GT_START_TAGS = {"start of tti", "start_of_tti"}
 GT_END_TAGS = {"end of tti", "end_of_tti", "end_of_tti_"}
 
 
 def extract_gt_events(gt_json_path):
     """
-    Robustly parse ground-truth events from Labelbox-like exports.
-    Supports:
-      - Top-level dict with data_units -> ... -> labels
-      - Top-level list of dict items (we'll merge all)
-      - Flat dict with 'labels' at root
-    Returns sorted list of (frame_idx, event_type) where event_type in {'start','end'}.
+    Parse Labelbox-like ground-truth JSON.
+    Robust to:
+      - top-level list (common export) or dict
+      - 'labels' under data_units[...] or at top-level
+      - trailing spaces / underscores in names (e.g., 'End of TTI ')
+    Returns: sorted list[(frame_idx:int, 'start'|'end')]
     """
     import json
 
     with open(gt_json_path, "r") as f:
-        raw = json.load(f)
+        data = json.load(f)
 
-    # Normalize to a list of label-containers
-    items = raw if isinstance(raw, list) else [raw]
+    # Top-level can be a list (pick first) or dict
+    root = data[0] if isinstance(data, list) and data else data
+
+    # Prefer labels nested under data_units[...] if present
+    labels = None
+    if isinstance(root, dict):
+        du = root.get("data_units", {})
+        if isinstance(du, dict) and du:
+            du_key = next(iter(du.keys()))
+            labels = du.get(du_key, {}).get("labels", None)
+
+        # Fallback to top-level 'labels'
+        if labels is None:
+            labels = root.get("labels", None)
+
+    if not isinstance(labels, dict):
+        # Nothing we can parse
+        return []
 
     events = []
+    for frame_key, frame_payload in labels.items():
+        # Some exports keep frame as the object.frame; still try key first
+        try:
+            frame_idx_default = int(frame_key)
+        except Exception:
+            frame_idx_default = None
 
-    def harvest_from_labels_map(labels_map):
-        # labels_map is expected like: { "0": {"objects":[...]}, "504": {"objects":[...]}, ... }
-        if not isinstance(labels_map, dict):
-            return
-        for frame_key, payload in labels_map.items():
-            # Some exports use numeric keys as strings
-            try:
-                frame_idx = int(frame_key)
-            except Exception:
-                # Fallback: inspect objects for 'frame'
-                frame_idx = None
-            objects = payload.get("objects", []) if isinstance(payload, dict) else []
-            for obj in objects:
-                name = (
-                    (obj.get("name") or obj.get("value") or "")
-                    .strip()
-                    .lower()
-                    .replace("  ", " ")
-                )
-                fidx = obj.get("frame", frame_idx)
-                if fidx is None:
-                    continue
-                if name in GT_START_TAGS:
-                    events.append((int(fidx), "start"))
-                elif name in GT_END_TAGS:
-                    events.append((int(fidx), "end"))
-
-    for item in items:
-        if not isinstance(item, dict):
-            continue
-
-        # Case A: Labelbox 'data_units' tree
-        du = item.get("data_units", {})
-        if isinstance(du, dict) and du:
-            for _, du_val in du.items():
-                labels = du_val.get("labels", {})
-                harvest_from_labels_map(labels)
-
-        # Case B: flat 'labels' at root
-        labels_root = item.get("labels")
-        if labels_root:
-            harvest_from_labels_map(labels_root)
-
-        # Case C: some exports put frames directly under a key like 'frames' or similar
-        frames_map = item.get("frames") or item.get("frame_labels")
-        if frames_map:
-            harvest_from_labels_map(frames_map)
+        objects = (
+            frame_payload.get("objects", []) if isinstance(frame_payload, dict) else []
+        )
+        for obj in objects:
+            name = _norm_event_name(obj.get("name", ""))
+            # prefer explicit 'frame' in object, fallback to key-derived index
+            fidx = obj.get("frame", frame_idx_default)
+            if fidx is None:
+                continue
+            if name in GT_START_TAGS:
+                events.append((int(fidx), "start"))
+            elif name in GT_END_TAGS:
+                events.append((int(fidx), "end"))
 
     events.sort(key=lambda x: x[0])
     return events
 
 
 def build_gt_intervals(events):
-    """Convert start/end events to list of (start,end) frame ranges."""
+    """
+    Convert start/end events to inclusive intervals (start,end).
+    Supports multiple overlapping starts/ends via a sweep counter.
+    'End' is treated as inclusive.
+    """
     if not events:
         return []
+
     deltas = defaultdict(int)
     for f, ev in events:
         if ev == "start":
-            deltas[f] += 1
+            deltas[int(f)] += 1
         elif ev == "end":
-            deltas[f + 1] -= 1
-    active, start = 0, None
+            # close after end frame to keep it inclusive
+            deltas[int(f) + 1] -= 1
+
+    active = 0
+    current_start = None
     intervals = []
+
     for f in sorted(deltas.keys()):
         prev = active
         active += deltas[f]
         if prev <= 0 < active:
-            start = f
-        elif prev > 0 >= active and start is not None:
-            intervals.append((start, f - 1))
-            start = None
-    if start is not None:
-        intervals.append((start, max(deltas.keys())))
-    return [(s, e) for s, e in intervals if e >= s]
+            current_start = f
+        elif prev > 0 >= active and current_start is not None:
+            intervals.append((current_start, f - 1))
+            current_start = None
+
+    if current_start is not None:
+        # If labeling ended while active, close at last change frame - 1 (best effort)
+        last_change = max(deltas.keys())
+        intervals.append((current_start, last_change - 1))
+
+    # sanitize
+    intervals = [(int(s), int(e)) for s, e in intervals if e >= s]
+    return intervals
 
 
 # -------------------------
