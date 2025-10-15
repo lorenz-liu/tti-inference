@@ -2,11 +2,6 @@
 *.out
 
 *__temp_video__.mp4
-project_v/*.jpg
-
-*_frame_*_pred.jpg
-*_frame_*_gt.jpg
-
 *.DS_Store
 bdi_videos/
 models/
