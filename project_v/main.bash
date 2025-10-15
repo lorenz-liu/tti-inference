@@ -7,7 +7,7 @@
 # 1. Iterates through every subfolder in frame_extraction/
 # 2. For each extracted frame, gets the matching second (from filename)
 # 3. Extracts the same frame from the GNG prediction video
-# 4. Runs TTI inference
+# 4. Runs TTI inference (via single-frame wrapper)
 # 5. Computes Go/No-Go overlap and classification
 # 6. Appends results to a CSV summary file
 # ==========================================================
@@ -17,7 +17,7 @@
 # ---------------------------
 FRAME_DIR="/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
 GNG_DIR="/cluster/projects/madanigroup/lorenz/tti/gng_predictions_no_background"
-TTI_MODEL_SCRIPT="../optimized_eval.py"
+TTI_MODEL_SCRIPT="/cluster/projects/madanigroup/lorenz/tti/optimized_eval.py"
 OUTPUT_CSV="project_v_overlap_results.csv"
 
 # ---------------------------
@@ -25,9 +25,37 @@ OUTPUT_CSV="project_v_overlap_results.csv"
 # ---------------------------
 echo "video_name,frame_name,second,go_percent,nogo_percent,classification" > "$OUTPUT_CSV"
 
-# ---------------------------
+# ==========================================================
+# FUNCTION: Run TTI inference on a single frame
+# (wraps optimized_eval.py which expects a video)
+# ==========================================================
+run_tti_inference() {
+    local img="$1"
+    local out="$2"
+    local tmpvid="__temp_video__.mp4"
+    local tmpdir="__temp_frames__"
+
+    mkdir -p "$tmpdir"
+    cp "$img" "$tmpdir/frame_0001.jpg"
+
+    # Create a 1-frame video
+    ffmpeg -y -framerate 1 -i "$tmpdir/frame_%04d.jpg" \
+        -c:v libx264 -pix_fmt yuv420p "$tmpvid" -loglevel quiet
+
+    # Run optimized_eval.py on the temp video
+    python3 "$TTI_MODEL_SCRIPT" \
+        --video "$tmpvid" \
+        --output "$out" \
+        --start_frame 0 --end_frame 1 --frame_step 1 \
+        --device cuda
+
+    # Cleanup
+    rm -rf "$tmpdir" "$tmpvid"
+}
+
+# ==========================================================
 # MAIN LOOP THROUGH VIDEO FOLDERS
-# ---------------------------
+# ==========================================================
 for folder in "$FRAME_DIR"/*/; do
     video_name=$(basename "$folder")
     gng_video="$GNG_DIR/${video_name//_/' '}.MP4"
@@ -66,9 +94,9 @@ cap.release()
 EOF
 
         # --------------------------------------
-        # STEP 2: Run TTI inference
+        # STEP 2: Run TTI inference (wrapper)
         # --------------------------------------
-        python3 "$TTI_MODEL_SCRIPT" --input "$rgb_frame" --output "tti_${frame_name%.jpg}.png"
+        run_tti_inference "$rgb_frame" "tti_${frame_name%.jpg}.png"
 
         # --------------------------------------
         # STEP 3: Compute overlap + classification
