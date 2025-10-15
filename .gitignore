@@ -1,6 +1,8 @@
 *.err
 *.out
 
+*__temp_video__.mp4
+
 *_frame_*_pred.jpg
 *_frame_*_gt.jpg
 
