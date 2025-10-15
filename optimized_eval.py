@@ -40,13 +40,14 @@ New Features:
 - Real-time video playback support
 - Separate bounding boxes for tissue interaction and tool
 """
+
 import argparse
 import json
 import os
 import uuid
 import warnings
 from datetime import datetime
-from typing import List, Dict, Tuple, Optional
+from typing import Dict, List, Tuple
 
 import cv2
 import numpy as np
@@ -67,14 +68,8 @@ All configurable values, paths, sizes, colors, and defaults are centralized here
 """
 
 # Model paths and identifiers
-DEFAULT_VIT_MODEL_PATH = "./model_folder/ViT/best_model.pt"
-DEFAULT_YOLO_MODEL_PATH = "./runs_YOLO_M/segment/train/weights/best.pt"
-YOLO_PROJECT_MODEL_PATHS = [
-    "./runs_YOLO_M/segment/train/weights/best.pt",
-    "./runs_YOLOn_200/segment/train/weights/best.pt",
-    "./runs_yolon_new/segment/train/weights/best.pt",
-    "./runs/segment/train/weights/best.pt",
-]
+DEFAULT_VIT_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/vit.pt"
+DEFAULT_YOLO_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/yolo.pt"
 DEFAULT_DEPTH_MODEL_ID = "Intel/dpt-large"
 
 # Processing defaults
@@ -291,17 +286,8 @@ class OptimizedTTIVideoEvaluator:
 
     def _load_yolo_model(self, model_path):
         """Load YOLO model with CUDA-safe initialization"""
-        if model_path and os.path.exists(model_path):
-            print(f"Loading YOLO model from: {model_path}")
-            model = YOLO(model_path)
-        else:
-            for model_path in YOLO_PROJECT_MODEL_PATHS:
-                if os.path.exists(model_path):
-                    print(f"Found project YOLO model: {model_path}")
-                    model = YOLO(model_path)
-                    break
-            else:
-                raise ValueError("No YOLO model found")
+        print(f"Loading YOLO model from: {model_path}")
+        model = YOLO(model_path)
 
         # Force YOLO to use float32 to avoid half precision issues
         if self.device == "cuda":
@@ -736,9 +722,7 @@ class OptimizedTTIVideoEvaluator:
                 pairs,
                 key=lambda p: p["tool"]["confidence"] + p["tissue"]["confidence"],
                 reverse=True,
-            )[
-                :3
-            ]  # Keep top 3 pairs
+            )[:3]  # Keep top 3 pairs
 
         return pairs
 
@@ -811,7 +795,9 @@ class OptimizedTTIVideoEvaluator:
             interpolation=cv2.INTER_NEAREST,
         )
         if cv2.countNonZero(tissue_mask_resized) > 0:
-            tissue_x, tissue_y, tissue_w, tissue_h = cv2.boundingRect(tissue_mask_resized)
+            tissue_x, tissue_y, tissue_w, tissue_h = cv2.boundingRect(
+                tissue_mask_resized
+            )
             tti_bounding_box = {
                 "x": float(tissue_x) / W_full,
                 "y": float(tissue_y) / H_full,
@@ -1097,9 +1083,9 @@ class OptimizedTTIVideoEvaluator:
                 frame_result = self._convert_to_json_serializable(frame_result)
 
                 if frame_result["objects"]:
-                    results[0]["data_units"][data_hash]["labels"][
-                        str(frame_idx)
-                    ] = frame_result
+                    results[0]["data_units"][data_hash]["labels"][str(frame_idx)] = (
+                        frame_result
+                    )
 
                     tti_count = sum(
                         1
@@ -1257,4 +1243,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
