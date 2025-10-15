@@ -208,36 +208,82 @@ def build_gt_intervals(events):
 # -------------------------
 # Prediction loading
 # -------------------------
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+
 def load_pred_bool_from_json(pred_json_path, total_frames_hint=None):
-    try:
-        with open(pred_json_path, "r") as f:
-            data = json.load(f)
-    except:
+    """
+    Labelbox-style prediction JSON (list or dict root).
+    Marks a frame as TTI=1 iff any object in that frame has name/value == 'start_of_tti'.
+    Ignores 'start_of_no_interaction'.
+    """
+    with open(pred_json_path, "r") as f:
+        data = json.load(f)
+
+    root = data[0] if isinstance(data, list) and data else data
+    if not isinstance(root, dict):
         return None
-    frames_map = data.get("frames") or data.get("frame_predictions")
-    if isinstance(frames_map, dict):
-        arr = np.zeros(
-            total_frames_hint or (max(map(int, frames_map.keys())) + 1), np.uint8
-        )
-        for k, v in frames_map.items():
-            try:
-                i = int(k)
-            except:
-                continue
-            arr[i] = (
-                1
-                if (isinstance(v, dict) and (v.get("tti") or v.get("has_contact")))
-                else 1
-                if v
-                else 0
+
+    labels = None
+    du = root.get("data_units", {})
+    if isinstance(du, dict) and du:
+        du_key = next(iter(du.keys()))
+        labels = du.get(du_key, {}).get("labels", None)
+    if labels is None:
+        labels = root.get("labels", None)
+    if not isinstance(labels, dict):
+        return None
+
+    pred_map = {}
+    max_idx = -1
+
+    for frame_key, payload in labels.items():
+        # prefer explicit frame in payload, else key
+        try:
+            frame_idx_default = (
+                int(payload.get("frame", int(frame_key)))
+                if isinstance(payload, dict)
+                else int(frame_key)
             )
-        return arr
-    if "tti_frames" in data:
-        idxs = [int(x) for x in data["tti_frames"]]
-        arr = np.zeros(total_frames_hint or (max(idxs) + 1), np.uint8)
-        arr[idxs] = 1
-        return arr
-    return None
+        except Exception:
+            frame_idx_default = None
+
+        objs = payload.get("objects", []) if isinstance(payload, dict) else []
+        frame_has_tti = 0
+
+        for obj in objs:
+            name = _norm_(obj.get("name", ""))
+            value = _norm(obj.get("value", ""))
+            if (
+                name == "start of tti"
+                or name == "start_of_tti"
+                or value == "start_of_tti"
+            ):
+                frame_has_tti = 1
+                break  # one positive object is enough
+
+        fidx = frame_idx_default
+        if fidx is None and objs:
+            try:
+                fidx = int(objs[0].get("frame"))
+            except Exception:
+                fidx = None
+        if fidx is None:
+            continue
+
+        pred_map[int(fidx)] = 1 if frame_has_tti else pred_map.get(int(fidx), 0)
+        max_idx = max(max_idx, int(fidx))
+
+    if max_idx < 0 and total_frames_hint is None:
+        return None
+
+    length = total_frames_hint if total_frames_hint is not None else (max_idx + 1)
+    arr = np.zeros(length, dtype=np.uint8)
+    for i, v in pred_map.items():
+        if 0 <= i < length:
+            arr[i] = 1 if v else 0
+    return arr
 
 
 def load_pred_bool_from_video(path):
