@@ -1,6 +1,7 @@
 *.err
 *.out
 
+project_v/gng_frame_sec_*.jpg
 *__temp_video__.mp4
 *.DS_Store
 bdi_videos/
