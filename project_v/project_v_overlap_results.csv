@@ -1,2 +1,3 @@
 video_name,frame_name,second,go_percent,nogo_percent,classification
 LapChol_Case_0001_03,frame_sec_020.jpg,020,44.39,0.00,Background
+LapChol_Case_0001_03,frame_sec_050.jpg,050,0.00,0.00,Background
