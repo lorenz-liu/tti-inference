@@ -416,6 +416,11 @@ def main():
 
     ensure_dir(args.out_dir)
 
+    print("[INIT] Scanning directories...")
+    print(f"  GT dir:   {args.gt_dir}")
+    print(f"  Pred dir: {args.pred_dir}")
+    print(f"  Out dir:  {args.out_dir}")
+
     gt_files = list_jsons(args.gt_dir)
     pred_files = list_jsons(args.pred_dir, prefix="pred_")
 
@@ -425,6 +430,8 @@ def main():
     if not pred_files:
         print(f"[ERROR] No Pred JSONs (pred_*.json) found in {args.pred_dir}")
         return
+
+    print(f"[INIT] Found {len(gt_files)} GT files and {len(pred_files)} Pred files")
 
     # key by normalized stem (strip 'pred_' and extension; lower/collapse spaces)
     def norm_key(p: str) -> str:
@@ -441,21 +448,29 @@ def main():
         print("[ERROR] No matching GT / Pred JSON pairs after normalization.")
         return
 
+    print(f"[INIT] Matched {len(common)} video pairs")
+    print(f"[INIT] Canvas size: {args.canvas_w}x{args.canvas_h}")
+    print(f"\n{'=' * 60}")
+    print("STARTING PROCESSING")
+    print(f"{'=' * 60}")
+
     all_rows: List[Dict[str, Any]] = []
     per_video: List[Dict[str, Any]] = []
 
-    for key in common:
+    for idx, key in enumerate(common, 1):
         gt_path = gt_map[key]
         pred_path = pred_map[key]
         video_name = os.path.splitext(os.path.basename(gt_path))[0]
-        print(f"[PAIR] {video_name}")
+        print(f"\n[PAIR {idx}/{len(common)}] {video_name}")
 
+        print("  → Loading JSONs...")
         gt_root = load_json_any(gt_path)
         pred_root = load_json_any(pred_path)
         if not gt_root or not pred_root:
             print("  [skip] invalid JSON format")
             continue
 
+        print("  → Extracting labels...")
         gt_labels = get_labels_map(gt_root)
         pred_labels = get_labels_map(pred_root)
         if not gt_labels or not pred_labels:
@@ -463,6 +478,7 @@ def main():
             continue
 
         # Build inclusive intervals
+        print("  → Building intervals...")
         gt_intervals = intervals_from_labels(
             gt_labels,
             start_names=GT_START_LABELS,
@@ -478,11 +494,16 @@ def main():
             use_pred_boxes=True,
         )
 
+        print(
+            f"     GT intervals: {len(gt_intervals)}, Pred intervals: {len(pred_intervals)}"
+        )
+
         if not gt_intervals and not pred_intervals:
             print("  [skip] no intervals in GT or Pred")
             continue
 
         # Union of frames across all intervals (inclusive)
+        print("  → Computing frame union...")
         frame_set: set = set()
         for iv in gt_intervals:
             frame_set.update(range(iv["start"], iv["end"] + 1))
@@ -493,17 +514,26 @@ def main():
             print("  [skip] empty frame set")
             continue
 
+        print(
+            f"     Total frames to process: {len(frames)} (range: {min(frames)}-{max(frames)})"
+        )
+
         # Build per-frame masks on a fixed canvas
+        print(f"  → Building GT masks ({len(frames)} frames)...")
         gt_masks = build_masks_from_intervals(
             gt_intervals, frames, args.canvas_w, args.canvas_h
         )
+        print(f"  → Building Pred masks ({len(frames)} frames)...")
         pred_masks = build_masks_from_intervals(
             pred_intervals, frames, args.canvas_w, args.canvas_h
         )
 
         # Per-frame metrics
+        print("  → Computing per-frame metrics...")
         rows_this_video = []
-        for f in frames:
+        for frame_idx, f in enumerate(frames):
+            if frame_idx % 100 == 0 and frame_idx > 0:
+                print(f"     ... processed {frame_idx}/{len(frames)} frames")
             tp, fp, fn, tn, iou, dice = pixel_confusion_and_scores(
                 gt_masks[f], pred_masks[f]
             )
@@ -523,6 +553,7 @@ def main():
             )
 
         # Aggregate per video (exclude frames with no positive pixels in both)
+        print("  → Aggregating video metrics...")
         dfv = pd.DataFrame(rows_this_video)
         informative = (dfv["tp"] + dfv["fp"] + dfv["fn"]) > 0
         if informative.any():
@@ -547,30 +578,43 @@ def main():
         )
 
         all_rows.extend(rows_this_video)
+        print(f"  ✓ Completed {video_name} (IoU: {iou_mean:.3f}, {used} frames)")
+
+    print(f"\n{'=' * 60}")
+    print("SAVING RESULTS")
+    print(f"{'=' * 60}")
 
     # Save per-frame metrics
+    print(f"[OUTPUT] Creating per-frame DataFrame ({len(all_rows)} rows)...")
     df_all = pd.DataFrame(all_rows).sort_values(["video", "frame"])
     per_frame_csv = os.path.join(args.out_dir, "pixel_metrics_per_frame.csv")
+    print(f"[OUTPUT] Writing {per_frame_csv}...")
     df_all.to_csv(per_frame_csv, index=False)
     print(f"[OK] {per_frame_csv}")
 
     # Save per-video metrics
+    print(f"[OUTPUT] Creating per-video DataFrame ({len(per_video)} rows)...")
     df_vid = pd.DataFrame(per_video).sort_values(["video"])
     per_video_csv = os.path.join(args.out_dir, "pixel_metrics_per_video.csv")
+    print(f"[OUTPUT] Writing {per_video_csv}...")
     df_vid.to_csv(per_video_csv, index=False)
     print(f"[OK] {per_video_csv}")
 
     # PR curve
     pr_png = os.path.join(args.out_dir, "pr_curve.png")
+    print("[OUTPUT] Generating PR curve...")
     build_pr_curve(df_all.to_dict("records"), pr_png)
     print(f"[OK] {pr_png}")
 
     # Sample confusion image
     conf_png = os.path.join(args.out_dir, "sample_confusion_table.png")
+    print("[OUTPUT] Generating confusion table...")
     save_sample_confusion_table(df_all.to_dict("records"), conf_png)
     print(f"[OK] {conf_png}")
 
-    print("\n✅ Done.")
+    print(f"\n{'=' * 60}")
+    print("✅ COMPLETE")
+    print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":
