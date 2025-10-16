@@ -87,9 +87,11 @@ writer.release()
 "
     python3 -c "$tmpcode"
 
+    # Use absolute path for output to ensure it's saved in the current directory
+    local abs_out="$(pwd)/$out"
     python3 "$TTI_MODEL_SCRIPT" \
         --video "$tmpvid" \
-        --output "$out" \
+        --output "$abs_out" \
         --start_frame 0 --end_frame 1 --frame_step 1 \
         --device cuda
 
@@ -140,6 +142,15 @@ EOF
         # STEP 2: Run TTI inference (OpenCV wrapper)
         # --------------------------------------
         run_tti_inference "$rgb_frame" "tti_${frame_name%.jpg}.png"
+
+        # Debug: Check if TTI output file exists and show its location
+        if [[ -f "tti_${frame_name%.jpg}.png" ]]; then
+            echo "    ✓ TTI output found: $(pwd)/tti_${frame_name%.jpg}.png"
+        else
+            echo "    ✗ TTI output NOT found in current directory: $(pwd)"
+            echo "    Searching for TTI output file..."
+            find . -name "tti_${frame_name%.jpg}.png" -type f 2>/dev/null || echo "    File not found anywhere in current tree"
+        fi
 
         # --------------------------------------
         # STEP 3: Compute overlap + classification
