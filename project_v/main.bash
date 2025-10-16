@@ -75,6 +75,7 @@ run_tti_inference() {
     local img="$1"
     local out="$2"
     local tmpvid="__temp_video__.mp4"
+    local tmpjson="${out%.png}.json"
     local tmpcode="
 import cv2
 frame = cv2.imread(r'$img')
@@ -87,15 +88,21 @@ writer.release()
 "
     python3 -c "$tmpcode"
 
-    # Use absolute path for output to ensure it's saved in the current directory
+    # Use absolute paths for output to ensure files are saved in the current directory
+    local abs_json="$(pwd)/$tmpjson"
     local abs_out="$(pwd)/$out"
+
+    # Run TTI model to generate JSON results
     python3 "$TTI_MODEL_SCRIPT" \
         --video "$tmpvid" \
-        --output "$abs_out" \
+        --output "$abs_json" \
         --start_frame 0 --end_frame 1 --frame_step 1 \
         --device cuda
 
-    rm -f "$tmpvid"
+    # Convert JSON results to PNG mask
+    python3 generate_tti_mask.py "$tmpjson" "$abs_out"
+
+    rm -f "$tmpvid" "$tmpjson"
 }
 
 # ==========================================================
@@ -143,56 +150,32 @@ EOF
         # --------------------------------------
         run_tti_inference "$rgb_frame" "tti_${frame_name%.jpg}.png"
 
-        # Debug: Check if TTI output file exists and show its location
-        if [[ -f "tti_${frame_name%.jpg}.png" ]]; then
-            echo "    ✓ TTI output found: $(pwd)/tti_${frame_name%.jpg}.png"
-        else
-            echo "    ✗ TTI output NOT found in current directory: $(pwd)"
-            echo "    Searching for TTI output file..."
-            find . -name "tti_${frame_name%.jpg}.png" -type f 2>/dev/null || echo "    File not found anywhere in current tree"
-        fi
-
         # --------------------------------------
         # STEP 3: Compute overlap + classification
         # --------------------------------------
         python3 - <<EOF
 import cv2, numpy as np, csv, sys
-import os
 
-# Debug: Check file status before reading
-gng_path = "gng_${frame_name}"
-tti_path = "tti_${frame_name%.jpg}.png"
-
-print(f"DEBUG: Checking GNG file: {gng_path}", file=sys.stderr)
-if os.path.exists(gng_path):
-    print(f"  - Exists: Yes, Size: {os.path.getsize(gng_path)} bytes", file=sys.stderr)
-else:
-    print(f"  - Exists: No", file=sys.stderr)
-
-print(f"DEBUG: Checking TTI file: {tti_path}", file=sys.stderr)
-if os.path.exists(tti_path):
-    print(f"  - Exists: Yes, Size: {os.path.getsize(tti_path)} bytes", file=sys.stderr)
-else:
-    print(f"  - Exists: No", file=sys.stderr)
-
-gng = cv2.imread(gng_path)
-tti = cv2.imread(tti_path)
+gng = cv2.imread("gng_${frame_name}")
+tti = cv2.imread("tti_${frame_name%.jpg}.png", cv2.IMREAD_GRAYSCALE)
 
 if gng is None:
-    print(f"ERROR: Could not read GNG frame: {gng_path}", file=sys.stderr)
-    print(f"  File exists but cv2.imread() returned None - file may be corrupted", file=sys.stderr)
+    print("ERROR: Could not read GNG frame: gng_${frame_name}", file=sys.stderr)
     sys.exit(1)
 if tti is None:
-    print(f"ERROR: Could not read TTI frame: {tti_path}", file=sys.stderr)
-    print(f"  File exists but cv2.imread() returned None - file may be corrupted", file=sys.stderr)
+    print("ERROR: Could not read TTI mask: tti_${frame_name%.jpg}.png", file=sys.stderr)
     sys.exit(1)
 
+# Resize TTI mask to match GNG frame dimensions
 if gng.shape[:2] != tti.shape[:2]:
     tti = cv2.resize(tti, (gng.shape[1], gng.shape[0]))
 
+# Extract GNG zone masks (green=Go, red=NoGo)
 go_mask   = cv2.inRange(gng,  (0,100,0),  (100,255,100))
 nogo_mask = cv2.inRange(gng,  (0,0,100),  (100,100,255))
-tti_mask  = cv2.inRange(tti,  (1,1,1),    (255,255,255))
+
+# TTI mask is already binary (white pixels = TTI regions)
+tti_mask = tti
 
 total_tti = np.count_nonzero(tti_mask)
 go_overlap = np.count_nonzero(np.logical_and(tti_mask>0, go_mask>0))
