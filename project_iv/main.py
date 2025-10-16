@@ -33,10 +33,8 @@ import pandas as pd
 # =============================================================================
 
 # ---- I/O PATHS (defaults) ----
-DEFAULT_GT_DIR = "/cluster/projects/madanigroup/lorenz/tti/ground_truths"
-DEFAULT_PRED_DIR = (
-    "/cluster/projects/madanigroup/lorenz/tti/inferences"  # contains pred_*.json
-)
+DEFAULT_GT_DIR = "/Users/niuniu/Desktop/ground_truths"
+DEFAULT_PRED_DIR = "/Users/niuniu/Desktop/inferences"  # contains pred_*.json
 DEFAULT_OUT_DIR = "./"
 
 # ---- CANVAS SIZE FOR RASTERIZATION (scale-invariant; boxes are normalized) ----
