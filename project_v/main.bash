@@ -119,16 +119,21 @@ for folder in "$FRAME_DIR"/*/; do
         # STEP 1: Extract GNG frame
         # --------------------------------------
         python3 - <<EOF
-import cv2
+import cv2, sys
 cap = cv2.VideoCapture(r"$gng_video")
+if not cap.isOpened():
+    print("ERROR: Could not open GNG video: $gng_video", file=sys.stderr)
+    sys.exit(1)
 fps = cap.get(cv2.CAP_PROP_FPS)
 sec_str = "$sec".lstrip("0") or "0"
 sec_val = int(sec_str)
 cap.set(cv2.CAP_PROP_POS_FRAMES, int(fps * sec_val))
 ret, frame = cap.read()
-if ret:
-    cv2.imwrite("gng_${frame_name}", frame)
 cap.release()
+if not ret:
+    print("ERROR: Could not read frame at second $sec from GNG video: $gng_video", file=sys.stderr)
+    sys.exit(1)
+cv2.imwrite("gng_${frame_name}", frame)
 EOF
 
         # --------------------------------------
@@ -140,12 +145,17 @@ EOF
         # STEP 3: Compute overlap + classification
         # --------------------------------------
         python3 - <<EOF
-import cv2, numpy as np, csv
+import cv2, numpy as np, csv, sys
 
 gng = cv2.imread("gng_${frame_name}")
 tti = cv2.imread("tti_${frame_name%.jpg}.png")
-if gng is None or tti is None:
-    exit()
+
+if gng is None:
+    print("ERROR: Could not read GNG frame: gng_${frame_name}", file=sys.stderr)
+    sys.exit(1)
+if tti is None:
+    print("ERROR: Could not read TTI frame: tti_${frame_name%.jpg}.png", file=sys.stderr)
+    sys.exit(1)
 
 if gng.shape[:2] != tti.shape[:2]:
     tti = cv2.resize(tti, (gng.shape[1], gng.shape[0]))
