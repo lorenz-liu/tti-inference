@@ -183,6 +183,7 @@ else:
 
 with open("$OUTPUT_CSV", "a", newline="") as f:
     csv.writer(f).writerow(["$video_name", "$frame_name", "$sec", f"{go_pct:.2f}", f"{nogo_pct:.2f}", zone])
+    print(f"✓ Wrote result: {zone} (Go: {go_pct:.1f}%, NoGo: {nogo_pct:.1f}%)")
 EOF
 
         rm -f "gng_${frame_name}" "tti_${frame_name%.jpg}.png"
