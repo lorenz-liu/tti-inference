@@ -157,15 +157,34 @@ EOF
         # --------------------------------------
         python3 - <<EOF
 import cv2, numpy as np, csv, sys
+import os
 
-gng = cv2.imread("gng_${frame_name}")
-tti = cv2.imread("tti_${frame_name%.jpg}.png")
+# Debug: Check file status before reading
+gng_path = "gng_${frame_name}"
+tti_path = "tti_${frame_name%.jpg}.png"
+
+print(f"DEBUG: Checking GNG file: {gng_path}", file=sys.stderr)
+if os.path.exists(gng_path):
+    print(f"  - Exists: Yes, Size: {os.path.getsize(gng_path)} bytes", file=sys.stderr)
+else:
+    print(f"  - Exists: No", file=sys.stderr)
+
+print(f"DEBUG: Checking TTI file: {tti_path}", file=sys.stderr)
+if os.path.exists(tti_path):
+    print(f"  - Exists: Yes, Size: {os.path.getsize(tti_path)} bytes", file=sys.stderr)
+else:
+    print(f"  - Exists: No", file=sys.stderr)
+
+gng = cv2.imread(gng_path)
+tti = cv2.imread(tti_path)
 
 if gng is None:
-    print("ERROR: Could not read GNG frame: gng_${frame_name}", file=sys.stderr)
+    print(f"ERROR: Could not read GNG frame: {gng_path}", file=sys.stderr)
+    print(f"  File exists but cv2.imread() returned None - file may be corrupted", file=sys.stderr)
     sys.exit(1)
 if tti is None:
-    print("ERROR: Could not read TTI frame: tti_${frame_name%.jpg}.png", file=sys.stderr)
+    print(f"ERROR: Could not read TTI frame: {tti_path}", file=sys.stderr)
+    print(f"  File exists but cv2.imread() returned None - file may be corrupted", file=sys.stderr)
     sys.exit(1)
 
 if gng.shape[:2] != tti.shape[:2]:
