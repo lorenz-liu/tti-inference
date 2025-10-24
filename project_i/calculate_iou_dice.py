@@ -48,7 +48,7 @@ DEFAULT_VIT_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/vit.pt"
 DEFAULT_YOLO_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/yolo.pt"
 
 # Inference settings
-INFERENCE_SCRIPT = "/cluster/projects/madanigroup/lorenz/tti/optimized_eval.py"
+INFERENCE_SCRIPT = "/cluster/home/t130371uhn/github/tti-inference"
 INFERENCE_TIMEOUT = 6000  # 1 Hour
 
 # Video settings
