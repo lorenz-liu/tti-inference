@@ -65,6 +65,7 @@ FRAME_DIR="/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
 GNG_DIR="/cluster/projects/madanigroup/lorenz/tti/gng_predictions_no_background"
 TTI_MODEL_SCRIPT="../optimized_eval.py"
 OUTPUT_CSV="project_v_overlap_results.csv"
+VIDEO_FILTER_REGEX="${VIDEO_FILTER_REGEX:-}"
 
 echo "video_name,frame_name,second,go_percent,nogo_percent,classification" > "$OUTPUT_CSV"
 
@@ -106,18 +107,74 @@ writer.release()
 }
 
 # ==========================================================
+# Helper: resolve matching GNG video file (handles case, dashes, 30fps)
+# ==========================================================
+resolve_gng_video() {
+    local video_name="$1"
+    python3 - "$GNG_DIR" "$video_name" <<'EOF'
+import os
+import re
+import sys
+
+gng_dir, target = sys.argv[1], sys.argv[2]
+
+def normalize(name: str) -> str:
+    # Drop non-alphanumeric characters and lowercase
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
+target_norm = normalize(target)
+if not target_norm:
+    sys.exit(0)
+
+candidates = []
+for entry in os.listdir(gng_dir):
+    path = os.path.join(gng_dir, entry)
+    if not os.path.isfile(path):
+        continue
+    base, ext = os.path.splitext(entry)
+    norm = normalize(base)
+    if not norm:
+        continue
+
+    if norm == target_norm:
+        base_penalty = 0
+    elif norm.startswith(target_norm):
+        base_penalty = len(norm) - len(target_norm)
+    elif target_norm.startswith(norm):
+        base_penalty = len(target_norm) - len(norm) + 5
+    else:
+        continue
+
+    ext_penalty = {"mp4": 0, "mov": 1}.get(ext.lower().lstrip("."), 5)
+    # Prefer 30fps assets when available
+    fps_bonus = -1 if base.lower().endswith("30fps") else 0
+
+    candidates.append(((base_penalty, ext_penalty, fps_bonus, entry.lower()), path))
+
+if candidates:
+    candidates.sort(key=lambda item: item[0])
+    print(candidates[0][1])
+EOF
+}
+
+# ==========================================================
 # MAIN LOOP
 # ==========================================================
 for folder in "$FRAME_DIR"/*/; do
     video_name=$(basename "$folder")
-    gng_video="$GNG_DIR/${video_name//_/' '}.MP4"
+    if [[ -n "$VIDEO_FILTER_REGEX" ]] && [[ ! "$video_name" =~ $VIDEO_FILTER_REGEX ]]; then
+        continue
+    fi
 
-    if [[ ! -f "$gng_video" ]]; then
+    gng_video="$(resolve_gng_video "$video_name")"
+
+    if [[ -z "$gng_video" || ! -f "$gng_video" ]]; then
         echo "⚠️  Skipping $video_name (no matching GNG video found)"
         continue
     fi
 
     echo "Processing video: $video_name"
+    echo "  • Using GNG video: $gng_video"
 
     for rgb_frame in "$folder"/frame_sec_*.jpg; do
         frame_name=$(basename "$rgb_frame")
