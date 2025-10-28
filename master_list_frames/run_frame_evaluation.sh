@@ -31,12 +31,6 @@ FRAMES_BASE_DIR="/cluster/projects/madanigroup/lorenz/tti/master_list_frames"
 # Base directory where the output JSON and annotated images will be stored.
 RESULTS_BASE_DIR="/cluster/projects/madanigroup/lorenz/tti/master_frames_eval"
 
-
-# --- Script Logic ---
-
-# Ensure the base results directory exists.
-_mkdir -p "$RESULTS_BASE_DIR"
-
 # Check if the evaluation script exists
 if [ ! -f "$EVAL_SCRIPT_PATH" ]; then
     echo "Error: Evaluation script not found at: $EVAL_SCRIPT_PATH"
