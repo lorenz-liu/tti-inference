@@ -12,7 +12,7 @@ VIDEO_PATH = (
 )
 
 # Directory containing CSV files
-CSV_DIR = Path(__file__).parent
+CSV_DIR = "/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
 OUTPUT_BASE_DIR = CSV_DIR
 
 # Parallel processing configuration
