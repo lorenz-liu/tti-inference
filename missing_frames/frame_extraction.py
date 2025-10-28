@@ -13,7 +13,7 @@ VIDEO_PATH = (
 
 # Directory containing CSV files
 CSV_DIR = "/cluster/projects/madanigroup/lorenz/tti/frame_extraction"
-OUTPUT_BASE_DIR = CSV_DIR
+OUTPUT_BASE_DIR = "/cluster/projects/madanigroup/lorenz/tti/master_list_frames"
 
 # Parallel processing configuration
 MAX_WORKERS = min(4, cpu_count())  # Use up to 4 workers (CPUs/GPUs)
