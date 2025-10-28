@@ -5,7 +5,7 @@ Optimized ViT TTI Classifier Evaluation Script with Complete Visualization Contr
 Usage:
   # For video
   python optimized_eval.py --video /path/to/video.mp4 --output /path/to/results.json [--output_video /path/to/annotated.mp4]
-  
+
   # For single image
   python optimized_eval.py --image /path/to/image.jpg --output /path/to/results.json [--output_image /path/to/annotated.jpg]
 
@@ -1119,8 +1119,7 @@ class OptimizedTTIVideoEvaluator:
 
         # Print summary
         total_frames_processed = len(frame_indices)
-        print("
-" + "=" * 60)
+        print("=" * 60)
         print("OPTIMIZED EVALUATION SUMMARY")
         print("=" * 60)
         print(f"Frames processed: {total_frames_processed}")
@@ -1147,9 +1146,9 @@ class OptimizedTTIVideoEvaluator:
         if frame is None:
             print(f"Error: Could not read image file: {image_path}")
             return
-        
+
         height, width, _ = frame.shape
-        
+
         # Process the single frame as a batch of 1
         batch_results, annotated_frames = self.process_frames_batch(
             [frame],
@@ -1209,7 +1208,7 @@ class OptimizedTTIVideoEvaluator:
         if output_image_path and annotated_frames and annotated_frames[0] is not None:
             cv2.imwrite(output_image_path, annotated_frames[0])
             print(f"Annotated image saved to: {output_image_path}")
-        
+
         # Print summary
         total_ttis_detected = 0
         if frame_result_json and frame_result_json["objects"]:
@@ -1218,7 +1217,7 @@ class OptimizedTTIVideoEvaluator:
                 for obj in frame_result_json["objects"]
                 if obj.get("tti_classification") == 1
             )
-        
+
         print("
 " + "=" * 60)
         print("OPTIMIZED EVALUATION SUMMARY (IMAGE)")
