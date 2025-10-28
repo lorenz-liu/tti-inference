@@ -1,5 +1,13 @@
 #!/bin/bash
-
+#SBATCH -A madanigroup_gpu
+#SBATCH -p gpu
+#SBATCH --gres=gpu:v100:1
+#SBATCH -t 3-00:00:00
+#SBATCH --mem=16G
+#SBATCH -c 8
+#SBATCH -J frames_eval
+#SBATCH -o %x-%j.out
+#SBATCH -e %x-%j.err
 # ==============================================================================
 # Batch-process frame images for TTI evaluation.
 #
