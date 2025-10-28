@@ -3,42 +3,33 @@
 Optimized ViT TTI Classifier Evaluation Script with Complete Visualization Control
 
 Usage:
-  python optimized_eval.py --video /path/to/video.mp4 --output /path/to/results.json [--output_video /path/to/annotated.mp4] [--show_heatmap] [--show_roi_box] [--vit_model PATH] [--yolo_model PATH] [--start_frame N] [--end_frame N] [--frame_step N] [--device cuda|cpu|mps] [--focus_ratio F] [--depth_model PATH] [--batch_size N] [--disable_half_precision]
+  # For video
+  python optimized_eval.py --video /path/to/video.mp4 --output /path/to/results.json [--output_video /path/to/annotated.mp4]
+  
+  # For single image
+  python optimized_eval.py --image /path/to/image.jpg --output /path/to/results.json [--output_image /path/to/annotated.jpg]
+
+  # Common options
+  [--show_heatmap] [--show_roi_box] [--vit_model PATH] [--yolo_model PATH] [--device cuda|cpu|mps]
 
 Arguments:
-- --video: Path to the input video file to analyze. Required.
+- --video: Path to the input video file to analyze.
+- --image: Path to the input image file to analyze.
 - --output: Path to the output JSON file where detections/metrics are saved. Required.
-- --output_video: Optional path to save an annotated MP4 of the run. Default: None (no video saved).
+- --output_video: Optional path to save an annotated MP4 of the run (for video input).
+- --output_image: Optional path to save an annotated image of the run (for image input).
 - --show_heatmap: If set, overlays per-class heat maps (blue=tools, green=tissue) on frames.
 - --show_roi_box: If set, draws ROI bounding boxes used for classification.
 - --vit_model: Filesystem path to the ViT classifier weights. Default: value of DEFAULT_VIT_MODEL_PATH.
 - --yolo_model: Filesystem path to the YOLO segmentation/detection weights. Default: value of DEFAULT_YOLO_MODEL_PATH.
-- --start_frame: Index of the first frame to process (0-based). Default: 0.
-- --end_frame: Index of the last frame to process (inclusive). Default: None (process to end).
-- --frame_step: Process every Nth frame; 1 = real-time/full rate, larger = faster/skip frames. Default: DEFAULT_FRAME_STEP.
+- --start_frame: Index of the first frame to process (0-based, for video). Default: 0.
+- --end_frame: Index of the last frame to process (inclusive, for video). Default: None (process to end).
+- --frame_step: Process every Nth frame (for video); 1 = real-time/full rate. Default: DEFAULT_FRAME_STEP.
 - --device: Compute device to use: cuda, cpu, or mps. Default: auto-detect when None.
 - --focus_ratio: ROI focus ratio controlling crop size around detections. Default: DEFAULT_FOCUS_RATIO.
 - --depth_model: Optional local path to a depth model; if None, uses a default model id. Default: None.
 - --batch_size: Number of frames to process per batch across stages. Default: DEFAULT_BATCH_SIZE.
 - --disable_half_precision: If set, disables FP16 inference (forces full precision). Default: off (FP16 enabled when supported).
-
-Optimizations:
-1. Batch processing for YOLO, depth estimation, and ViT inference
-2. Smart frame skipping with interpolation
-3. Half precision inference
-4. Optimized memory management
-5. Reduced redundant computations
-
-Performance improvements:
-- 5-10x faster processing time
-- Reduced GPU memory usage
-- Better resource utilization
-
-New Features:
-- Fixed heat map logic (only shows for TTI detected)
-- Configurable ROI bounding boxes
-- Real-time video playback support
-- Separate bounding boxes for tissue interaction and tool
 """
 
 import argparse
@@ -715,7 +706,6 @@ class OptimizedTTIVideoEvaluator:
             for tissue in tissues:
                 pairs.append({"tool": tool, "tissue": tissue})
 
-        # Simple​​​​​​​​​​​​​​​​```python
         # Simple deduplication based on confidence
         if len(pairs) > 3:  # Only deduplicate if too many pairs
             pairs = sorted(
@@ -1129,7 +1119,8 @@ class OptimizedTTIVideoEvaluator:
 
         # Print summary
         total_frames_processed = len(frame_indices)
-        print("\n" + "=" * 60)
+        print("
+" + "=" * 60)
         print("OPTIMIZED EVALUATION SUMMARY")
         print("=" * 60)
         print(f"Frames processed: {total_frames_processed}")
@@ -1141,15 +1132,117 @@ class OptimizedTTIVideoEvaluator:
             )
         print(f"Results saved to: {output_path}")
 
+    def evaluate_image(
+        self,
+        image_path,
+        output_path,
+        output_image_path=None,
+        show_heatmap=True,
+        show_roi_box=False,
+    ):
+        """Evaluate TTI detection on a single image."""
+        print(f"Starting optimized TTI evaluation on image: {image_path}")
+
+        frame = cv2.imread(image_path)
+        if frame is None:
+            print(f"Error: Could not read image file: {image_path}")
+            return
+        
+        height, width, _ = frame.shape
+        
+        # Process the single frame as a batch of 1
+        batch_results, annotated_frames = self.process_frames_batch(
+            [frame],
+            [0], # frame index 0
+            draw_annotations=True,
+            show_heatmap=show_heatmap,
+            show_roi_box=show_roi_box,
+        )
+
+        # --- Adapt result saving from evaluate_video ---
+        label_hash = str(uuid.uuid4())
+        dataset_hash = str(uuid.uuid4())
+        data_hash = str(uuid.uuid4())
+
+        # Convert results to be JSON serializable
+        frame_result_json = self._convert_to_json_serializable(batch_results[0]) if batch_results else {"objects": [], "classifications": []}
+
+        results = [
+            {
+                "label_hash": label_hash,
+                "branch_name": "main",
+                "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "last_edited_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "dataset_hash": dataset_hash,
+                "dataset_title": "Optimized ViT TTI Evaluation (Image)",
+                "data_title": os.path.basename(image_path),
+                "data_hash": data_hash,
+                "data_type": "image",
+                "is_image_sequence": None,
+                "data_units": {
+                    data_hash: {
+                        "data_hash": data_hash,
+                        "data_title": os.path.basename(image_path),
+                        "data_type": "image/jpeg", # Or png, etc.
+                        "labels": {
+                            "0": frame_result_json
+                        },
+                        "width": width,
+                        "height": height,
+                    }
+                },
+                "object_answers": {},
+            }
+        ]
+        # --- End of result adaptation ---
+
+        # Save JSON results
+        print(f"Saving results to: {output_path}")
+        try:
+            with open(output_path, "w") as f:
+                json.dump(results, f, indent=2)
+            print("Results saved successfully!")
+        except Exception as e:
+            print(f"Error saving JSON results: {e}")
+
+        # Save annotated image
+        if output_image_path and annotated_frames and annotated_frames[0] is not None:
+            cv2.imwrite(output_image_path, annotated_frames[0])
+            print(f"Annotated image saved to: {output_image_path}")
+        
+        # Print summary
+        total_ttis_detected = 0
+        if frame_result_json and frame_result_json["objects"]:
+            total_ttis_detected = sum(
+                1
+                for obj in frame_result_json["objects"]
+                if obj.get("tti_classification") == 1
+            )
+        
+        print("
+" + "=" * 60)
+        print("OPTIMIZED EVALUATION SUMMARY (IMAGE)")
+        print("=" * 60)
+        print(f"Total TTIs detected: {total_ttis_detected}")
+        print(f"Results saved to: {output_path}")
+        if output_image_path:
+            print(f"Annotated image saved to: {output_image_path}")
+
 
 def main():
     parser = argparse.ArgumentParser(
         description="Optimized ViT TTI Classifier evaluation with detailed visualization control"
     )
-    parser.add_argument("--video", required=True, help="Path to input video file")
+    input_group = parser.add_mutually_exclusive_group(required=True)
+    input_group.add_argument("--video", help="Path to input video file")
+    input_group.add_argument("--image", help="Path to input image file")
+
     parser.add_argument("--output", required=True, help="Path to output JSON file")
     parser.add_argument(
-        "--output_video", default=None, help="Path to save annotated video"
+        "--output_video", default=None, help="Path to save annotated video (if --video is used)"
+    )
+    parser.add_argument(
+        "--output_image", default=None, help="Path to save annotated image (if --image is used)"
     )
     parser.add_argument(
         "--show_heatmap",
@@ -1168,16 +1261,16 @@ def main():
         "--yolo_model", default=DEFAULT_YOLO_MODEL_PATH, help="Path to YOLO model"
     )
     parser.add_argument(
-        "--start_frame", type=int, default=0, help="Starting frame index"
+        "--start_frame", type=int, default=0, help="Starting frame index (for video)"
     )
     parser.add_argument(
-        "--end_frame", type=int, default=None, help="Ending frame index"
+        "--end_frame", type=int, default=None, help="Ending frame index (for video)"
     )
     parser.add_argument(
         "--frame_step",
         type=int,
         default=DEFAULT_FRAME_STEP,
-        help="Frame step size (1 for real-time, higher for faster processing)",
+        help="Frame step size (for video)",
     )
     parser.add_argument("--device", default=None, help="Device to use (cuda/cpu/mps)")
     parser.add_argument(
@@ -1204,8 +1297,11 @@ def main():
     args = parser.parse_args()
 
     # Validate inputs
-    if not os.path.exists(args.video):
+    if args.video and not os.path.exists(args.video):
         print(f"Error: Video file not found: {args.video}")
+        return
+    if args.image and not os.path.exists(args.image):
+        print(f"Error: Image file not found: {args.image}")
         return
 
     if not os.path.exists(args.vit_model):
@@ -1228,17 +1324,34 @@ def main():
         use_half_precision=not args.disable_half_precision,
     )
 
-    # Run evaluation
-    evaluator.evaluate_video(
-        video_path=args.video,
-        output_path=args.output,
-        output_video_path=args.output_video,
-        start_frame=args.start_frame,
-        end_frame=args.end_frame,
-        frame_step=args.frame_step,
-        show_heatmap=args.show_heatmap,
-        show_roi_box=args.show_roi_box,
-    )
+    if args.video:
+        # Run evaluation on video
+        evaluator.evaluate_video(
+            video_path=args.video,
+            output_path=args.output,
+            output_video_path=args.output_video,
+            start_frame=args.start_frame,
+            end_frame=args.end_frame,
+            frame_step=args.frame_step,
+            show_heatmap=args.show_heatmap,
+            show_roi_box=args.show_roi_box,
+        )
+    elif args.image:
+        # Determine output image path
+        output_image_path = args.output_image
+        if not output_image_path and args.output:
+             # Default output path next to the json
+            base, _ = os.path.splitext(args.output)
+            output_image_path = base + "_annotated.png"
+
+        # Run evaluation on image
+        evaluator.evaluate_image(
+            image_path=args.image,
+            output_path=args.output,
+            output_image_path=output_image_path,
+            show_heatmap=args.show_heatmap,
+            show_roi_box=args.show_roi_box,
+        )
 
 
 if __name__ == "__main__":
