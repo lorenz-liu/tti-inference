@@ -40,7 +40,7 @@ def extract_frames_from_seconds(video_path, seconds_list, output_dir):
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    cap = cv2.VideoCapture(video_path)
+    cap = cv2.VideoCapture(str(video_path))
 
     if not cap.isOpened():
         print(f"Error: Could not open video {video_path}")
@@ -85,19 +85,34 @@ def process_single_video(args):
     Process a single video - designed to be called in parallel.
     Returns a summary dict for this video.
     """
-    csv_file, worker_id = args
+    csv_file, worker_id, video_files_in_dir = args
     video_name = csv_file.stem
 
     print(f"[Worker {worker_id}] Processing: {video_name}")
 
-    # Derive video filename from CSV name. Assumes video file has the same name as the
-    # CSV file, with underscores replaced by spaces and a .MP4 extension.
-    # e.g., LapChol_Case_0023_03.csv -> LapChol Case 0023 03.MP4
-    video_filename = video_name.replace("_", " ") + ".MP4"
-    video_file = os.path.join(VIDEO_PATH, video_filename)
+    # Normalize csv name for matching: lowercase, replace separators with space, remove extra spaces
+    normalized_csv_name = " ".join(
+        video_name.replace("_", " ").replace("-", " ").lower().split()
+    )
 
-    if not os.path.exists(video_file):
-        print(f"[Worker {worker_id}]   Warning: Video file not found: {video_file}")
+    video_file = None
+    for f in video_files_in_dir:
+        base, ext = os.path.splitext(f)
+        if ext.lower() != ".mp4":
+            continue
+
+        # Normalize video filename for matching
+        normalized_video_name = " ".join(
+            base.replace("_", " ").replace("-", " ").lower().split()
+        )
+
+        if normalized_csv_name == normalized_video_name:
+            video_file = os.path.join(VIDEO_PATH, f)
+            print(f"[Worker {worker_id}]   Found video file: {f}")
+            break
+
+    if not video_file:
+        print(f"[Worker {worker_id}]   Warning: Video file not found for {video_name}")
         return {
             "video": video_name,
             "frames_extracted": 0,
@@ -161,12 +176,23 @@ def process_all_csvs():
     csv_files = [f for f in csv_files if f.name != "master-list.csv"]
 
     print(f"Found {len(csv_files)} CSV files to process")
+
+    try:
+        video_files_in_dir = os.listdir(VIDEO_PATH)
+        print(f"Found {len(video_files_in_dir)} files in video directory.")
+    except FileNotFoundError:
+        print(f"ERROR: Video directory not found at {VIDEO_PATH}")
+        return
+
     print(f"Using {MAX_WORKERS} parallel workers (CPUs/GPUs)\n")
 
     summary = []
 
-    # Prepare arguments for parallel processing (csv_file, worker_id)
-    process_args = [(csv_file, i % MAX_WORKERS) for i, csv_file in enumerate(csv_files)]
+    # Prepare arguments for parallel processing
+    process_args = [
+        (csv_file, i % MAX_WORKERS, video_files_in_dir)
+        for i, csv_file in enumerate(csv_files)
+    ]
 
     # Process videos in parallel
     with Pool(processes=MAX_WORKERS) as pool:
@@ -195,7 +221,7 @@ if __name__ == "__main__":
     print("=" * 70)
     print()
 
-    if VIDEO_PATH == "/path/to/your/videos":
+    if str(VIDEO_PATH) == "/path/to/your/videos":
         print("WARNING: Please update VIDEO_PATH at the top of this script!")
         print("Set it to the directory containing your MP4 video files.")
         response = input("Continue anyway? (y/n): ")
