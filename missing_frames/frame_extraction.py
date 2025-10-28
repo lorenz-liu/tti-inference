@@ -20,43 +20,17 @@ MAX_WORKERS = min(4, cpu_count())  # Use up to 4 workers (CPUs/GPUs)
 # ===================================
 
 
-def get_seconds_from_csv(csv_file):
+def get_seconds_to_extract(total_video_seconds):
     """
-    Read CSV file and extract second values from column 5 (index 4).
-    Returns a sorted list of unique seconds.
-    """
-    seconds = set()
-
-    with open(csv_file, "r", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader)  # Skip header
-
-        for row in reader:
-            if len(row) > 4:
-                try:
-                    sec = int(row[4])
-                    seconds.add(sec)
-                except (ValueError, IndexError):
-                    continue
-
-    return sorted(seconds)
-
-
-def find_missing_seconds(existing_seconds, total_video_seconds):
-    """
-    Given a list of existing seconds and total duration in seconds,
-    find missing seconds assuming seconds should be at intervals of 10 (0, 10, 20, 30, ...).
+    Generate a list of seconds to extract frames from, at 10-second intervals.
     """
     if total_video_seconds is None:
         return []
 
-    # Generate all expected seconds at intervals of 10, from 0 to total_video_seconds
-    expected_seconds = set(range(0, total_video_seconds, 10))
+    # Generate all seconds at intervals of 10, from 0 to total_video_seconds
+    seconds_to_extract = list(range(0, total_video_seconds, 10))
 
-    # Find missing seconds
-    missing = sorted(expected_seconds - set(existing_seconds))
-
-    return missing
+    return seconds_to_extract
 
 
 def extract_frames_from_seconds(video_path, seconds_list, output_dir):
@@ -116,25 +90,17 @@ def process_single_video(args):
 
     print(f"[Worker {worker_id}] Processing: {video_name}")
 
-    # Hardcoded mapping from CSV names to video filenames
-    csv_to_video_map = {
-        "LapChol_Case_0023_03": "LapChol Case 0023 03.MP4",
-    }
+    # Derive video filename from CSV name. Assumes video file has the same name as the
+    # CSV file, with underscores replaced by spaces and a .MP4 extension.
+    # e.g., LapChol_Case_0023_03.csv -> LapChol Case 0023 03.MP4
+    video_filename = video_name.replace("_", " ") + ".MP4"
+    video_file = os.path.join(VIDEO_PATH, video_filename)
 
-    # Get video filename from mapping
-    video_file = None
-    if video_name in csv_to_video_map:
-        video_filename = csv_to_video_map[video_name]
-        video_file = os.path.join(VIDEO_PATH, video_filename)
-        if not os.path.exists(video_file):
-            video_file = None
-
-    if not video_file:
-        print(f"[Worker {worker_id}]   Warning: Video file not found for {video_name}")
+    if not os.path.exists(video_file):
+        print(f"[Worker {worker_id}]   Warning: Video file not found: {video_file}")
         return {
             "video": video_name,
-            "existing": 0,
-            "missing": 0,
+            "frames_extracted": 0,
             "status": "video_not_found",
         }
 
@@ -144,8 +110,7 @@ def process_single_video(args):
         print(f"[Worker {worker_id}]   Error: Could not open video {video_file}")
         return {
             "video": video_name,
-            "existing": 0,
-            "missing": 0,
+            "frames_extracted": 0,
             "status": "failed_to_open",
         }
 
@@ -158,53 +123,39 @@ def process_single_video(args):
         f"[Worker {worker_id}]   Video info: {total_frames} total frames, FPS: {fps:.2f}, Duration: {total_seconds}s"
     )
 
-    # Get existing seconds from CSV
-    existing_seconds = get_seconds_from_csv(csv_file)
-    print(
-        f"[Worker {worker_id}]   Existing seconds in CSV: {len(existing_seconds)} seconds"
-    )
-    if existing_seconds:
-        print(
-            f"[Worker {worker_id}]   Range: {min(existing_seconds)}s - {max(existing_seconds)}s"
-        )
+    # Get seconds to extract
+    seconds_to_extract = get_seconds_to_extract(total_seconds)
 
-    # Find missing seconds based on total video duration
-    missing_seconds = find_missing_seconds(existing_seconds, total_seconds)
-
-    if not missing_seconds:
-        print(f"[Worker {worker_id}]   No missing seconds - all seconds present!")
+    if not seconds_to_extract:
+        print(f"[Worker {worker_id}]   No frames to extract.")
         return {
             "video": video_name,
-            "existing": len(existing_seconds),
-            "missing": 0,
-            "status": "complete",
+            "frames_extracted": 0,
+            "status": "no_frames_to_extract",
         }
 
     print(
-        f"[Worker {worker_id}]   Missing {len(missing_seconds)} seconds: {missing_seconds[:10]}{'...' if len(missing_seconds) > 10 else ''}"
+        f"[Worker {worker_id}]   Extracting {len(seconds_to_extract)} frames at 10s intervals."
     )
 
     # Create output directory for this video
     output_dir = OUTPUT_BASE_DIR / video_name
 
-    # Extract frames from missing seconds
-    print(
-        f"[Worker {worker_id}]   Extracting frames from {len(missing_seconds)} seconds to {output_dir}"
-    )
+    # Extract frames
+    print(f"[Worker {worker_id}]   Extracting frames to {output_dir}")
 
-    success = extract_frames_from_seconds(video_file, missing_seconds, output_dir)
+    success = extract_frames_from_seconds(video_file, seconds_to_extract, output_dir)
 
     return {
         "video": video_name,
-        "existing": len(existing_seconds),
-        "missing": len(missing_seconds),
+        "frames_extracted": len(seconds_to_extract) if success else 0,
         "status": "extracted" if success else "failed",
     }
 
 
 def process_all_csvs():
     """
-    Process all CSV files in the directory and extract missing frames using parallel processing.
+    Process all CSV files in the directory and extract frames using parallel processing.
     """
     csv_files = list(CSV_DIR.glob("*.csv"))
     csv_files = [f for f in csv_files if f.name != "master-list.csv"]
@@ -226,9 +177,12 @@ def process_all_csvs():
     print("SUMMARY")
     print("=" * 70)
     for item in summary:
-        print(
-            f"{item['video']}: {item['existing']} existing, {item['missing']} missing - {item['status']}"
-        )
+        if item["status"] == "extracted":
+            print(
+                f"{item['video']}: Extracted {item['frames_extracted']} frames - {item['status']}"
+            )
+        else:
+            print(f"{item['video']}: {item['status']}")
     print("=" * 70)
 
 
@@ -251,4 +205,3 @@ if __name__ == "__main__":
 
     process_all_csvs()
     print("\nDone!")
-
