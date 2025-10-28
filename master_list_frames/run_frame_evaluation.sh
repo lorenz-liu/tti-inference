@@ -23,7 +23,7 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 
 # Path to the Python evaluation script.
 # IMPORTANT: Use a specific path. The '~' shortcut might not expand correctly in all environments.
-EVAL_SCRIPT_PATH="~/github/tti-inference/optimized_eval.py"
+EVAL_SCRIPT_PATH="/cluster/home/t130371uhn/github/tti-inference/optimized_eval.py"
 
 # Base directory containing the video frame folders (e.g., LapChol_Case_0001_03/frame_sec_000.jpg).
 FRAMES_BASE_DIR="/cluster/projects/madanigroup/lorenz/tti/master_list_frames"
