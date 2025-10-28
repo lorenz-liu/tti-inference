@@ -1152,7 +1152,7 @@ class OptimizedTTIVideoEvaluator:
         # Process the single frame as a batch of 1
         batch_results, annotated_frames = self.process_frames_batch(
             [frame],
-            [0], # frame index 0
+            [0],  # frame index 0
             draw_annotations=True,
             show_heatmap=show_heatmap,
             show_roi_box=show_roi_box,
@@ -1164,7 +1164,11 @@ class OptimizedTTIVideoEvaluator:
         data_hash = str(uuid.uuid4())
 
         # Convert results to be JSON serializable
-        frame_result_json = self._convert_to_json_serializable(batch_results[0]) if batch_results else {"objects": [], "classifications": []}
+        frame_result_json = (
+            self._convert_to_json_serializable(batch_results[0])
+            if batch_results
+            else {"objects": [], "classifications": []}
+        )
 
         results = [
             {
@@ -1182,10 +1186,8 @@ class OptimizedTTIVideoEvaluator:
                     data_hash: {
                         "data_hash": data_hash,
                         "data_title": os.path.basename(image_path),
-                        "data_type": "image/jpeg", # Or png, etc.
-                        "labels": {
-                            "0": frame_result_json
-                        },
+                        "data_type": "image/jpeg",  # Or png, etc.
+                        "labels": {"0": frame_result_json},
                         "width": width,
                         "height": height,
                     }
@@ -1218,8 +1220,7 @@ class OptimizedTTIVideoEvaluator:
                 if obj.get("tti_classification") == 1
             )
 
-        print("
-" + "=" * 60)
+        print("=" * 60)
         print("OPTIMIZED EVALUATION SUMMARY (IMAGE)")
         print("=" * 60)
         print(f"Total TTIs detected: {total_ttis_detected}")
@@ -1238,10 +1239,14 @@ def main():
 
     parser.add_argument("--output", required=True, help="Path to output JSON file")
     parser.add_argument(
-        "--output_video", default=None, help="Path to save annotated video (if --video is used)"
+        "--output_video",
+        default=None,
+        help="Path to save annotated video (if --video is used)",
     )
     parser.add_argument(
-        "--output_image", default=None, help="Path to save annotated image (if --image is used)"
+        "--output_image",
+        default=None,
+        help="Path to save annotated image (if --image is used)",
     )
     parser.add_argument(
         "--show_heatmap",
@@ -1339,7 +1344,7 @@ def main():
         # Determine output image path
         output_image_path = args.output_image
         if not output_image_path and args.output:
-             # Default output path next to the json
+            # Default output path next to the json
             base, _ = os.path.splitext(args.output)
             output_image_path = base + "_annotated.png"
 
