@@ -15,11 +15,16 @@ def analyze_gng_zones(json_path, gng_video_path):
         json_path (_type_): _description_
         gng_video_path (_type_): _description_
     """
-    # BGR color values derived from the user's hex codes
-    # GO: #066913 -> RGB(6, 105, 19) -> BGR(19, 105, 6)
-    # NOGO: #86160F -> RGB(134, 22, 15) -> BGR(15, 22, 134)
-    GO_COLOR = np.array([19, 105, 6])
-    NOGO_COLOR = np.array([15, 22, 134])
+    # Define HSV color ranges for green and red
+    # Green range in HSV
+    LOWER_GREEN_HSV = np.array([40, 100, 50])
+    UPPER_GREEN_HSV = np.array([80, 255, 255])
+
+    # Red range in HSV (split into two to wrap around the hue spectrum)
+    LOWER_RED_HSV1 = np.array([0, 100, 50])
+    UPPER_RED_HSV1 = np.array([10, 255, 255])
+    LOWER_RED_HSV2 = np.array([160, 100, 50])
+    UPPER_RED_HSV2 = np.array([179, 255, 255])
 
     # Target dimensions are based on the original video
     TARGET_WIDTH = 1280
@@ -101,7 +106,6 @@ def analyze_gng_zones(json_path, gng_video_path):
             w = int(bbox_rel['w'] * TARGET_WIDTH)
             h = int(bbox_rel['h'] * TARGET_HEIGHT)
 
-            # Ensure the bbox is within frame boundaries
             x = max(0, x)
             y = max(0, y)
             w = min(w, TARGET_WIDTH - x)
@@ -112,12 +116,14 @@ def analyze_gng_zones(json_path, gng_video_path):
                 csv_writer.writerow([frame_num, '0%', '0%', '100%'])
                 continue
 
-            # Crop the region of interest from the standardized frame
             bbox_roi = final_gng_frame[y:y+h, x:x+w]
 
-            # Create masks for exact colors within the ROI
-            go_mask = cv2.inRange(bbox_roi, GO_COLOR, GO_COLOR)
-            nogo_mask = cv2.inRange(bbox_roi, NOGO_COLOR, NOGO_COLOR)
+            # Convert ROI to HSV and create masks
+            hsv_roi = cv2.cvtColor(bbox_roi, cv2.COLOR_BGR2HSV)
+            go_mask = cv2.inRange(hsv_roi, LOWER_GREEN_HSV, UPPER_GREEN_HSV)
+            red_mask1 = cv2.inRange(hsv_roi, LOWER_RED_HSV1, UPPER_RED_HSV1)
+            red_mask2 = cv2.inRange(hsv_roi, LOWER_RED_HSV2, UPPER_RED_HSV2)
+            nogo_mask = cv2.bitwise_or(red_mask1, red_mask2)
 
             # Count pixels
             go_pixels = cv2.countNonZero(go_mask)
@@ -129,7 +135,6 @@ def analyze_gng_zones(json_path, gng_video_path):
             nogo_perc = (nogo_pixels / total_pixels_in_bbox) * 100
             void_perc = (void_pixels / total_pixels_in_bbox) * 100
 
-            # Write formatted percentages to CSV
             csv_writer.writerow([
                 frame_num,
                 f"{go_perc:.0f}%",
