@@ -8,12 +8,13 @@ import cv2
 import numpy as np
 
 
-def draw_bounding_boxes(video_path, json_path):
+def draw_bounding_boxes(video_path, json_path, frame_to_draw=None):
     """_summary_
 
     Args:
         video_path (_type_): _description_
         json_path (_type_): _description_
+        frame_to_draw (int, optional): A specific frame to draw. Defaults to None.
     """
     # 1. Load JSON
     try:
@@ -40,6 +41,12 @@ def draw_bounding_boxes(video_path, json_path):
     if not frames_to_process:
         print("No frames with 'tti_bounding_box' found in the JSON file.")
         return
+
+    if frame_to_draw is not None:
+        if frame_to_draw not in frames_to_process:
+            print(f"Frame {frame_to_draw} not found in JSON with a bounding box.")
+            return
+        frames_to_process = {frame_to_draw: frames_to_process[frame_to_draw]}
 
     # 3. Open video
     cap = cv2.VideoCapture(video_path)
@@ -97,6 +104,9 @@ if __name__ == "__main__":
         required=True,
         help="Path to the filtered JSON file with bounding box data.",
     )
+    parser.add_argument(
+        "--frame", type=int, help="Optional: A specific frame number to process."
+    )
     args = parser.parse_args()
 
-    draw_bounding_boxes(args.video, args.json)
+    draw_bounding_boxes(args.video, args.json, args.frame)
