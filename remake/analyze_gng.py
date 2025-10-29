@@ -8,7 +8,8 @@ import cv2
 import numpy as np
 import csv
 
-def analyze_gng_zones(json_path, gng_video_path):
+
+def analyze_gng_zones(json_path, gng_video_path, output_path):
     """_summary_
 
     Args:
@@ -32,7 +33,7 @@ def analyze_gng_zones(json_path, gng_video_path):
 
     # 1. Load JSON
     try:
-        with open(json_path, 'r') as f:
+        with open(json_path, "r") as f:
             data = json.load(f)
     except FileNotFoundError:
         print(f"Error: JSON file not found at {json_path}")
@@ -48,7 +49,7 @@ def analyze_gng_zones(json_path, gng_video_path):
                     bbox = label_data["objects"][0].get("tti_bounding_box")
                     if bbox:
                         frames_to_process[frame_num] = bbox
-    
+
     if not frames_to_process:
         print("No frames with 'tti_bounding_box' found in the JSON file.")
         return
@@ -61,16 +62,20 @@ def analyze_gng_zones(json_path, gng_video_path):
 
     gng_native_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     gng_native_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    
-    needs_resize = (gng_native_height != TARGET_HEIGHT or gng_native_width != TARGET_WIDTH)
+
+    needs_resize = (
+        gng_native_height != TARGET_HEIGHT or gng_native_width != TARGET_WIDTH
+    )
     if needs_resize:
-        print(f"Go/No-Go video resolution ({gng_native_width}x{gng_native_height}) differs from target ({TARGET_WIDTH}x{TARGET_HEIGHT}). Frames will be resized and centered.")
+        print(
+            f"Go/No-Go video resolution ({gng_native_width}x{gng_native_height}) differs from target ({TARGET_WIDTH}x{TARGET_HEIGHT}). Frames will be resized and centered."
+        )
 
     # 4. Setup CSV output
-    output_csv_path = "gng_intersection_analysis.csv"
-    with open(output_csv_path, 'w', newline='') as csvfile:
+    output_csv_path = output_path
+    with open(output_csv_path, "w", newline="") as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(['frame', 'tti-go', 'tti-nogo', 'tti-void'])
+        csv_writer.writerow(["frame", "tti-go", "tti-nogo", "tti-void"])
 
         print(f"Analyzing frames and writing results to {output_csv_path}...")
 
@@ -89,22 +94,24 @@ def analyze_gng_zones(json_path, gng_video_path):
                 aspect_ratio = gng_native_width / gng_native_height
                 new_h = TARGET_HEIGHT
                 new_w = int(new_h * aspect_ratio)
-                
-                resized = cv2.resize(frame_from_video, (new_w, new_h), interpolation=cv2.INTER_NEAREST)
-                
+
+                resized = cv2.resize(
+                    frame_from_video, (new_w, new_h), interpolation=cv2.INTER_NEAREST
+                )
+
                 canvas = np.zeros((TARGET_HEIGHT, TARGET_WIDTH, 3), dtype=np.uint8)
                 x_offset = (TARGET_WIDTH - new_w) // 2
-                canvas[:, x_offset:x_offset+new_w] = resized
-                
+                canvas[:, x_offset : x_offset + new_w] = resized
+
                 final_gng_frame = canvas
             else:
                 final_gng_frame = frame_from_video
 
             # BBox coordinates are relative to the TARGET dimensions
-            x = int(bbox_rel['x'] * TARGET_WIDTH)
-            y = int(bbox_rel['y'] * TARGET_HEIGHT)
-            w = int(bbox_rel['w'] * TARGET_WIDTH)
-            h = int(bbox_rel['h'] * TARGET_HEIGHT)
+            x = int(bbox_rel["x"] * TARGET_WIDTH)
+            y = int(bbox_rel["y"] * TARGET_HEIGHT)
+            w = int(bbox_rel["w"] * TARGET_WIDTH)
+            h = int(bbox_rel["h"] * TARGET_HEIGHT)
 
             x = max(0, x)
             y = max(0, y)
@@ -113,10 +120,10 @@ def analyze_gng_zones(json_path, gng_video_path):
 
             total_pixels_in_bbox = w * h
             if total_pixels_in_bbox == 0:
-                csv_writer.writerow([frame_num, '0%', '0%', '100%'])
+                csv_writer.writerow([frame_num, "0%", "0%", "100%"])
                 continue
 
-            bbox_roi = final_gng_frame[y:y+h, x:x+w]
+            bbox_roi = final_gng_frame[y : y + h, x : x + w]
 
             # Convert ROI to HSV and create masks
             hsv_roi = cv2.cvtColor(bbox_roi, cv2.COLOR_BGR2HSV)
@@ -135,12 +142,9 @@ def analyze_gng_zones(json_path, gng_video_path):
             nogo_perc = (nogo_pixels / total_pixels_in_bbox) * 100
             void_perc = (void_pixels / total_pixels_in_bbox) * 100
 
-            csv_writer.writerow([
-                frame_num,
-                f"{go_perc:.0f}%",
-                f"{nogo_perc:.0f}%",
-                f"{void_perc:.0f}%"
-            ])
+            csv_writer.writerow(
+                [frame_num, f"{go_perc:.0f}%", f"{nogo_perc:.0f}%", f"{void_perc:.0f}%"]
+            )
 
     # 6. Cleanup
     cap.release()
@@ -148,9 +152,18 @@ def analyze_gng_zones(json_path, gng_video_path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Analyze intersection of TTI bounding box with GO/NOGO zones.')
-    parser.add_argument('--filtered_json', required=True, help='Path to the filtered JSON file with bounding box data.')
-    parser.add_argument('--gng_video', required=True, help='Path to the GO/NOGO video file.')
+    parser = argparse.ArgumentParser(
+        description="Analyze intersection of TTI bounding box with GO/NOGO zones."
+    )
+    parser.add_argument(
+        "--filtered_json",
+        required=True,
+        help="Path to the filtered JSON file with bounding box data.",
+    )
+    parser.add_argument(
+        "--gng_video", required=True, help="Path to the GO/NOGO video file."
+    )
+    parser.add_argument("--output", required=True, help="Path to save the result.")
     args = parser.parse_args()
 
-    analyze_gng_zones(args.filtered_json, args.gng_video)
+    analyze_gng_zones(args.filtered_json, args.gng_video, args.output)
