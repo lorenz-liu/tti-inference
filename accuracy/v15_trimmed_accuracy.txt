@@ -1,0 +1,27 @@
+In frame 0, True Prediction: grasper
+In frame 0, True Prediction: cautery
+In frame 504, False Prediction: grasper should be cautery
+In frame 504, False Prediction: cautery should be No Instrument
+In frame 505, False Prediction: grasper should be cautery
+In frame 505, False Prediction: cautery should be No Instrument
+In frame 527, True Prediction: cautery
+In frame 527, False Prediction: grasper should be No Instrument
+In frame 528, False Prediction: grasper should be cautery
+In frame 528, False Prediction: cautery should be No Instrument
+In frame 752, True Prediction: cautery
+In frame 753, True Prediction: cautery
+In frame 1480, False Prediction: grasper should be cautery
+In frame 1481, False Prediction: grasper should be cautery
+In frame 1481, False Prediction: cautery should be No Instrument
+In frame 1499, False Prediction: grasper should be cautery
+In frame 1899, True Prediction: cautery
+In frame 1899, False Prediction: grasper should be No Instrument
+In frame 1900, True Prediction: cautery
+In frame 1900, False Prediction: grasper should be No Instrument
+In frame 3135, True Prediction: cautery
+In frame 3136, True Prediction: cautery
+In frame 3355, True Prediction: cautery
+In frame 3811, False Prediction: cautery should be dissector
+In frame 4156, False Prediction: bipolar should be grasper_1
+In frame 4157, False Prediction: bipolar should be grasper_1
+0.5263157894736842

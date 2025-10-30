@@ -1,0 +1,220 @@
+In frame 129, True Prediction: dissector
+In frame 164, False Prediction: grasper should be dissector
+In frame 164, False Prediction: dissector should be No Instrument
+In frame 317, False Prediction: grasper should be dissector
+In frame 317, False Prediction: grasper should be No Instrument
+In frame 317, False Prediction: dissector should be No Instrument
+In frame 347, False Prediction: grasper should be dissector
+In frame 347, False Prediction: dissector should be No Instrument
+In frame 385, True Prediction: dissector
+In frame 385, False Prediction: grasper should be No Instrument
+In frame 402, True Prediction: dissector
+In frame 402, False Prediction: grasper should be No Instrument
+In frame 402, False Prediction: dissector should be No Instrument
+In frame 451, False Prediction: dissector should be grasper_1
+In frame 451, False Prediction: grasper should be No Instrument
+In frame 484, True Prediction: grasper
+In frame 484, False Prediction: grasper should be No Instrument
+In frame 555, True Prediction: grasper_2
+In frame 555, False Prediction: dissector should be No Instrument
+In frame 583, True Prediction: grasper
+In frame 583, False Prediction: grasper should be No Instrument
+In frame 599, False Prediction: grasper should be dissector
+In frame 599, False Prediction: dissector should be No Instrument
+In frame 620, False Prediction: grasper should be dissector
+In frame 644, True Prediction: dissector
+In frame 644, False Prediction: grasper should be No Instrument
+In frame 644, False Prediction: dissector should be No Instrument
+In frame 657, True Prediction: dissector
+In frame 657, False Prediction: dissector should be No Instrument
+In frame 657, False Prediction: grasper should be No Instrument
+In frame 680, False Prediction: grasper should be dissector
+In frame 680, False Prediction: dissector should be No Instrument
+In frame 691, True Prediction: dissector
+In frame 691, False Prediction: grasper should be No Instrument
+In frame 823, False Prediction: grasper should be dissector
+In frame 823, False Prediction: dissector should be No Instrument
+In frame 841, False Prediction: grasper should be dissector
+In frame 841, False Prediction: dissector should be No Instrument
+In frame 863, False Prediction: grasper should be No Instrument
+In frame 863, False Prediction: dissector should be No Instrument
+In frame 886, False Prediction: dissector should be grasper_1
+In frame 886, False Prediction: grasper should be No Instrument
+In frame 927, True Prediction: dissector
+In frame 927, False Prediction: grasper should be No Instrument
+In frame 940, False Prediction: grasper should be dissector
+In frame 1010, False Prediction: grasper should be dissector
+In frame 1010, False Prediction: dissector should be No Instrument
+In frame 1040, False Prediction: grasper_2 should be dissector
+In frame 1040, False Prediction: grasper should be No Instrument
+In frame 1068, False Prediction: grasper should be dissector
+In frame 1068, False Prediction: grasper_2 should be No Instrument
+In frame 1183, False Prediction: grasper should be dissector
+In frame 1183, False Prediction: grasper should be No Instrument
+In frame 1195, False Prediction: grasper should be dissector
+In frame 1195, False Prediction: grasper should be No Instrument
+In frame 1320, False Prediction: grasper_2 should be dissector
+In frame 1320, False Prediction: grasper should be No Instrument
+In frame 1347, False Prediction: grasper_2 should be dissector
+In frame 1347, False Prediction: grasper should be No Instrument
+In frame 1452, False Prediction: bipolar should be dissector
+In frame 1452, False Prediction: dissector should be No Instrument
+In frame 1469, False Prediction: grasper should be dissector
+In frame 1469, False Prediction: grasper should be No Instrument
+In frame 1498, True Prediction: dissector
+In frame 1498, False Prediction: grasper should be No Instrument
+In frame 1532, False Prediction: bipolar should be dissector
+In frame 1532, False Prediction: grasper_2 should be No Instrument
+In frame 1665, False Prediction: grasper should be dissector
+In frame 1665, False Prediction: cautery should be No Instrument
+In frame 1677, True Prediction: dissector
+In frame 1677, False Prediction: dissector should be No Instrument
+In frame 1794, False Prediction: grasper should be dissector
+In frame 1794, False Prediction: dissector should be No Instrument
+In frame 1800, False Prediction: grasper should be dissector
+In frame 1800, False Prediction: dissector should be No Instrument
+In frame 1812, True Prediction: grasper
+In frame 1812, False Prediction: grasper should be No Instrument
+In frame 1839, True Prediction: grasper
+In frame 1839, False Prediction: grasper should be No Instrument
+In frame 1883, False Prediction: grasper should be dissector
+In frame 1883, False Prediction: dissector should be No Instrument
+In frame 1895, False Prediction: grasper should be dissector
+In frame 1895, False Prediction: dissector should be No Instrument
+In frame 2139, False Prediction: grasper_2 should be dissector
+In frame 2139, False Prediction: grasper should be No Instrument
+In frame 2256, False Prediction: grasper should be No Instrument
+In frame 2256, False Prediction: dissector should be No Instrument
+In frame 2447, False Prediction: grasper should be dissector
+In frame 2447, False Prediction: grasper should be No Instrument
+In frame 2575, False Prediction: grasper should be dissector
+In frame 2708, False Prediction: grasper should be dissector
+In frame 2708, False Prediction: grasper should be No Instrument
+In frame 2823, False Prediction: dissector should be grasper_1
+In frame 2823, False Prediction: grasper should be No Instrument
+In frame 2946, True Prediction: dissector
+In frame 2946, False Prediction: grasper should be No Instrument
+In frame 2946, False Prediction: grasper should be No Instrument
+In frame 2970, True Prediction: grasper
+In frame 2970, False Prediction: grasper should be No Instrument
+In frame 3001, False Prediction: grasper should be dissector
+In frame 3180, True Prediction: dissector
+In frame 3208, False Prediction: grasper should be dissector
+In frame 3293, False Prediction: grasper should be dissector
+In frame 3293, False Prediction: grasper_2 should be No Instrument
+In frame 3316, False Prediction: grasper should be dissector
+In frame 3316, False Prediction: grasper_2 should be No Instrument
+In frame 3405, False Prediction: grasper should be dissector
+In frame 3405, False Prediction: dissector should be No Instrument
+In frame 3405, False Prediction: grasper should be No Instrument
+In frame 3583, False Prediction: suction should be dissector
+In frame 3583, False Prediction: dissector should be No Instrument
+In frame 3664, False Prediction: dissector should be grasper_1
+In frame 3701, True Prediction: dissector
+In frame 3813, False Prediction: grasper should be dissector
+In frame 3817, True Prediction: grasper
+In frame 4119, False Prediction: bipolar should be grasper_1
+In frame 4119, False Prediction: grasper should be No Instrument
+In frame 4288, True Prediction: suction
+In frame 4386, False Prediction: bipolar should be No Instrument
+In frame 4389, False Prediction: bipolar should be suction
+In frame 4563, False Prediction: bipolar should be suction
+In frame 4725, True Prediction: grasper
+In frame 4806, True Prediction: dissector
+In frame 5185, True Prediction: dissector
+In frame 5185, False Prediction: grasper should be No Instrument
+In frame 5466, False Prediction: bipolar should be dissector
+In frame 5484, True Prediction: dissector
+In frame 5514, False Prediction: dissector should be grasper_1
+In frame 5547, True Prediction: dissector
+In frame 5562, True Prediction: dissector
+In frame 5674, False Prediction: grasper should be dissector
+In frame 5674, False Prediction: grasper should be No Instrument
+In frame 5780, False Prediction: grasper should be dissector
+In frame 5780, False Prediction: bipolar should be No Instrument
+In frame 5804, False Prediction: dissector should be grasper_1
+In frame 5804, False Prediction: grasper should be No Instrument
+In frame 6614, False Prediction: dissector should be suction
+In frame 6614, False Prediction: grasper should be No Instrument
+In frame 6676, False Prediction: grasper_2 should be dissector
+In frame 6676, False Prediction: grasper should be No Instrument
+In frame 6687, False Prediction: grasper_2 should be dissector
+In frame 6687, False Prediction: grasper_2 should be No Instrument
+In frame 6724, True Prediction: grasper
+In frame 6724, False Prediction: grasper_2 should be No Instrument
+In frame 6746, True Prediction: grasper_2
+In frame 6795, True Prediction: grasper
+In frame 6795, False Prediction: grasper_2 should be No Instrument
+In frame 6873, False Prediction: grasper should be dissector
+In frame 6873, False Prediction: grasper_2 should be No Instrument
+In frame 6963, True Prediction: grasper_2
+In frame 6963, False Prediction: grasper should be No Instrument
+In frame 7160, True Prediction: grasper
+In frame 7250, True Prediction: grasper_2
+In frame 7250, False Prediction: grasper should be No Instrument
+In frame 7476, True Prediction: grasper
+In frame 7518, False Prediction: dissector should be grasper_1
+In frame 7518, False Prediction: cautery should be No Instrument
+In frame 7569, True Prediction: dissector
+In frame 7569, False Prediction: grasper_2 should be No Instrument
+In frame 7603, True Prediction: grasper
+In frame 7603, False Prediction: grasper should be No Instrument
+In frame 7629, True Prediction: grasper
+In frame 7629, False Prediction: grasper should be No Instrument
+In frame 7644, True Prediction: dissector
+In frame 7644, False Prediction: cautery should be No Instrument
+In frame 7727, False Prediction: cautery should be dissector
+In frame 7727, False Prediction: grasper should be No Instrument
+In frame 7842, True Prediction: dissector
+In frame 7842, False Prediction: suction should be No Instrument
+In frame 7879, False Prediction: grasper should be dissector
+In frame 7879, False Prediction: grasper should be No Instrument
+In frame 8334, False Prediction: grasper should be scissors
+In frame 8334, False Prediction: grasper should be No Instrument
+In frame 8477, False Prediction: grasper should be scissors
+In frame 8477, False Prediction: grasper should be No Instrument
+In frame 8513, False Prediction: grasper should be scissors
+In frame 8513, False Prediction: grasper should be No Instrument
+In frame 8513, False Prediction: grasper should be No Instrument
+In frame 8608, False Prediction: dissector should be scissors
+In frame 8608, False Prediction: grasper should be No Instrument
+In frame 8640, False Prediction: dissector should be scissors
+In frame 8640, False Prediction: grasper should be No Instrument
+In frame 8640, False Prediction: grasper should be No Instrument
+In frame 8679, False Prediction: grasper should be scissors
+In frame 8679, False Prediction: grasper should be No Instrument
+In frame 8743, False Prediction: grasper should be No Instrument
+In frame 8743, False Prediction: grasper should be No Instrument
+In frame 8801, False Prediction: dissector should be scissors
+In frame 8801, False Prediction: dissector should be No Instrument
+In frame 8801, False Prediction: grasper should be No Instrument
+In frame 8860, True Prediction: grasper
+In frame 8860, False Prediction: grasper should be No Instrument
+In frame 8974, True Prediction: grasper
+In frame 8974, False Prediction: dissector should be No Instrument
+In frame 9021, False Prediction: grasper_2 should be scissors
+In frame 9021, False Prediction: grasper should be No Instrument
+In frame 9040, False Prediction: grasper_2 should be scissors
+In frame 9040, False Prediction: grasper should be No Instrument
+In frame 9083, True Prediction: grasper_2
+In frame 9083, False Prediction: grasper should be No Instrument
+In frame 9295, True Prediction: grasper_2
+In frame 9295, False Prediction: grasper should be No Instrument
+In frame 9359, False Prediction: grasper should be scissors
+In frame 9359, False Prediction: grasper should be No Instrument
+In frame 9412, True Prediction: grasper
+In frame 9412, False Prediction: grasper_2 should be No Instrument
+In frame 9516, True Prediction: grasper
+In frame 9516, False Prediction: grasper_2 should be No Instrument
+In frame 9545, True Prediction: grasper
+In frame 9545, False Prediction: dissector should be No Instrument
+In frame 9815, False Prediction: dissector should be scissors
+In frame 9815, False Prediction: grasper should be No Instrument
+In frame 9873, False Prediction: dissector should be scissors
+In frame 9873, False Prediction: grasper should be No Instrument
+In frame 9873, False Prediction: dissector should be No Instrument
+In frame 9874, False Prediction: grasper should be scissors
+In frame 9874, False Prediction: dissector should be No Instrument
+In frame 9874, False Prediction: dissector should be No Instrument
+In frame 9877, False Prediction: grasper should be scissors
+0.39823008849557523
