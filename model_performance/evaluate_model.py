@@ -260,11 +260,10 @@ def load_model(model_path, device):
 
         # Initialize the appropriate model architecture
         if model_info["model_type"] == "ViT":
-            if model_info.get("no_depth", False):
-                model = ROIClassifierViTNoDepth(num_hoi_classes=2)
-            else:
-                model = ROIClassifierViT(num_hoi_classes=2)
-        elif model_info["model_type"] == "EfficientNet":
+                        if model_info.get('no_depth', False):
+                            model = ROIClassifierViTNoDepth(num_hoi_classes=2)
+                        else:
+                            model = ROIClassifierViT(num_hoi_classes=2)        elif model_info["model_type"] == "EfficientNet":
             version = model_info.get("version", "b0")
             if model_info.get("no_depth", False):
                 model = ROIClassifierEfficientNetNoDepth(
