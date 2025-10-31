@@ -628,7 +628,7 @@ def main():
     parser.add_argument(
         "--save_dir",
         type=str,
-        default=None,
+        default="./",
         help="Directory to save results (auto-detected if not provided)",
     )
     args = parser.parse_args()
@@ -663,9 +663,7 @@ def main():
     display_results(metrics, model_info)
 
     # 7. Determine save directory
-    save_dir = (
-        args.save_dir if args.save_dir else get_model_save_directory(args.model_path)
-    )
+    save_dir = args.save_dir
 
     # 8. Save results
     results_path, summary_path = save_results(
