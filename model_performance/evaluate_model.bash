@@ -61,4 +61,4 @@ else
     exit 1
 fi
 
-python
+python /cluster/home/t130371uhn/github/tti-inference/model_performance/evaluate_model.py
