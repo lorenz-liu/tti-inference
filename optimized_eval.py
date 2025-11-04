@@ -59,8 +59,8 @@ All configurable values, paths, sizes, colors, and defaults are centralized here
 """
 
 # Model paths and identifiers
-DEFAULT_VIT_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/vit.pt"
-DEFAULT_YOLO_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/yolo.pt"
+DEFAULT_VIT_MODEL_PATH = "/Volumes/LORENZ/uhn/tti/vit.pt"
+DEFAULT_YOLO_MODEL_PATH = "/Volumes/LORENZ/uhn/tti/yolo.pt"
 DEFAULT_DEPTH_MODEL_ID = "Intel/dpt-large"
 
 # Processing defaults

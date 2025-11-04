@@ -18,64 +18,64 @@
 #
 #
 # Initialize conda
-echo "=== Initializing conda ==="
-source ~/.bashrc
-if [ $? -eq 0 ]; then
-    echo "SUCCESS: Bashrc sourced"
-else
-    echo "ERROR: Failed to source bashrc"
-fi
+# echo "=== Initializing conda ==="
+# source ~/.bashrc
+# if [ $? -eq 0 ]; then
+#     echo "SUCCESS: Bashrc sourced"
+# else
+#     echo "ERROR: Failed to source bashrc"
+# fi
 
-# Check if conda is available
-echo "=== Checking conda availability ==="
-which conda
-if [ $? -eq 0 ]; then
-    echo "SUCCESS: Conda found at $(which conda)"
-else
-    echo "ERROR: Conda not found, trying alternative initialization..."
-    # Try alternative conda initialization paths
-    if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
-        source ~/miniconda3/etc/profile.d/conda.sh
-        echo "SUCCESS: Conda initialized from miniconda3"
-    elif [ -f ~/anaconda3/etc/profile.d/conda.sh ]; then
-        source ~/anaconda3/etc/profile.d/conda.sh
-        echo "SUCCESS: Conda initialized from anaconda3"
-    else
-        echo "ERROR: Could not find conda initialization script"
-        exit 1
-    fi
-fi
+# # Check if conda is available
+# echo "=== Checking conda availability ==="
+# which conda
+# if [ $? -eq 0 ]; then
+#     echo "SUCCESS: Conda found at $(which conda)"
+# else
+#     echo "ERROR: Conda not found, trying alternative initialization..."
+#     # Try alternative conda initialization paths
+#     if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
+#         source ~/miniconda3/etc/profile.d/conda.sh
+#         echo "SUCCESS: Conda initialized from miniconda3"
+#     elif [ -f ~/anaconda3/etc/profile.d/conda.sh ]; then
+#         source ~/anaconda3/etc/profile.d/conda.sh
+#         echo "SUCCESS: Conda initialized from anaconda3"
+#     else
+#         echo "ERROR: Could not find conda initialization script"
+#         exit 1
+#     fi
+# fi
 
-# Activate conda environment
-echo "=== Activating conda environment 'tti' ==="
-conda activate tti
-if [ $? -eq 0 ]; then
-    echo "SUCCESS: Conda environment 'tti' activated"
-    echo "Active environment: $CONDA_DEFAULT_ENV"
-    echo "Python location: $(which python)"
-    echo "Python version: $(python --version)"
-else
-    echo "ERROR: Failed to activate conda environment 'tti'"
-    echo "Available environments:"
-    conda env list
-    exit 1
-fi
+# # Activate conda environment
+# echo "=== Activating conda environment 'tti' ==="
+# conda activate tti
+# if [ $? -eq 0 ]; then
+#     echo "SUCCESS: Conda environment 'tti' activated"
+#     echo "Active environment: $CONDA_DEFAULT_ENV"
+#     echo "Python location: $(which python)"
+#     echo "Python version: $(python --version)"
+# else
+#     echo "ERROR: Failed to activate conda environment 'tti'"
+#     echo "Available environments:"
+#     conda env list
+#     exit 1
+# fi
 
 
-set -e  # Exit immediately if a command exits with a non-zero status.
+# set -e  # Exit immediately if a command exits with a non-zero status.
 
 # --- Configuration ---
 # Adjust these paths according to your environment.
 
 # Path to the Python evaluation script.
 # IMPORTANT: Use a specific path. The '~' shortcut might not expand correctly in all environments.
-EVAL_SCRIPT_PATH="/cluster/home/t130371uhn/github/tti-inference/optimized_eval.py"
+EVAL_SCRIPT_PATH="/Users/main/Documents/GitHub/tti-inference/optimized_eval.py"
 
 # Base directory containing the video frame folders (e.g., LapChol_Case_0001_03/frame_sec_000.jpg).
-FRAMES_BASE_DIR="/cluster/projects/madanigroup/lorenz/tti/master_list_frames_alt"
+FRAMES_BASE_DIR="/Volumes/LORENZ/uhn/tti/master-list-frames/master_list_frames_alt"
 
 # Base directory where the output JSON and annotated images will be stored.
-RESULTS_BASE_DIR="/cluster/projects/madanigroup/lorenz/tti/master_frames_eval"
+RESULTS_BASE_DIR="/Users/main/Documents/GitHub/tti-inference/master-list-frames-eval"
 
 # Check if the evaluation script exists
 if [ ! -f "$EVAL_SCRIPT_PATH" ]; then
