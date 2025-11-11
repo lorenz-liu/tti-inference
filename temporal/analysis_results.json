@@ -1,0 +1,1568 @@
+[
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 1,
+        "start_frame": 2336,
+        "end_frame": 2410,
+        "total_frames_in_period": 75,
+        "correctly_predicted_frames": 9,
+        "percentage": 12.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 2,
+        "start_frame": 2433,
+        "end_frame": 2525,
+        "total_frames_in_period": 93,
+        "correctly_predicted_frames": 7,
+        "percentage": 7.53
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 3,
+        "start_frame": 2545,
+        "end_frame": 2645,
+        "total_frames_in_period": 101,
+        "correctly_predicted_frames": 8,
+        "percentage": 7.92
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 4,
+        "start_frame": 2674,
+        "end_frame": 2769,
+        "total_frames_in_period": 96,
+        "correctly_predicted_frames": 3,
+        "percentage": 3.12
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 5,
+        "start_frame": 2907,
+        "end_frame": 3000,
+        "total_frames_in_period": 94,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_02.json",
+        "interaction_index": 6,
+        "start_frame": 7968,
+        "end_frame": 8004,
+        "total_frames_in_period": 37,
+        "correctly_predicted_frames": 8,
+        "percentage": 21.62
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 119,
+        "end_frame": 370,
+        "total_frames_in_period": 252,
+        "correctly_predicted_frames": 93,
+        "percentage": 36.9
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 1471,
+        "end_frame": 1493,
+        "total_frames_in_period": 23,
+        "correctly_predicted_frames": 1,
+        "percentage": 4.35
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 1528,
+        "end_frame": 1571,
+        "total_frames_in_period": 44,
+        "correctly_predicted_frames": 19,
+        "percentage": 43.18
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 1707,
+        "end_frame": 1770,
+        "total_frames_in_period": 64,
+        "correctly_predicted_frames": 40,
+        "percentage": 62.5
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 5,
+        "start_frame": 1796,
+        "end_frame": 1875,
+        "total_frames_in_period": 80,
+        "correctly_predicted_frames": 33,
+        "percentage": 41.25
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 6,
+        "start_frame": 3202,
+        "end_frame": 3258,
+        "total_frames_in_period": 57,
+        "correctly_predicted_frames": 40,
+        "percentage": 70.18
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 7,
+        "start_frame": 3977,
+        "end_frame": 4130,
+        "total_frames_in_period": 154,
+        "correctly_predicted_frames": 154,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 8,
+        "start_frame": 15256,
+        "end_frame": 15302,
+        "total_frames_in_period": 47,
+        "correctly_predicted_frames": 47,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "v2_trimmed.json",
+        "interaction_index": 9,
+        "start_frame": 25419,
+        "end_frame": 25487,
+        "total_frames_in_period": 69,
+        "correctly_predicted_frames": 14,
+        "percentage": 20.29
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 1680,
+        "end_frame": 2284,
+        "total_frames_in_period": 605,
+        "correctly_predicted_frames": 398,
+        "percentage": 65.79
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 2445,
+        "end_frame": 2499,
+        "total_frames_in_period": 55,
+        "correctly_predicted_frames": 29,
+        "percentage": 52.73
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 2882,
+        "end_frame": 2906,
+        "total_frames_in_period": 25,
+        "correctly_predicted_frames": 19,
+        "percentage": 76.0
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 2928,
+        "end_frame": 2991,
+        "total_frames_in_period": 64,
+        "correctly_predicted_frames": 40,
+        "percentage": 62.5
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 5,
+        "start_frame": 3375,
+        "end_frame": 3695,
+        "total_frames_in_period": 321,
+        "correctly_predicted_frames": 72,
+        "percentage": 22.43
+    },
+    {
+        "ground_truth_file": "v5_trimmed.json",
+        "interaction_index": 6,
+        "start_frame": 4561,
+        "end_frame": 4602,
+        "total_frames_in_period": 42,
+        "correctly_predicted_frames": 1,
+        "percentage": 2.38
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 1,
+        "start_frame": 1682,
+        "end_frame": 1818,
+        "total_frames_in_period": 137,
+        "correctly_predicted_frames": 26,
+        "percentage": 18.98
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 2,
+        "start_frame": 2377,
+        "end_frame": 2506,
+        "total_frames_in_period": 130,
+        "correctly_predicted_frames": 39,
+        "percentage": 30.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 3,
+        "start_frame": 2978,
+        "end_frame": 3028,
+        "total_frames_in_period": 51,
+        "correctly_predicted_frames": 1,
+        "percentage": 1.96
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 4,
+        "start_frame": 3469,
+        "end_frame": 3677,
+        "total_frames_in_period": 209,
+        "correctly_predicted_frames": 6,
+        "percentage": 2.87
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 5,
+        "start_frame": 5001,
+        "end_frame": 5099,
+        "total_frames_in_period": 99,
+        "correctly_predicted_frames": 70,
+        "percentage": 70.71
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 6,
+        "start_frame": 5204,
+        "end_frame": 5247,
+        "total_frames_in_period": 44,
+        "correctly_predicted_frames": 21,
+        "percentage": 47.73
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 7,
+        "start_frame": 6222,
+        "end_frame": 6376,
+        "total_frames_in_period": 155,
+        "correctly_predicted_frames": 9,
+        "percentage": 5.81
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_03.json",
+        "interaction_index": 8,
+        "start_frame": 7496,
+        "end_frame": 7680,
+        "total_frames_in_period": 185,
+        "correctly_predicted_frames": 58,
+        "percentage": 31.35
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_03.json",
+        "interaction_index": 1,
+        "start_frame": 8271,
+        "end_frame": 8393,
+        "total_frames_in_period": 123,
+        "correctly_predicted_frames": 70,
+        "percentage": 56.91
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 1,
+        "start_frame": 3278,
+        "end_frame": 3328,
+        "total_frames_in_period": 51,
+        "correctly_predicted_frames": 26,
+        "percentage": 50.98
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 2,
+        "start_frame": 3353,
+        "end_frame": 3408,
+        "total_frames_in_period": 56,
+        "correctly_predicted_frames": 17,
+        "percentage": 30.36
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 3,
+        "start_frame": 4497,
+        "end_frame": 4524,
+        "total_frames_in_period": 28,
+        "correctly_predicted_frames": 15,
+        "percentage": 53.57
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 4,
+        "start_frame": 5180,
+        "end_frame": 5257,
+        "total_frames_in_period": 78,
+        "correctly_predicted_frames": 30,
+        "percentage": 38.46
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 5,
+        "start_frame": 6295,
+        "end_frame": 6434,
+        "total_frames_in_period": 140,
+        "correctly_predicted_frames": 140,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_01.json",
+        "interaction_index": 6,
+        "start_frame": 8278,
+        "end_frame": 8351,
+        "total_frames_in_period": 74,
+        "correctly_predicted_frames": 30,
+        "percentage": 40.54
+    },
+    {
+        "ground_truth_file": "v4_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 0,
+        "end_frame": 106,
+        "total_frames_in_period": 107,
+        "correctly_predicted_frames": 21,
+        "percentage": 19.63
+    },
+    {
+        "ground_truth_file": "v4_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 226,
+        "end_frame": 254,
+        "total_frames_in_period": 29,
+        "correctly_predicted_frames": 5,
+        "percentage": 17.24
+    },
+    {
+        "ground_truth_file": "v4_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 10286,
+        "end_frame": 10371,
+        "total_frames_in_period": 86,
+        "correctly_predicted_frames": 43,
+        "percentage": 50.0
+    },
+    {
+        "ground_truth_file": "v4_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 13941,
+        "end_frame": 14064,
+        "total_frames_in_period": 124,
+        "correctly_predicted_frames": 41,
+        "percentage": 33.06
+    },
+    {
+        "ground_truth_file": "v4_trimmed.json",
+        "interaction_index": 5,
+        "start_frame": 16443,
+        "end_frame": 16630,
+        "total_frames_in_period": 188,
+        "correctly_predicted_frames": 27,
+        "percentage": 14.36
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 1,
+        "start_frame": 134,
+        "end_frame": 291,
+        "total_frames_in_period": 158,
+        "correctly_predicted_frames": 54,
+        "percentage": 34.18
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 2,
+        "start_frame": 1684,
+        "end_frame": 1796,
+        "total_frames_in_period": 113,
+        "correctly_predicted_frames": 45,
+        "percentage": 39.82
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 3,
+        "start_frame": 1824,
+        "end_frame": 1943,
+        "total_frames_in_period": 120,
+        "correctly_predicted_frames": 54,
+        "percentage": 45.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 4,
+        "start_frame": 1966,
+        "end_frame": 2155,
+        "total_frames_in_period": 190,
+        "correctly_predicted_frames": 3,
+        "percentage": 1.58
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 5,
+        "start_frame": 2179,
+        "end_frame": 2247,
+        "total_frames_in_period": 69,
+        "correctly_predicted_frames": 44,
+        "percentage": 63.77
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 6,
+        "start_frame": 3789,
+        "end_frame": 4003,
+        "total_frames_in_period": 215,
+        "correctly_predicted_frames": 74,
+        "percentage": 34.42
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 7,
+        "start_frame": 4880,
+        "end_frame": 5021,
+        "total_frames_in_period": 142,
+        "correctly_predicted_frames": 77,
+        "percentage": 54.23
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 8,
+        "start_frame": 5222,
+        "end_frame": 5280,
+        "total_frames_in_period": 59,
+        "correctly_predicted_frames": 4,
+        "percentage": 6.78
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 9,
+        "start_frame": 5616,
+        "end_frame": 5650,
+        "total_frames_in_period": 35,
+        "correctly_predicted_frames": 29,
+        "percentage": 82.86
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_04.json",
+        "interaction_index": 10,
+        "start_frame": 9040,
+        "end_frame": 9439,
+        "total_frames_in_period": 400,
+        "correctly_predicted_frames": 154,
+        "percentage": 38.5
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 1,
+        "start_frame": 2102,
+        "end_frame": 2311,
+        "total_frames_in_period": 210,
+        "correctly_predicted_frames": 164,
+        "percentage": 78.1
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 2,
+        "start_frame": 2333,
+        "end_frame": 2443,
+        "total_frames_in_period": 111,
+        "correctly_predicted_frames": 107,
+        "percentage": 96.4
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 3,
+        "start_frame": 2479,
+        "end_frame": 2592,
+        "total_frames_in_period": 114,
+        "correctly_predicted_frames": 100,
+        "percentage": 87.72
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 4,
+        "start_frame": 2630,
+        "end_frame": 2694,
+        "total_frames_in_period": 65,
+        "correctly_predicted_frames": 65,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 5,
+        "start_frame": 2741,
+        "end_frame": 2764,
+        "total_frames_in_period": 24,
+        "correctly_predicted_frames": 24,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0011_02.json",
+        "interaction_index": 6,
+        "start_frame": 5027,
+        "end_frame": 5044,
+        "total_frames_in_period": 18,
+        "correctly_predicted_frames": 13,
+        "percentage": 72.22
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 1,
+        "start_frame": 0,
+        "end_frame": 5,
+        "total_frames_in_period": 6,
+        "correctly_predicted_frames": 2,
+        "percentage": 33.33
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 2,
+        "start_frame": 52,
+        "end_frame": 157,
+        "total_frames_in_period": 106,
+        "correctly_predicted_frames": 1,
+        "percentage": 0.94
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 3,
+        "start_frame": 203,
+        "end_frame": 353,
+        "total_frames_in_period": 151,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 4,
+        "start_frame": 391,
+        "end_frame": 406,
+        "total_frames_in_period": 16,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 5,
+        "start_frame": 506,
+        "end_frame": 677,
+        "total_frames_in_period": 172,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 6,
+        "start_frame": 2981,
+        "end_frame": 3025,
+        "total_frames_in_period": 45,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 7,
+        "start_frame": 3105,
+        "end_frame": 3142,
+        "total_frames_in_period": 38,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 8,
+        "start_frame": 3202,
+        "end_frame": 3248,
+        "total_frames_in_period": 47,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0019_03.json",
+        "interaction_index": 9,
+        "start_frame": 3732,
+        "end_frame": 3789,
+        "total_frames_in_period": 58,
+        "correctly_predicted_frames": 5,
+        "percentage": 8.62
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 1162,
+        "end_frame": 1281,
+        "total_frames_in_period": 120,
+        "correctly_predicted_frames": 5,
+        "percentage": 4.17
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 1446,
+        "end_frame": 1494,
+        "total_frames_in_period": 49,
+        "correctly_predicted_frames": 10,
+        "percentage": 20.41
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 1814,
+        "end_frame": 1834,
+        "total_frames_in_period": 21,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 3818,
+        "end_frame": 3906,
+        "total_frames_in_period": 89,
+        "correctly_predicted_frames": 1,
+        "percentage": 1.12
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 5,
+        "start_frame": 4576,
+        "end_frame": 4593,
+        "total_frames_in_period": 18,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 6,
+        "start_frame": 23574,
+        "end_frame": 23613,
+        "total_frames_in_period": 40,
+        "correctly_predicted_frames": 38,
+        "percentage": 95.0
+    },
+    {
+        "ground_truth_file": "v10_trimmed.json",
+        "interaction_index": 7,
+        "start_frame": 28874,
+        "end_frame": 29047,
+        "total_frames_in_period": 174,
+        "correctly_predicted_frames": 80,
+        "percentage": 45.98
+    },
+    {
+        "ground_truth_file": "lapchol_case_0016_01.json",
+        "interaction_index": 1,
+        "start_frame": 3828,
+        "end_frame": 3923,
+        "total_frames_in_period": 96,
+        "correctly_predicted_frames": 73,
+        "percentage": 76.04
+    },
+    {
+        "ground_truth_file": "lapchol_case_0016_01.json",
+        "interaction_index": 2,
+        "start_frame": 3958,
+        "end_frame": 4036,
+        "total_frames_in_period": 79,
+        "correctly_predicted_frames": 77,
+        "percentage": 97.47
+    },
+    {
+        "ground_truth_file": "lapchol_case_0016_01.json",
+        "interaction_index": 3,
+        "start_frame": 4213,
+        "end_frame": 4276,
+        "total_frames_in_period": 64,
+        "correctly_predicted_frames": 50,
+        "percentage": 78.12
+    },
+    {
+        "ground_truth_file": "lapchol_case_0016_01.json",
+        "interaction_index": 4,
+        "start_frame": 4875,
+        "end_frame": 4941,
+        "total_frames_in_period": 67,
+        "correctly_predicted_frames": 61,
+        "percentage": 91.04
+    },
+    {
+        "ground_truth_file": "lapchol_case_0016_01.json",
+        "interaction_index": 5,
+        "start_frame": 6667,
+        "end_frame": 6674,
+        "total_frames_in_period": 8,
+        "correctly_predicted_frames": 1,
+        "percentage": 12.5
+    },
+    {
+        "ground_truth_file": "v17_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 59,
+        "end_frame": 119,
+        "total_frames_in_period": 61,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v17_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 278,
+        "end_frame": 297,
+        "total_frames_in_period": 20,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v17_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 1070,
+        "end_frame": 1104,
+        "total_frames_in_period": 35,
+        "correctly_predicted_frames": 7,
+        "percentage": 20.0
+    },
+    {
+        "ground_truth_file": "v17_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 2855,
+        "end_frame": 2904,
+        "total_frames_in_period": 50,
+        "correctly_predicted_frames": 1,
+        "percentage": 2.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_05.json",
+        "interaction_index": 1,
+        "start_frame": 3731,
+        "end_frame": 3744,
+        "total_frames_in_period": 14,
+        "correctly_predicted_frames": 1,
+        "percentage": 7.14
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_05.json",
+        "interaction_index": 2,
+        "start_frame": 3813,
+        "end_frame": 3816,
+        "total_frames_in_period": 4,
+        "correctly_predicted_frames": 1,
+        "percentage": 25.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_05.json",
+        "interaction_index": 3,
+        "start_frame": 5564,
+        "end_frame": 5668,
+        "total_frames_in_period": 105,
+        "correctly_predicted_frames": 53,
+        "percentage": 50.48
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_05.json",
+        "interaction_index": 4,
+        "start_frame": 8053,
+        "end_frame": 8209,
+        "total_frames_in_period": 157,
+        "correctly_predicted_frames": 96,
+        "percentage": 61.15
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 1,
+        "start_frame": 1520,
+        "end_frame": 1620,
+        "total_frames_in_period": 101,
+        "correctly_predicted_frames": 88,
+        "percentage": 87.13
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 2,
+        "start_frame": 3477,
+        "end_frame": 3591,
+        "total_frames_in_period": 115,
+        "correctly_predicted_frames": 48,
+        "percentage": 41.74
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 3,
+        "start_frame": 3640,
+        "end_frame": 4299,
+        "total_frames_in_period": 660,
+        "correctly_predicted_frames": 115,
+        "percentage": 17.42
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 4,
+        "start_frame": 4728,
+        "end_frame": 4859,
+        "total_frames_in_period": 132,
+        "correctly_predicted_frames": 35,
+        "percentage": 26.52
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 5,
+        "start_frame": 5180,
+        "end_frame": 5264,
+        "total_frames_in_period": 85,
+        "correctly_predicted_frames": 37,
+        "percentage": 43.53
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 6,
+        "start_frame": 6143,
+        "end_frame": 6193,
+        "total_frames_in_period": 51,
+        "correctly_predicted_frames": 51,
+        "percentage": 100.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 7,
+        "start_frame": 8477,
+        "end_frame": 8591,
+        "total_frames_in_period": 115,
+        "correctly_predicted_frames": 98,
+        "percentage": 85.22
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_03.json",
+        "interaction_index": 8,
+        "start_frame": 8936,
+        "end_frame": 9453,
+        "total_frames_in_period": 518,
+        "correctly_predicted_frames": 472,
+        "percentage": 91.12
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_03.json",
+        "interaction_index": 1,
+        "start_frame": 0,
+        "end_frame": 94,
+        "total_frames_in_period": 95,
+        "correctly_predicted_frames": 57,
+        "percentage": 60.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_03.json",
+        "interaction_index": 2,
+        "start_frame": 117,
+        "end_frame": 173,
+        "total_frames_in_period": 57,
+        "correctly_predicted_frames": 37,
+        "percentage": 64.91
+    },
+    {
+        "ground_truth_file": "lapchol_case_0012_03.json",
+        "interaction_index": 3,
+        "start_frame": 4129,
+        "end_frame": 4157,
+        "total_frames_in_period": 29,
+        "correctly_predicted_frames": 3,
+        "percentage": 10.34
+    },
+    {
+        "ground_truth_file": "v11_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 58,
+        "end_frame": 114,
+        "total_frames_in_period": 57,
+        "correctly_predicted_frames": 3,
+        "percentage": 5.26
+    },
+    {
+        "ground_truth_file": "v11_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 6236,
+        "end_frame": 6411,
+        "total_frames_in_period": 176,
+        "correctly_predicted_frames": 1,
+        "percentage": 0.57
+    },
+    {
+        "ground_truth_file": "v11_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 6650,
+        "end_frame": 6693,
+        "total_frames_in_period": 44,
+        "correctly_predicted_frames": 1,
+        "percentage": 2.27
+    },
+    {
+        "ground_truth_file": "v11_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 7300,
+        "end_frame": 7322,
+        "total_frames_in_period": 23,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_02.json",
+        "interaction_index": 1,
+        "start_frame": 5765,
+        "end_frame": 5832,
+        "total_frames_in_period": 68,
+        "correctly_predicted_frames": 64,
+        "percentage": 94.12
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_02.json",
+        "interaction_index": 2,
+        "start_frame": 6062,
+        "end_frame": 6208,
+        "total_frames_in_period": 147,
+        "correctly_predicted_frames": 143,
+        "percentage": 97.28
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_02.json",
+        "interaction_index": 3,
+        "start_frame": 7741,
+        "end_frame": 7850,
+        "total_frames_in_period": 110,
+        "correctly_predicted_frames": 84,
+        "percentage": 76.36
+    },
+    {
+        "ground_truth_file": "lapchol_case_0002_02.json",
+        "interaction_index": 4,
+        "start_frame": 7898,
+        "end_frame": 8017,
+        "total_frames_in_period": 120,
+        "correctly_predicted_frames": 92,
+        "percentage": 76.67
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_04.json",
+        "interaction_index": 1,
+        "start_frame": 825,
+        "end_frame": 1249,
+        "total_frames_in_period": 425,
+        "correctly_predicted_frames": 410,
+        "percentage": 96.47
+    },
+    {
+        "ground_truth_file": "lapchol_case_0001_04.json",
+        "interaction_index": 2,
+        "start_frame": 6485,
+        "end_frame": 6675,
+        "total_frames_in_period": 191,
+        "correctly_predicted_frames": 138,
+        "percentage": 72.25
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 1,
+        "start_frame": 443,
+        "end_frame": 540,
+        "total_frames_in_period": 98,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 2,
+        "start_frame": 2420,
+        "end_frame": 2474,
+        "total_frames_in_period": 55,
+        "correctly_predicted_frames": 10,
+        "percentage": 18.18
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 3,
+        "start_frame": 2901,
+        "end_frame": 2972,
+        "total_frames_in_period": 72,
+        "correctly_predicted_frames": 21,
+        "percentage": 29.17
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 4,
+        "start_frame": 5015,
+        "end_frame": 5058,
+        "total_frames_in_period": 44,
+        "correctly_predicted_frames": 40,
+        "percentage": 90.91
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 5,
+        "start_frame": 5831,
+        "end_frame": 6124,
+        "total_frames_in_period": 294,
+        "correctly_predicted_frames": 205,
+        "percentage": 69.73
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_01.json",
+        "interaction_index": 6,
+        "start_frame": 9686,
+        "end_frame": 9813,
+        "total_frames_in_period": 128,
+        "correctly_predicted_frames": 43,
+        "percentage": 33.59
+    },
+    {
+        "ground_truth_file": "v14_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 160,
+        "end_frame": 197,
+        "total_frames_in_period": 38,
+        "correctly_predicted_frames": 17,
+        "percentage": 44.74
+    },
+    {
+        "ground_truth_file": "v14_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 414,
+        "end_frame": 487,
+        "total_frames_in_period": 74,
+        "correctly_predicted_frames": 7,
+        "percentage": 9.46
+    },
+    {
+        "ground_truth_file": "v14_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 804,
+        "end_frame": 873,
+        "total_frames_in_period": 70,
+        "correctly_predicted_frames": 13,
+        "percentage": 18.57
+    },
+    {
+        "ground_truth_file": "v14_trimmed.json",
+        "interaction_index": 4,
+        "start_frame": 1640,
+        "end_frame": 1658,
+        "total_frames_in_period": 19,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v14_trimmed.json",
+        "interaction_index": 5,
+        "start_frame": 3349,
+        "end_frame": 3393,
+        "total_frames_in_period": 45,
+        "correctly_predicted_frames": 9,
+        "percentage": 20.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 1,
+        "start_frame": 22,
+        "end_frame": 86,
+        "total_frames_in_period": 65,
+        "correctly_predicted_frames": 22,
+        "percentage": 33.85
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 2,
+        "start_frame": 237,
+        "end_frame": 308,
+        "total_frames_in_period": 72,
+        "correctly_predicted_frames": 7,
+        "percentage": 9.72
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 3,
+        "start_frame": 342,
+        "end_frame": 402,
+        "total_frames_in_period": 61,
+        "correctly_predicted_frames": 54,
+        "percentage": 88.52
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 4,
+        "start_frame": 810,
+        "end_frame": 903,
+        "total_frames_in_period": 94,
+        "correctly_predicted_frames": 15,
+        "percentage": 15.96
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 5,
+        "start_frame": 1393,
+        "end_frame": 1430,
+        "total_frames_in_period": 38,
+        "correctly_predicted_frames": 1,
+        "percentage": 2.63
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 6,
+        "start_frame": 3064,
+        "end_frame": 3242,
+        "total_frames_in_period": 179,
+        "correctly_predicted_frames": 79,
+        "percentage": 44.13
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_02.json",
+        "interaction_index": 7,
+        "start_frame": 4070,
+        "end_frame": 4444,
+        "total_frames_in_period": 375,
+        "correctly_predicted_frames": 215,
+        "percentage": 57.33
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 1,
+        "start_frame": 474,
+        "end_frame": 487,
+        "total_frames_in_period": 14,
+        "correctly_predicted_frames": 5,
+        "percentage": 35.71
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 2,
+        "start_frame": 705,
+        "end_frame": 732,
+        "total_frames_in_period": 28,
+        "correctly_predicted_frames": 4,
+        "percentage": 14.29
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 3,
+        "start_frame": 1725,
+        "end_frame": 1803,
+        "total_frames_in_period": 79,
+        "correctly_predicted_frames": 8,
+        "percentage": 10.13
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 4,
+        "start_frame": 1843,
+        "end_frame": 2058,
+        "total_frames_in_period": 216,
+        "correctly_predicted_frames": 6,
+        "percentage": 2.78
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 5,
+        "start_frame": 2091,
+        "end_frame": 2197,
+        "total_frames_in_period": 107,
+        "correctly_predicted_frames": 8,
+        "percentage": 7.48
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 6,
+        "start_frame": 4555,
+        "end_frame": 4795,
+        "total_frames_in_period": 241,
+        "correctly_predicted_frames": 153,
+        "percentage": 63.49
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 7,
+        "start_frame": 5331,
+        "end_frame": 5488,
+        "total_frames_in_period": 158,
+        "correctly_predicted_frames": 29,
+        "percentage": 18.35
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_11.json",
+        "interaction_index": 8,
+        "start_frame": 9353,
+        "end_frame": 9428,
+        "total_frames_in_period": 76,
+        "correctly_predicted_frames": 69,
+        "percentage": 90.79
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_03.json",
+        "interaction_index": 1,
+        "start_frame": 2501,
+        "end_frame": 2538,
+        "total_frames_in_period": 38,
+        "correctly_predicted_frames": 5,
+        "percentage": 13.16
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_03.json",
+        "interaction_index": 2,
+        "start_frame": 3758,
+        "end_frame": 3918,
+        "total_frames_in_period": 161,
+        "correctly_predicted_frames": 90,
+        "percentage": 55.9
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_04.json",
+        "interaction_index": 1,
+        "start_frame": 0,
+        "end_frame": 172,
+        "total_frames_in_period": 173,
+        "correctly_predicted_frames": 76,
+        "percentage": 43.93
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_04.json",
+        "interaction_index": 2,
+        "start_frame": 190,
+        "end_frame": 255,
+        "total_frames_in_period": 66,
+        "correctly_predicted_frames": 17,
+        "percentage": 25.76
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_04.json",
+        "interaction_index": 3,
+        "start_frame": 6674,
+        "end_frame": 6817,
+        "total_frames_in_period": 144,
+        "correctly_predicted_frames": 14,
+        "percentage": 9.72
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_04.json",
+        "interaction_index": 4,
+        "start_frame": 6841,
+        "end_frame": 6914,
+        "total_frames_in_period": 74,
+        "correctly_predicted_frames": 3,
+        "percentage": 4.05
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_04.json",
+        "interaction_index": 5,
+        "start_frame": 7013,
+        "end_frame": 7105,
+        "total_frames_in_period": 93,
+        "correctly_predicted_frames": 50,
+        "percentage": 53.76
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_02.json",
+        "interaction_index": 1,
+        "start_frame": 241,
+        "end_frame": 332,
+        "total_frames_in_period": 92,
+        "correctly_predicted_frames": 28,
+        "percentage": 30.43
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_02.json",
+        "interaction_index": 2,
+        "start_frame": 1326,
+        "end_frame": 1364,
+        "total_frames_in_period": 39,
+        "correctly_predicted_frames": 32,
+        "percentage": 82.05
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_02.json",
+        "interaction_index": 3,
+        "start_frame": 1843,
+        "end_frame": 1877,
+        "total_frames_in_period": 35,
+        "correctly_predicted_frames": 14,
+        "percentage": 40.0
+    },
+    {
+        "ground_truth_file": "lapchol_case_0020_02.json",
+        "interaction_index": 4,
+        "start_frame": 3333,
+        "end_frame": 3380,
+        "total_frames_in_period": 48,
+        "correctly_predicted_frames": 20,
+        "percentage": 41.67
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_10.json",
+        "interaction_index": 1,
+        "start_frame": 1498,
+        "end_frame": 1613,
+        "total_frames_in_period": 116,
+        "correctly_predicted_frames": 68,
+        "percentage": 58.62
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_10.json",
+        "interaction_index": 2,
+        "start_frame": 1823,
+        "end_frame": 1898,
+        "total_frames_in_period": 76,
+        "correctly_predicted_frames": 59,
+        "percentage": 77.63
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_10.json",
+        "interaction_index": 3,
+        "start_frame": 6106,
+        "end_frame": 6297,
+        "total_frames_in_period": 192,
+        "correctly_predicted_frames": 82,
+        "percentage": 42.71
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_10.json",
+        "interaction_index": 4,
+        "start_frame": 6356,
+        "end_frame": 6639,
+        "total_frames_in_period": 284,
+        "correctly_predicted_frames": 33,
+        "percentage": 11.62
+    },
+    {
+        "ground_truth_file": "lapchol_case_0018_10.json",
+        "interaction_index": 5,
+        "start_frame": 6670,
+        "end_frame": 6780,
+        "total_frames_in_period": 111,
+        "correctly_predicted_frames": 8,
+        "percentage": 7.21
+    },
+    {
+        "ground_truth_file": "v15_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 667,
+        "end_frame": 717,
+        "total_frames_in_period": 51,
+        "correctly_predicted_frames": 25,
+        "percentage": 49.02
+    },
+    {
+        "ground_truth_file": "v15_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 3156,
+        "end_frame": 3181,
+        "total_frames_in_period": 26,
+        "correctly_predicted_frames": 8,
+        "percentage": 30.77
+    },
+    {
+        "ground_truth_file": "v12_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 67,
+        "end_frame": 130,
+        "total_frames_in_period": 64,
+        "correctly_predicted_frames": 3,
+        "percentage": 4.69
+    },
+    {
+        "ground_truth_file": "v12_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 6842,
+        "end_frame": 7011,
+        "total_frames_in_period": 170,
+        "correctly_predicted_frames": 19,
+        "percentage": 11.18
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 1,
+        "start_frame": 1107,
+        "end_frame": 1430,
+        "total_frames_in_period": 324,
+        "correctly_predicted_frames": 159,
+        "percentage": 49.07
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 2,
+        "start_frame": 1476,
+        "end_frame": 1633,
+        "total_frames_in_period": 158,
+        "correctly_predicted_frames": 118,
+        "percentage": 74.68
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 3,
+        "start_frame": 1663,
+        "end_frame": 1874,
+        "total_frames_in_period": 212,
+        "correctly_predicted_frames": 164,
+        "percentage": 77.36
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 4,
+        "start_frame": 1904,
+        "end_frame": 2076,
+        "total_frames_in_period": 173,
+        "correctly_predicted_frames": 130,
+        "percentage": 75.14
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 5,
+        "start_frame": 2259,
+        "end_frame": 2347,
+        "total_frames_in_period": 89,
+        "correctly_predicted_frames": 60,
+        "percentage": 67.42
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 6,
+        "start_frame": 5175,
+        "end_frame": 5422,
+        "total_frames_in_period": 248,
+        "correctly_predicted_frames": 34,
+        "percentage": 13.71
+    },
+    {
+        "ground_truth_file": "lapchol_case_0007_03.json",
+        "interaction_index": 7,
+        "start_frame": 5499,
+        "end_frame": 5595,
+        "total_frames_in_period": 97,
+        "correctly_predicted_frames": 58,
+        "percentage": 59.79
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_03.json",
+        "interaction_index": 1,
+        "start_frame": 0,
+        "end_frame": 8,
+        "total_frames_in_period": 9,
+        "correctly_predicted_frames": 2,
+        "percentage": 22.22
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_03.json",
+        "interaction_index": 2,
+        "start_frame": 266,
+        "end_frame": 288,
+        "total_frames_in_period": 23,
+        "correctly_predicted_frames": 22,
+        "percentage": 95.65
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_03.json",
+        "interaction_index": 3,
+        "start_frame": 5021,
+        "end_frame": 5041,
+        "total_frames_in_period": 21,
+        "correctly_predicted_frames": 7,
+        "percentage": 33.33
+    },
+    {
+        "ground_truth_file": "lapchol_case_0023_03.json",
+        "interaction_index": 4,
+        "start_frame": 5268,
+        "end_frame": 5302,
+        "total_frames_in_period": 35,
+        "correctly_predicted_frames": 29,
+        "percentage": 82.86
+    },
+    {
+        "ground_truth_file": "v18_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 3027,
+        "end_frame": 3174,
+        "total_frames_in_period": 148,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v18_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 4292,
+        "end_frame": 4436,
+        "total_frames_in_period": 145,
+        "correctly_predicted_frames": 0,
+        "percentage": 0.0
+    },
+    {
+        "ground_truth_file": "v18_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 4746,
+        "end_frame": 4768,
+        "total_frames_in_period": 23,
+        "correctly_predicted_frames": 9,
+        "percentage": 39.13
+    },
+    {
+        "ground_truth_file": "v7_trimmed.json",
+        "interaction_index": 1,
+        "start_frame": 19432,
+        "end_frame": 19595,
+        "total_frames_in_period": 164,
+        "correctly_predicted_frames": 63,
+        "percentage": 38.41
+    },
+    {
+        "ground_truth_file": "v7_trimmed.json",
+        "interaction_index": 2,
+        "start_frame": 43760,
+        "end_frame": 43892,
+        "total_frames_in_period": 133,
+        "correctly_predicted_frames": 33,
+        "percentage": 24.81
+    },
+    {
+        "ground_truth_file": "v7_trimmed.json",
+        "interaction_index": 3,
+        "start_frame": 65532,
+        "end_frame": 65625,
+        "total_frames_in_period": 94,
+        "correctly_predicted_frames": 3,
+        "percentage": 3.19
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_02.json",
+        "interaction_index": 1,
+        "start_frame": 268,
+        "end_frame": 537,
+        "total_frames_in_period": 270,
+        "correctly_predicted_frames": 261,
+        "percentage": 96.67
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_02.json",
+        "interaction_index": 2,
+        "start_frame": 4122,
+        "end_frame": 4205,
+        "total_frames_in_period": 84,
+        "correctly_predicted_frames": 67,
+        "percentage": 79.76
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_02.json",
+        "interaction_index": 3,
+        "start_frame": 5446,
+        "end_frame": 5640,
+        "total_frames_in_period": 195,
+        "correctly_predicted_frames": 81,
+        "percentage": 41.54
+    },
+    {
+        "ground_truth_file": "lapchol_case_0015_02.json",
+        "interaction_index": 4,
+        "start_frame": 7870,
+        "end_frame": 7989,
+        "total_frames_in_period": 120,
+        "correctly_predicted_frames": 9,
+        "percentage": 7.5
+    }
+]

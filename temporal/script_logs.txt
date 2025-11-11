@@ -1,0 +1,280 @@
+Found 34 ground truth files to analyze.
+
+--- Processing file: lapchol_case_0019_02.json ---
+Found 6 interaction period(s) in ground truth.
+  - Interaction 1 (2336-2410): 9/75 frames correct (12.00%)
+  - Interaction 2 (2433-2525): 7/93 frames correct (7.53%)
+  - Interaction 3 (2545-2645): 8/101 frames correct (7.92%)
+  - Interaction 4 (2674-2769): 3/96 frames correct (3.12%)
+  - Interaction 5 (2907-3000): 0/94 frames correct (0.00%)
+  - Interaction 6 (7968-8004): 8/37 frames correct (21.62%)
+
+--- Processing file: v2_trimmed.json ---
+Found 9 interaction period(s) in ground truth.
+  - Interaction 1 (119-370): 93/252 frames correct (36.90%)
+  - Interaction 2 (1471-1493): 1/23 frames correct (4.35%)
+  - Interaction 3 (1528-1571): 19/44 frames correct (43.18%)
+  - Interaction 4 (1707-1770): 40/64 frames correct (62.50%)
+  - Interaction 5 (1796-1875): 33/80 frames correct (41.25%)
+  - Interaction 6 (3202-3258): 40/57 frames correct (70.18%)
+  - Interaction 7 (3977-4130): 154/154 frames correct (100.00%)
+  - Interaction 8 (15256-15302): 47/47 frames correct (100.00%)
+  - Interaction 9 (25419-25487): 14/69 frames correct (20.29%)
+
+--- Processing file: v5_trimmed.json ---
+Found 6 interaction period(s) in ground truth.
+  - Interaction 1 (1680-2284): 398/605 frames correct (65.79%)
+  - Interaction 2 (2445-2499): 29/55 frames correct (52.73%)
+  - Interaction 3 (2882-2906): 19/25 frames correct (76.00%)
+  - Interaction 4 (2928-2991): 40/64 frames correct (62.50%)
+  - Interaction 5 (3375-3695): 72/321 frames correct (22.43%)
+  - Interaction 6 (4561-4602): 1/42 frames correct (2.38%)
+
+--- Processing file: lapchol_case_0001_03.json ---
+Found 8 interaction period(s) in ground truth.
+  - Interaction 1 (1682-1818): 26/137 frames correct (18.98%)
+  - Interaction 2 (2377-2506): 39/130 frames correct (30.00%)
+  - Interaction 3 (2978-3028): 1/51 frames correct (1.96%)
+  - Interaction 4 (3469-3677): 6/209 frames correct (2.87%)
+  - Interaction 5 (5001-5099): 70/99 frames correct (70.71%)
+  - Interaction 6 (5204-5247): 21/44 frames correct (47.73%)
+  - Interaction 7 (6222-6376): 9/155 frames correct (5.81%)
+  - Interaction 8 (7496-7680): 58/185 frames correct (31.35%)
+
+--- Processing file: lapchol_case_0011_03.json ---
+Found 1 interaction period(s) in ground truth.
+  - Interaction 1 (8271-8393): 70/123 frames correct (56.91%)
+
+--- Processing file: lapchol_case_0015_01.json ---
+Found 6 interaction period(s) in ground truth.
+  - Interaction 1 (3278-3328): 26/51 frames correct (50.98%)
+  - Interaction 2 (3353-3408): 17/56 frames correct (30.36%)
+  - Interaction 3 (4497-4524): 15/28 frames correct (53.57%)
+  - Interaction 4 (5180-5257): 30/78 frames correct (38.46%)
+  - Interaction 5 (6295-6434): 140/140 frames correct (100.00%)
+  - Interaction 6 (8278-8351): 30/74 frames correct (40.54%)
+
+--- Processing file: v4_trimmed.json ---
+Found 5 interaction period(s) in ground truth.
+  - Interaction 1 (0-106): 21/107 frames correct (19.63%)
+  - Interaction 2 (226-254): 5/29 frames correct (17.24%)
+  - Interaction 3 (10286-10371): 43/86 frames correct (50.00%)
+  - Interaction 4 (13941-14064): 41/124 frames correct (33.06%)
+  - Interaction 5 (16443-16630): 27/188 frames correct (14.36%)
+
+--- Processing file: lapchol_case_0012_04.json ---
+Found 10 interaction period(s) in ground truth.
+  - Interaction 1 (134-291): 54/158 frames correct (34.18%)
+  - Interaction 2 (1684-1796): 45/113 frames correct (39.82%)
+  - Interaction 3 (1824-1943): 54/120 frames correct (45.00%)
+  - Interaction 4 (1966-2155): 3/190 frames correct (1.58%)
+  - Interaction 5 (2179-2247): 44/69 frames correct (63.77%)
+  - Interaction 6 (3789-4003): 74/215 frames correct (34.42%)
+  - Interaction 7 (4880-5021): 77/142 frames correct (54.23%)
+  - Interaction 8 (5222-5280): 4/59 frames correct (6.78%)
+  - Interaction 9 (5616-5650): 29/35 frames correct (82.86%)
+  - Interaction 10 (9040-9439): 154/400 frames correct (38.50%)
+
+--- Processing file: lapchol_case_0011_02.json ---
+Found 6 interaction period(s) in ground truth.
+  - Interaction 1 (2102-2311): 164/210 frames correct (78.10%)
+  - Interaction 2 (2333-2443): 107/111 frames correct (96.40%)
+  - Interaction 3 (2479-2592): 100/114 frames correct (87.72%)
+  - Interaction 4 (2630-2694): 65/65 frames correct (100.00%)
+  - Interaction 5 (2741-2764): 24/24 frames correct (100.00%)
+  - Interaction 6 (5027-5044): 13/18 frames correct (72.22%)
+
+--- Processing file: lapchol_case_0019_03.json ---
+Found 9 interaction period(s) in ground truth.
+  - Interaction 1 (0-5): 2/6 frames correct (33.33%)
+  - Interaction 2 (52-157): 1/106 frames correct (0.94%)
+  - Interaction 3 (203-353): 0/151 frames correct (0.00%)
+  - Interaction 4 (391-406): 0/16 frames correct (0.00%)
+  - Interaction 5 (506-677): 0/172 frames correct (0.00%)
+  - Interaction 6 (2981-3025): 0/45 frames correct (0.00%)
+  - Interaction 7 (3105-3142): 0/38 frames correct (0.00%)
+  - Interaction 8 (3202-3248): 0/47 frames correct (0.00%)
+  - Interaction 9 (3732-3789): 5/58 frames correct (8.62%)
+
+--- Processing file: v10_trimmed.json ---
+Found 7 interaction period(s) in ground truth.
+  - Interaction 1 (1162-1281): 5/120 frames correct (4.17%)
+  - Interaction 2 (1446-1494): 10/49 frames correct (20.41%)
+  - Interaction 3 (1814-1834): 0/21 frames correct (0.00%)
+  - Interaction 4 (3818-3906): 1/89 frames correct (1.12%)
+  - Interaction 5 (4576-4593): 0/18 frames correct (0.00%)
+  - Interaction 6 (23574-23613): 38/40 frames correct (95.00%)
+  - Interaction 7 (28874-29047): 80/174 frames correct (45.98%)
+
+--- Processing file: lapchol_case_0016_01.json ---
+Found 5 interaction period(s) in ground truth.
+  - Interaction 1 (3828-3923): 73/96 frames correct (76.04%)
+  - Interaction 2 (3958-4036): 77/79 frames correct (97.47%)
+  - Interaction 3 (4213-4276): 50/64 frames correct (78.12%)
+  - Interaction 4 (4875-4941): 61/67 frames correct (91.04%)
+  - Interaction 5 (6667-6674): 1/8 frames correct (12.50%)
+
+--- Processing file: v17_trimmed.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (59-119): 0/61 frames correct (0.00%)
+  - Interaction 2 (278-297): 0/20 frames correct (0.00%)
+  - Interaction 3 (1070-1104): 7/35 frames correct (20.00%)
+  - Interaction 4 (2855-2904): 1/50 frames correct (2.00%)
+
+--- Processing file: lapchol_case_0001_05.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (3731-3744): 1/14 frames correct (7.14%)
+  - Interaction 2 (3813-3816): 1/4 frames correct (25.00%)
+  - Interaction 3 (5564-5668): 53/105 frames correct (50.48%)
+  - Interaction 4 (8053-8209): 96/157 frames correct (61.15%)
+
+--- Processing file: lapchol_case_0002_03.json ---
+Found 8 interaction period(s) in ground truth.
+  - Interaction 1 (1520-1620): 88/101 frames correct (87.13%)
+  - Interaction 2 (3477-3591): 48/115 frames correct (41.74%)
+  - Interaction 3 (3640-4299): 115/660 frames correct (17.42%)
+  - Interaction 4 (4728-4859): 35/132 frames correct (26.52%)
+  - Interaction 5 (5180-5264): 37/85 frames correct (43.53%)
+  - Interaction 6 (6143-6193): 51/51 frames correct (100.00%)
+  - Interaction 7 (8477-8591): 98/115 frames correct (85.22%)
+  - Interaction 8 (8936-9453): 472/518 frames correct (91.12%)
+
+--- Processing file: lapchol_case_0012_03.json ---
+Found 3 interaction period(s) in ground truth.
+  - Interaction 1 (0-94): 57/95 frames correct (60.00%)
+  - Interaction 2 (117-173): 37/57 frames correct (64.91%)
+  - Interaction 3 (4129-4157): 3/29 frames correct (10.34%)
+
+--- Processing file: v11_trimmed.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (58-114): 3/57 frames correct (5.26%)
+  - Interaction 2 (6236-6411): 1/176 frames correct (0.57%)
+  - Interaction 3 (6650-6693): 1/44 frames correct (2.27%)
+  - Interaction 4 (7300-7322): 0/23 frames correct (0.00%)
+
+--- Processing file: lapchol_case_0002_02.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (5765-5832): 64/68 frames correct (94.12%)
+  - Interaction 2 (6062-6208): 143/147 frames correct (97.28%)
+  - Interaction 3 (7741-7850): 84/110 frames correct (76.36%)
+  - Interaction 4 (7898-8017): 92/120 frames correct (76.67%)
+
+--- Processing file: lapchol_case_0001_04.json ---
+Found 2 interaction period(s) in ground truth.
+  - Interaction 1 (825-1249): 410/425 frames correct (96.47%)
+  - Interaction 2 (6485-6675): 138/191 frames correct (72.25%)
+
+--- Processing file: lapchol_case_0007_01.json ---
+Found 6 interaction period(s) in ground truth.
+  - Interaction 1 (443-540): 0/98 frames correct (0.00%)
+  - Interaction 2 (2420-2474): 10/55 frames correct (18.18%)
+  - Interaction 3 (2901-2972): 21/72 frames correct (29.17%)
+  - Interaction 4 (5015-5058): 40/44 frames correct (90.91%)
+  - Interaction 5 (5831-6124): 205/294 frames correct (69.73%)
+  - Interaction 6 (9686-9813): 43/128 frames correct (33.59%)
+
+--- Processing file: v14_trimmed.json ---
+Found 5 interaction period(s) in ground truth.
+  - Interaction 1 (160-197): 17/38 frames correct (44.74%)
+  - Interaction 2 (414-487): 7/74 frames correct (9.46%)
+  - Interaction 3 (804-873): 13/70 frames correct (18.57%)
+  - Interaction 4 (1640-1658): 0/19 frames correct (0.00%)
+  - Interaction 5 (3349-3393): 9/45 frames correct (20.00%)
+
+--- Processing file: lapchol_case_0007_02.json ---
+Found 7 interaction period(s) in ground truth.
+  - Interaction 1 (22-86): 22/65 frames correct (33.85%)
+  - Interaction 2 (237-308): 7/72 frames correct (9.72%)
+  - Interaction 3 (342-402): 54/61 frames correct (88.52%)
+  - Interaction 4 (810-903): 15/94 frames correct (15.96%)
+  - Interaction 5 (1393-1430): 1/38 frames correct (2.63%)
+  - Interaction 6 (3064-3242): 79/179 frames correct (44.13%)
+  - Interaction 7 (4070-4444): 215/375 frames correct (57.33%)
+
+--- Processing file: lapchol_case_0018_11.json ---
+Found 8 interaction period(s) in ground truth.
+  - Interaction 1 (474-487): 5/14 frames correct (35.71%)
+  - Interaction 2 (705-732): 4/28 frames correct (14.29%)
+  - Interaction 3 (1725-1803): 8/79 frames correct (10.13%)
+  - Interaction 4 (1843-2058): 6/216 frames correct (2.78%)
+  - Interaction 5 (2091-2197): 8/107 frames correct (7.48%)
+  - Interaction 6 (4555-4795): 153/241 frames correct (63.49%)
+  - Interaction 7 (5331-5488): 29/158 frames correct (18.35%)
+  - Interaction 8 (9353-9428): 69/76 frames correct (90.79%)
+
+--- Processing file: lapchol_case_0020_03.json ---
+Found 2 interaction period(s) in ground truth.
+  - Interaction 1 (2501-2538): 5/38 frames correct (13.16%)
+  - Interaction 2 (3758-3918): 90/161 frames correct (55.90%)
+
+--- Processing file: lapchol_case_0023_04.json ---
+Found 5 interaction period(s) in ground truth.
+  - Interaction 1 (0-172): 76/173 frames correct (43.93%)
+  - Interaction 2 (190-255): 17/66 frames correct (25.76%)
+  - Interaction 3 (6674-6817): 14/144 frames correct (9.72%)
+  - Interaction 4 (6841-6914): 3/74 frames correct (4.05%)
+  - Interaction 5 (7013-7105): 50/93 frames correct (53.76%)
+
+--- Processing file: lapchol_case_0020_02.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (241-332): 28/92 frames correct (30.43%)
+  - Interaction 2 (1326-1364): 32/39 frames correct (82.05%)
+  - Interaction 3 (1843-1877): 14/35 frames correct (40.00%)
+  - Interaction 4 (3333-3380): 20/48 frames correct (41.67%)
+
+--- Processing file: lapchol_case_0018_10.json ---
+Found 5 interaction period(s) in ground truth.
+  - Interaction 1 (1498-1613): 68/116 frames correct (58.62%)
+  - Interaction 2 (1823-1898): 59/76 frames correct (77.63%)
+  - Interaction 3 (6106-6297): 82/192 frames correct (42.71%)
+  - Interaction 4 (6356-6639): 33/284 frames correct (11.62%)
+  - Interaction 5 (6670-6780): 8/111 frames correct (7.21%)
+
+--- Processing file: v15_trimmed.json ---
+Found 2 interaction period(s) in ground truth.
+  - Interaction 1 (667-717): 25/51 frames correct (49.02%)
+  - Interaction 2 (3156-3181): 8/26 frames correct (30.77%)
+
+--- Processing file: v12_trimmed.json ---
+Found 2 interaction period(s) in ground truth.
+  - Interaction 1 (67-130): 3/64 frames correct (4.69%)
+  - Interaction 2 (6842-7011): 19/170 frames correct (11.18%)
+
+--- Processing file: lapchol_case_0007_03.json ---
+Found 7 interaction period(s) in ground truth.
+  - Interaction 1 (1107-1430): 159/324 frames correct (49.07%)
+  - Interaction 2 (1476-1633): 118/158 frames correct (74.68%)
+  - Interaction 3 (1663-1874): 164/212 frames correct (77.36%)
+  - Interaction 4 (1904-2076): 130/173 frames correct (75.14%)
+  - Interaction 5 (2259-2347): 60/89 frames correct (67.42%)
+  - Interaction 6 (5175-5422): 34/248 frames correct (13.71%)
+  - Interaction 7 (5499-5595): 58/97 frames correct (59.79%)
+
+--- Processing file: lapchol_case_0023_03.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (0-8): 2/9 frames correct (22.22%)
+  - Interaction 2 (266-288): 22/23 frames correct (95.65%)
+  - Interaction 3 (5021-5041): 7/21 frames correct (33.33%)
+  - Interaction 4 (5268-5302): 29/35 frames correct (82.86%)
+
+--- Processing file: v18_trimmed.json ---
+Found 3 interaction period(s) in ground truth.
+  - Interaction 1 (3027-3174): 0/148 frames correct (0.00%)
+  - Interaction 2 (4292-4436): 0/145 frames correct (0.00%)
+  - Interaction 3 (4746-4768): 9/23 frames correct (39.13%)
+
+--- Processing file: v7_trimmed.json ---
+Found 3 interaction period(s) in ground truth.
+  - Interaction 1 (19432-19595): 63/164 frames correct (38.41%)
+  - Interaction 2 (43760-43892): 33/133 frames correct (24.81%)
+  - Interaction 3 (65532-65625): 3/94 frames correct (3.19%)
+
+--- Processing file: lapchol_case_0015_02.json ---
+Found 4 interaction period(s) in ground truth.
+  - Interaction 1 (268-537): 261/270 frames correct (96.67%)
+  - Interaction 2 (4122-4205): 67/84 frames correct (79.76%)
+  - Interaction 3 (5446-5640): 81/195 frames correct (41.54%)
+  - Interaction 4 (7870-7989): 9/120 frames correct (7.50%)
+
+Detailed analysis results saved to analysis_results.json
+Analysis complete. Plot saved to interaction_prediction_distribution.png
