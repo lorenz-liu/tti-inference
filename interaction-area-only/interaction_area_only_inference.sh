@@ -9,14 +9,9 @@
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
 # ==============================================================================
-# Batch-process frame images for TTI evaluation.
-#
-# This script finds all .jpg frame images in the specified base directory,
-# and runs the optimized_eval.py script on each one, saving the results
-# into a structured output directory.
+# Batch-process video files for TTI evaluation.
 # ==============================================================================
-#
-#
+
 # Initialize conda
 echo "=== Initializing conda ==="
 source ~/.bashrc
@@ -61,9 +56,8 @@ else
     exit 1
 fi
 
-# --- Configuration ---
+# --- Configuration (using your provided paths) ---
 PYTHON_SCRIPT="/cluster/home/t130371uhn/github/tti-inference/interaction-area-only/interaction_area_only_inference.py"
-# Get the absolute path of the directory where this script is executed
 VIDEO_DIR="/cluster/projects/madanigroup/lorenz/tti/videos"
 # ---------------------
 
@@ -71,14 +65,17 @@ echo "Starting batch inference using $PYTHON_SCRIPT"
 echo "Targeting videos in: $VIDEO_DIR"
 echo "----------------------------------------"
 
-# Loop over all files ending with .mp4 in the current directory
-for VIDEO_FILE in *.mp4; do
-    # Check if the file actually exists and is not just the literal string "*.mp4"
-    # (which happens if no .mp4 files are present)
-    if [[ -f "$VIDEO_FILE" ]]; then
+# FIX: Loop over all files ending with .mp4 explicitly in the target directory
+# We loop over the full path and extract the filename for display.
+for FULL_PATH in "$VIDEO_DIR"/*.mp4; do
+    # Check if the file actually exists and is not the literal string "*.mp4"
+    if [[ -f "$FULL_PATH" ]]; then
 
-        # Construct the full absolute path as required by your example
-        FULL_VIDEO_PATH="${VIDEO_DIR}/${VIDEO_FILE}"
+        # Extract the base filename for display purposes
+        VIDEO_FILE=$(basename "$FULL_PATH")
+
+        # Set the path variable used in the python script call
+        FULL_VIDEO_PATH="$FULL_PATH"
 
         echo "-> Processing: $VIDEO_FILE"
 
