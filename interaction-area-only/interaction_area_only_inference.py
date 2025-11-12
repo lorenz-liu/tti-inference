@@ -607,7 +607,7 @@ def main():
     parser.add_argument("--video", required=True, help="Path to input video file")
     parser.add_argument(
         "--output",
-        default="/cluster/projects/madanigroup/lorenz/tti/interaction_areas/",
+        default="/cluster/projects/madanigroup/lorenz/tti/interaction-areas/",
         help="Path to output JSON file. Defaults to './<video_name>_interaction_areas.json'",
     )
     parser.add_argument(
