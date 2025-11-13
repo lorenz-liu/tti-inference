@@ -49,9 +49,11 @@ All configurable values, paths, sizes, colors, and defaults are centralized here
 """
 
 # Model paths and identifiers
-DEFAULT_VIT_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/vit.pt"
-DEFAULT_YOLO_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/yolo.pt"
-DEFAULT_DEPTH_MODEL_ID = "Intel/dpt-large"
+DEFAULT_VIT_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/models/vit.pt"
+DEFAULT_YOLO_MODEL_PATH = "/cluster/projects/madanigroup/lorenz/tti/models/yolo.pt"
+DEFAULT_DEPTH_MODEL_PATH = (
+    "/cluster/projects/madanigroup/lorenz/tti/models/dpt-large"
+)
 
 # Processing defaults
 DEFAULT_BATCH_SIZE = 8
@@ -257,20 +259,27 @@ class OptimizedTTIVideoEvaluator:
 
     def _load_depth_model(self, depth_model_path):
         print("Loading depth estimation model...")
-        try:
-            device_id = 0 if self.device in ["cuda", "mps"] else -1
-            model_id = (
-                depth_model_path
-                if depth_model_path and os.path.exists(depth_model_path)
-                else DEFAULT_DEPTH_MODEL_ID
+        if depth_model_path and os.path.exists(depth_model_path):
+            try:
+                device_id = 0 if self.device in ["cuda", "mps"] else -1
+                self.depth_model = pipeline(
+                    task="depth-estimation", model=depth_model_path, device=device_id
+                )
+                self.use_real_depth = True
+                print("Depth model loaded successfully from local path!")
+            except Exception as e:
+                print(f"Failed to load local depth model at {depth_model_path}: {e}")
+                print("Using fallback depth estimation.")
+                self.depth_model, self.use_real_depth = None, False
+        else:
+            if depth_model_path:
+                print(f"Local depth model path not found: {depth_model_path}")
+            else:
+                print("No local depth model path provided.")
+            print("Using fallback depth estimation. To use a real depth model,")
+            print(
+                "download 'Intel/dpt-large' from Hugging Face and provide the path via --depth_model."
             )
-            self.depth_model = pipeline(
-                task="depth-estimation", model=model_id, device=device_id
-            )
-            self.use_real_depth = True
-            print("Depth model loaded successfully!")
-        except Exception as e:
-            print(f"Using fallback depth estimation: {e}")
             self.depth_model, self.use_real_depth = None, False
 
     def _fallback_depth_estimation(self, image):
@@ -641,7 +650,10 @@ def main():
         help="Focus ratio for ROI extraction",
     )
     parser.add_argument(
-        "--depth_model", type=str, default=None, help="Path to local depth model"
+        "--depth_model",
+        type=str,
+        default=DEFAULT_DEPTH_MODEL_PATH,
+        help="Path to local depth model",
     )
     parser.add_argument(
         "--batch_size",
