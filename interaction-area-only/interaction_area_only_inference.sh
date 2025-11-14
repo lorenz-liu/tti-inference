@@ -57,7 +57,7 @@ else
 fi
 
 # --- Configuration (using your provided paths) ---
-PYTHON_SCRIPT="/cluster/home/t130371uhn/github/tti-inference/interaction-area-only/interaction_area_only_inference.py"
+PYTHON_SCRIPT="/cluster/home/t130371uhn/interaction_area_only_inference.py"
 VIDEO_DIR="/cluster/projects/madanigroup/lorenz/tti/videos"
 # ---------------------
 

@@ -189,9 +189,9 @@ class OptimizedTTIVideoEvaluator:
             torch.backends.cudnn.benchmark = True
             torch.backends.cudnn.deterministic = False
 
+        self._load_depth_model(depth_model_path)
         self.tti_model = self._load_tti_model(vit_model_path)
         self.yolo_model = self._load_yolo_model(yolo_model_path)
-        self._load_depth_model(depth_model_path)
         self.depth_cache = {}
         print("All models loaded successfully!")
 
@@ -677,6 +677,13 @@ def main():
 
     video_basename = os.path.splitext(os.path.basename(args.video))[0]
     output_path = args.output or f"./{video_basename}_interaction_areas.json"
+
+    # If the resolved output path is a directory, create a JSON file inside it.
+    if os.path.isdir(output_path):
+        output_path = os.path.join(
+            output_path, f"{video_basename}_interaction_areas.json"
+        )
+
     output_frames_dir = args.output_frames_dir
     if args.visualize and not output_frames_dir:
         output_frames_dir = f"./{video_basename}_interaction_frames"
